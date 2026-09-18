@@ -87,3 +87,21 @@ Le laboratoire repose principalement sur **VirtualBox**, **OPNsense**, **Windows
 Le projet est développé progressivement afin de pouvoir configurer, tester et documenter chaque composant avant d’intégrer de nouvelles fonctionnalités.
 
 ---
+
+## 🎯 Objectifs du Lab
+
+Aegis Infra Lab a pour objectif de mettre en pratique :
+
+- l’administration de systèmes Windows et Linux ;
+- le déploiement et l’administration d’Active Directory ;
+- la gestion des utilisateurs, groupes et droits d’accès ;
+- les services DNS et DHCP ;
+- la segmentation et le filtrage réseau ;
+- l’administration d’un pare-feu OPNsense ;
+- la sécurisation des systèmes et des services ;
+- la supervision des équipements et serveurs ;
+- l’automatisation de tâches d’administration ;
+- la sauvegarde et la continuité de service.
+
+---
+
