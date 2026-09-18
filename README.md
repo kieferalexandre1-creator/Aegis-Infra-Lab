@@ -7,14 +7,14 @@
 [![Statut](https://img.shields.io/badge/Statut-En%20d%C3%A9veloppement-orange)](#)
 [![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)](#)
 
-## 🎯 Projet Professionnel & Objectifs
+## Projet Professionnel & Objectifs
 
 Actuellement diplômé d'un Bachelor Administrateur d'Infrastructures Sécurisées, je poursuis mon parcours vers le **Mastère Expert en Cybersécurité**.
 
-### 🚀 Objectif de carrière
+### Objectif de carrière
 Accéder à un poste de **Consultant / Ingénieur Sécurité des Infrastructures** ou **Analyste Cyber (SOC)**.
 
-### 🛠️ Axes de développement dans ce Lab (`Aegis-Infra-Lab`)
+### Axes de développement dans ce Lab (`Aegis-Infra-Lab`)
 Ce projet concrétise ma démarche d'apprentissage pratique autour de :
 * **L'architecture & le durcissement AD** (PKI, GPO de sécurité, RBAC).
 * **La sécurité réseau perimeter & interne** (OPNsense, VLANs, IDS/IPS).
