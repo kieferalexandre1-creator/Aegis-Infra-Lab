@@ -34,3 +34,73 @@ L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la 
 
 ### 📊 3. Monitoring & MCO
 - Surveillance en temps réel de la disponibilité et des ressources (CPU/RAM/Disque).
+  
+## Deploy-AegisAD.ps1
+Voici le bloc Markdown complet à intégrer dans le README.md de ton projet GitHub, avec la section Code source intégrée et formatée pour mettre en valeur ton script.
+
+Markdown
+## 🛠️ Automatisation Active Directory (`Deploy-AegisAD.ps1`)
+
+Le déploiement de l'arborescence, des groupes de sécurité et des utilisateurs du domaine `aegis.local` est entièrement automatisé via le script PowerShell `Deploy-AegisAD.ps1`.
+
+### 📌 Fonctionnalités du script
+* **Structure d'OU** : Création de l'OU racine `AEGIS-ENTREPRISE` et des sous-OU (`Utilisateurs`, `Groupes`, `Ordinateurs`, `Serveurs`).
+* **Groupes de sécurité** : Création des groupes globaux par service (`GRP_Informatique`, `GRP_Ressources-Humaines`, `GRP_Comptabilite`).
+* **Provisioning Utilisateurs** : Création des comptes avec identifiants normalisés (`jdupont`, `cmartin`, `tbernard`), mot de passe temporaire et réinitialisation obligatoire à la première connexion.
+* **Gestion des membres** : Affectation automatique de chaque utilisateur à son groupe respectif.
+
+### Code source du script
+
+```powershell
+# ==============================================================================
+# Nom du script : Deploy-AegisAD.ps1
+# Description   : Automatisation du déploiement AD pour l'infrastructure Aegis
+# Domaine       : aegis.local
+# ==============================================================================
+
+# 1. Structure des Unités d'Organisation (OU)
+$ouBase = "OU=AEGIS-ENTREPRISE,DC=aegis,DC=local"
+
+New-ADOrganizationalUnit -Name "AEGIS-ENTREPRISE" -Path "DC=aegis,DC=local" -ErrorAction SilentlyContinue
+New-ADOrganizationalUnit -Name "Utilisateurs" -Path $ouBase -ErrorAction SilentlyContinue
+New-ADOrganizationalUnit -Name "Groupes" -Path $ouBase -ErrorAction SilentlyContinue
+New-ADOrganizationalUnit -Name "Ordinateurs" -Path $ouBase -ErrorAction SilentlyContinue
+New-ADOrganizationalUnit -Name "Serveurs" -Path $ouBase -ErrorAction SilentlyContinue
+
+# 2. Création des Groupes de sécurité par service
+$ouGroupes = "OU=Groupes,$ouBase"
+$groupes = @("GRP_Informatique", "GRP_Ressources-Humaines", "GRP_Comptabilite")
+
+foreach ($g in $groupes) {
+    New-ADGroup -Name $g -GroupScope Global -GroupCategory Security -Path $ouGroupes -ErrorAction SilentlyContinue
+}
+
+# 3. Création des Utilisateurs et affectation aux groupes
+$ouUsers = "OU=Utilisateurs,$ouBase"
+$users = @(
+    @{Prenom="Jean"; Nom="Dupont"; Service="Informatique"},
+    @{Prenom="Claire"; Nom="Martin"; Service="Ressources-Humaines"},
+    @{Prenom="Thomas"; Nom="Bernard"; Service="Comptabilite"}
+)
+
+foreach ($u in $users) {
+    $sam = ($u.Prenom.Substring(0,1) + $u.Nom).ToLower()
+    $upn = "$sam@aegis.local"
+    $grp = "GRP_" + $u.Service
+
+    New-ADUser -Name "$($u.Prenom) $($u.Nom)" `
+               -GivenName $u.Prenom `
+               -Surname $u.Nom `
+               -SamAccountName $sam `
+               -UserPrincipalName $upn `
+               -Path $ouUsers `
+               -Enabled $true `
+               -AccountPassword (ConvertTo-SecureString "P@ssword2026!" -AsPlainText -Force) `
+               -ChangePasswordAtLogon $true `
+               -ErrorAction SilentlyContinue
+
+    Add-ADGroupMember -Identity $grp -Members$sam -ErrorAction SilentlyContinue
+}
+
+Exécution
+Pour exécuter le script sur le Contrôleur de Domaine (SRV-AD001), ouvrir PowerShell en tant qu'administrateur :
