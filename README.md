@@ -6,43 +6,39 @@
 
 [![Statut](https://img.shields.io/badge/Statut-En%20d%C3%A9veloppement-orange)](#)
 [![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)](#)
+# 🎯 Projet Professionnel & Recherche d'Emploi
 
-# 🎯 Projet Professionnel & Démarche Technique
+## 👤 À propos
+Titulaire d'un **Bachelor Administrateur d’Infrastructures Sécurisées** (avec une solide expérience sur le terrain en alternance et en support IT), je suis actuellement à la recherche d'un **CDI**.
 
-## 👤 À propos de moi
-Titulaire d'un **Bachelor Administrateur d'Infrastructures Sécurisées**, je poursuis mon cursus vers un **Mastère Expert en Cybersécurité** en alternance. Passionné par les architectures système et la sécurité des réseaux, je développe des projets pratiques pour concrétiser et valider mes compétences sur des environnements réalistes.
+## 💼 Postes visés
+* **Administrateur / Technicien Système & Réseau**
+* **Technicien Support N1 / N2 / N3**
+* **Gestionnaire d'Infrastructures & Sécurité IT**
 
----
-
-## 💡 Pourquoi ce Lab (`Aegis-Infra-Lab`) ?
-
-Les environnements théoriques ne suffisent pas à appréhender la complexité des infrastructures d'entreprise. J'ai conçu **Aegis-Infra-Lab** pour :
-
-* **Simuler une infrastructure d'entreprise réaliste** : De l'annuaire Active Directory au pare-feu périmétrique, jusqu'aux services Linux en DMZ.
-* **Mettre en pratique le durcissement (Hardening)** : Appliquer les principes de *Defense-in-Depth*, de moindre privilège et de segmentation réseau.
-* **Automatiser les déploiements** : Utiliser PowerShell et des scripts Shell pour rendre l'infrastructure reproductible, documentée et facilement maintenable.
-* **Constituer une preuve de concept (PoC)** : Présenter un portfolio technique transparent illustrant ma méthodologie de travail.
-
----
-
-## Compétences clés développées dans ce projet
-
-* **Systèmes & Annuaire** : Conception d'architecture Active Directory (Domain Controller Windows Server 2022), gestion RBAC via groupes de sécurité globaux, déploiement d'OU automatisé.
-* **Réseau & Sécurité Périmétrique** : Configuration d'OPNsense (WAN/LAN/DMZ), règles de filtrage, NAT, routage inter-VLAN et services réseau.
-* **Administration Linux** : Déploiement et sécurisation de serveurs Debian pour les services d'infrastructure.
-* **Industrialisation** : Automatisation via scripts PowerShell pour la gestion des objets AD et le provisioning des utilisateurs.
+## 💡 Ma Démarche & Ce Projet (`Aegis-Infra-Lab`)
+Afin de maintenir une pratique constante et de faire évoluer mes compétences, j'ai conçu ce laboratoire d'infrastructure virtualisé. Il illustre ma capacité à :
+* **Déployer et administrer des annuaires d'entreprise** (Active Directory, automatisation PowerShell, gestion RBAC).
+* **Segmenter et sécuriser les réseaux** (Pare-feu OPNsense/pfSense, routage, VLANs).
+* **Industrialiser et documenter** (Scripts d'installation, suivi rigoureux sous Git).
 
 ---
 
-## Objectifs professionnels & Vision à long terme
+## 📜 Certifications IT prioritaires pour les profils Juniors
 
-### Poste recherché à court / moyen terme :
-* **Alternance / Poste** : Administrateur / Ingénieur Système, Réseau & Sécurité, Analyste Cyber (SOC / Infra).
+Pour valider et renforcer mes compétences terrain, voici les certifications adaptées aux postes d'administrateur et de support avancé :
 
-### Prochaines étapes de montée en compétences :
-1. **Sécurité avancée & Supervision** : Intégration d'outils de détection (SIEM Wazuh/Elastic) et centralisation des journaux d'événements.
-2. **Infrastructures Hybrides & Cloud** : Exploration de l'interconnexion Active Directory avec Azure AD / Entra ID.
-3. **Certifications visées** : CompTIA Security+, EJPT, CRTP.
+### 1. Système & Cloud (Microsoft)
+* **Microsoft Certified: Windows Server Hybrid Administrator Associate (AZ-800 & AZ-801)** : La référence idéale pour valider l'administration Active Directory, Hyper-V, le stockage et l'interconnexion hybride Azure.
+* **Microsoft Certified: Azure Fundamentals (AZ-900)** : Certification d'entrée pour valider la compréhension globale des services cloud Microsoft.
+
+### 2. Réseau & Sécurité Périmétrique
+* **Cisco CCNA (200-301)** : Le standard incontournable pour prouver la maîtrise des fondamentaux réseaux (routage, commutation, IPv4/IPv6, VLANs, sécurité de base).
+* **CompTIA Network+** : Une alternative neutre vis-à-vis des constructeurs pour valider la gestion des réseaux d'entreprise.
+
+### 3. Sécurité & Bonnes Pratiques
+* **CompTIA Security+ (SY0-701)** : La certification sécurité la plus demandée par les recruteurs pour les profils juniors. Elle couvre les concepts clés du durcissement, de la gestion des vulnérabilités et des accès.
+
 ## Présentation du Projet
 Ce projet a pour objectif la conception, le déploiement et le durcissement complet d'une infrastructure réseau et système pour une PME fictive.
 L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la segmentation réseau, la gestion centralisée des identités, le contrôle des accès et la supervision.
