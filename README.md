@@ -128,4 +128,118 @@ Elle comprend progressivement :
 
 - différentes zones réseau séparées et contrôlées par OPNsense.
 
+### Schéma de l’architectur
+
+## 🔐 Sécurisation de l’infrastructure
+
+Plusieurs principes de sécurité sont progressivement appliqués au laboratoire :
+
+- segmentation des différentes zones réseau ;
+
+- filtrage des communications entre les zones ;
+
+- principe du moindre privilège ;
+
+- gestion centralisée des utilisateurs et des groupes ;
+
+- contrôle des droits d’accès ;
+
+- durcissement des systèmes Windows via GPO ;
+
+- sécurisation des services Linux ;
+
+- utilisation de certificats SSL/TLS ;
+
+- supervision des systèmes et services ;
+
+- journalisation des événements.
+
+---
+
+## ⚙️ Automatisation
+
+Certaines tâches d’administration sont automatisées afin de rendre le laboratoire plus facilement reproductible.
+
+L’automatisation concerne notamment :
+
+- la création de l’arborescence Active Directory ;
+
+- la création des unités d’organisation (OU) ;
+
+- la création des groupes de sécurité ;
+
+- le provisioning des utilisateurs ;
+
+- l’affectation des utilisateurs aux groupes ;
+
+- différentes tâches d’administration Windows via PowerShell.
+
+Les scripts seront disponibles dans le dossier : 
+
+## 🛠️ Automatisation Active Directory (`Deploy-AegisAD.ps1`)
+
+Le déploiement de l'arborescence, des groupes de sécurité et des utilisateurs du domaine `aegis.local` est entièrement automatisé via le script PowerShell `Deploy-AegisAD.ps1`.
+
+### 📌 Fonctionnalités du script
+* **Structure d'OU** : Création de l'OU racine `AEGIS-ENTREPRISE` et des sous-OU (`Utilisateurs`, `Groupes`, `Ordinateurs`, `Serveurs`).
+* **Groupes de sécurité** : Création des groupes globaux par service (`GRP_Informatique`, `GRP_Ressources-Humaines`, `GRP_Comptabilite`).
+* **Provisioning Utilisateurs** : Création des comptes avec identifiants normalisés (`jdupont`, `cmartin`, `tbernard`), mot de passe temporaire et réinitialisation obligatoire à la première connexion.
+* **Gestion des membres** : Affectation automatique de chaque utilisateur à son groupe respectif.
+
+---
+
+### 📜 Code source du script
+
+```powershell
+# ==============================================================================
+# Nom du script : Deploy-AegisAD.ps1
+# Description   : Automatisation du déploiement AD pour l'infrastructure Aegis
+# Domaine       : aegis.local
+# ==============================================================================
+
+# 1. Structure des Unités d'Organisation (OU)
+$ouBase = "OU=AEGIS-ENTREPRISE,DC=aegis,DC=local"
+
+New-ADOrganizationalUnit -Name "AEGIS-ENTREPRISE" -Path "DC=aegis,DC=local" -ErrorAction SilentlyContinue
+New-ADOrganizationalUnit -Name "Utilisateurs" -Path $ouBase -ErrorAction SilentlyContinue
+New-ADOrganizationalUnit -Name "Groupes" -Path $ouBase -ErrorAction SilentlyContinue
+New-ADOrganizationalUnit -Name "Ordinateurs" -Path $ouBase -ErrorAction SilentlyContinue
+New-ADOrganizationalUnit -Name "Serveurs" -Path $ouBase -ErrorAction SilentlyContinue
+
+# 2. Création des Groupes de sécurité par service
+$ouGroupes = "OU=Groupes,$ouBase"
+$groupes = @("GRP_Informatique", "GRP_Ressources-Humaines", "GRP_Comptabilite")
+
+foreach ($g in $groupes) {
+    New-ADGroup -Name $g -GroupScope Global -GroupCategory Security -Path $ouGroupes -ErrorAction SilentlyContinue
+}
+
+# 3. Création des Utilisateurs et affectation aux groupes
+$ouUsers = "OU=Utilisateurs,$ouBase"
+$users = @(
+    @{Prenom="Jean"; Nom="Dupont"; Service="Informatique"},
+    @{Prenom="Claire"; Nom="Martin"; Service="Ressources-Humaines"},
+    @{Prenom="Thomas"; Nom="Bernard"; Service="Comptabilite"}
+)
+
+foreach ($u in $users) {
+    $sam = ($u.Prenom.Substring(0,1) + $u.Nom).ToLower()
+    $upn = "$sam@aegis.local"
+    $grp = "GRP_" + $u.Service
+
+    New-ADUser -Name "$($u.Prenom) $($u.Nom)" `
+               -GivenName $u.Prenom `
+               -Surname $u.Nom `
+               -SamAccountName $sam `
+               -UserPrincipalName $upn `
+               -Path $ouUsers `
+               -Enabled $true `
+               -AccountPassword (ConvertTo-SecureString "P@ssword2026!" -AsPlainText -Force) `
+               -ChangePasswordAtLogon $true `
+               -ErrorAction SilentlyContinue
+
+    Add-ADGroupMember -Identity $grp -Members$sam -ErrorAction SilentlyContinue
+}
+
+
 
