@@ -7,19 +7,42 @@
 [![Statut](https://img.shields.io/badge/Statut-En%20d%C3%A9veloppement-orange)](#)
 [![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)](#)
 
-## Projet Professionnel & Objectifs
+# 🎯 Projet Professionnel & Démarche Technique
 
-Actuellement diplômé d'un Bachelor Administrateur d'Infrastructures Sécurisées, je poursuis mon parcours vers le **Mastère Expert en Cybersécurité**.
+## 👤 À propos de moi
+Titulaire d'un **Bachelor Administrateur d'Infrastructures Sécurisées**, je poursuis mon cursus vers un **Mastère Expert en Cybersécurité** en alternance. Passionné par les architectures système et la sécurité des réseaux, je développe des projets pratiques pour concrétiser et valider mes compétences sur des environnements réalistes.
 
-### Objectif de carrière
-Accéder à un poste de **Consultant / Ingénieur Sécurité des Infrastructures** ou **Analyste Cyber (SOC)**.
+---
 
-### Axes de développement dans ce Lab (`Aegis-Infra-Lab`)
-Ce projet concrétise ma démarche d'apprentissage pratique autour de :
-* **L'architecture & le durcissement AD** (PKI, GPO de sécurité, RBAC).
-* **La sécurité réseau perimeter & interne** (OPNsense, VLANs, IDS/IPS).
-* **La supervision & détection d'incidents** (Centralisation de logs & SIEM
+## 💡 Pourquoi ce Lab (`Aegis-Infra-Lab`) ?
 
+Les environnements théoriques ne suffisent pas à appréhender la complexité des infrastructures d'entreprise. J'ai conçu **Aegis-Infra-Lab** pour :
+
+* **Simuler une infrastructure d'entreprise réaliste** : De l'annuaire Active Directory au pare-feu périmétrique, jusqu'aux services Linux en DMZ.
+* **Mettre en pratique le durcissement (Hardening)** : Appliquer les principes de *Defense-in-Depth*, de moindre privilège et de segmentation réseau.
+* **Automatiser les déploiements** : Utiliser PowerShell et des scripts Shell pour rendre l'infrastructure reproductible, documentée et facilement maintenable.
+* **Constituer une preuve de concept (PoC)** : Présenter un portfolio technique transparent illustrant ma méthodologie de travail.
+
+---
+
+## Compétences clés développées dans ce projet
+
+* **Systèmes & Annuaire** : Conception d'architecture Active Directory (Domain Controller Windows Server 2022), gestion RBAC via groupes de sécurité globaux, déploiement d'OU automatisé.
+* **Réseau & Sécurité Périmétrique** : Configuration d'OPNsense (WAN/LAN/DMZ), règles de filtrage, NAT, routage inter-VLAN et services réseau.
+* **Administration Linux** : Déploiement et sécurisation de serveurs Debian pour les services d'infrastructure.
+* **Industrialisation** : Automatisation via scripts PowerShell pour la gestion des objets AD et le provisioning des utilisateurs.
+
+---
+
+## Objectifs professionnels & Vision à long terme
+
+### Poste recherché à court / moyen terme :
+* **Alternance / Poste** : Administrateur / Ingénieur Système, Réseau & Sécurité, Analyste Cyber (SOC / Infra).
+
+### Prochaines étapes de montée en compétences :
+1. **Sécurité avancée & Supervision** : Intégration d'outils de détection (SIEM Wazuh/Elastic) et centralisation des journaux d'événements.
+2. **Infrastructures Hybrides & Cloud** : Exploration de l'interconnexion Active Directory avec Azure AD / Entra ID.
+3. **Certifications visées** : CompTIA Security+, EJPT, CRTP.
 ## Présentation du Projet
 Ce projet a pour objectif la conception, le déploiement et le durcissement complet d'une infrastructure réseau et système pour une PME fictive.
 L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la segmentation réseau, la gestion centralisée des identités, le contrôle des accès et la supervision.
