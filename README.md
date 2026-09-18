@@ -7,6 +7,19 @@
 [![Statut](https://img.shields.io/badge/Statut-En%20d%C3%A9veloppement-orange)](#)
 [![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)](#)
 
+## 🎯 Projet Professionnel & Objectifs
+
+Actuellement diplômé d'un Bachelor Administrateur d'Infrastructures Sécurisées, je poursuis mon parcours vers le **Mastère Expert en Cybersécurité**.
+
+### 🚀 Objectif de carrière
+Accéder à un poste de **Consultant / Ingénieur Sécurité des Infrastructures** ou **Analyste Cyber (SOC)**.
+
+### 🛠️ Axes de développement dans ce Lab (`Aegis-Infra-Lab`)
+Ce projet concrétise ma démarche d'apprentissage pratique autour de :
+* **L'architecture & le durcissement AD** (PKI, GPO de sécurité, RBAC).
+* **La sécurité réseau perimeter & interne** (OPNsense, VLANs, IDS/IPS).
+* **La supervision & détection d'incidents** (Centralisation de logs & SIEM
+
 ## Présentation du Projet
 Ce projet a pour objectif la conception, le déploiement et le durcissement complet d'une infrastructure réseau et système pour une PME fictive.
 L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la segmentation réseau, la gestion centralisée des identités, le contrôle des accès et la supervision.
