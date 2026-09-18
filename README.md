@@ -72,6 +72,7 @@ Je recherche principalement des opportunités junior en :
 - **eJPT — Junior Penetration Tester**
 - **CRTP — Certified Red Team Professional**
 
+
 ---
 
 # Aegis Infra Lab
@@ -108,5 +109,23 @@ Aegis Infra Lab a pour objectif de mettre en pratique :
 ## Environnement technique
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/89df2a9c-84b7-4425-864f-4a3ee7357820" />
+
+
+
+## 🏗️ Architecture de l’infrastructure
+
+L’infrastructure est organisée autour d’un pare-feu **OPNsense**, chargé du routage et du contrôle des communications entre les différentes zones du laboratoire.
+
+Elle comprend progressivement :
+
+- un environnement **Windows Server 2022** pour Active Directory, DNS et DHCP ;
+
+- des postes clients Windows intégrés au domaine ;
+
+- un serveur **Debian 12** pour différents services Linux ;
+
+- une solution de supervision ;
+
+- différentes zones réseau séparées et contrôlées par OPNsense.
 
 
