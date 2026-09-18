@@ -7,135 +7,83 @@
 [![Statut](https://img.shields.io/badge/Statut-En%20d%C3%A9veloppement-orange)](#)
 [![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)
 
-# 🎯 Projet Professionnel & Recherche d'Emploi
+## 👤 À propos de moi
 
-## 👤 À propos
-Diplômé d'un **BTS Technicien Informatique** et d'un **Bachelor Administrateur d’Infrastructures Sécurisées**, je cumule **1 an d'alternance** en administration système, réseau et cybersécurité, complété par un **stage de 3 mois** en tant que technicien informatique. Fort de cette expérience de terrain, je suis actuellement à la recherche d'un poste en **CDI**.
+Profil **junior en administration systèmes, réseaux et cybersécurité**, titulaire d’un **Titre Professionnel Technicien Informatique obtenu en 2024** et d’un **Bachelor Administrateur d’Infrastructures Sécurisées obtenu en 2025**.
 
-## 💼 Postes visés
-* **Technicien Informatique / Support IT (N1, N2, N3)**
-* **Technicien / Administrateur Système & Réseau**
-* **Gestionnaire / Technicien d'Infrastructures**
-* **Technicien / Analyste Sécurité Informatique (SOC)**
-* **Consultant / Technicien Déploiement & Migration**
+Mon parcours m’a permis d’acquérir une première expérience professionnelle de **3 mois en tant que Technicien Informatique**, puis d’environ **1 an en alternance en tant qu’Administrateur Systèmes, Réseaux & Cybersécurité**.
 
-## 💡 Ma Démarche & Ce Projet (`Aegis-Infra-Lab`)
-Afin de maintenir une pratique constante et de valoriser mes compétences, j'ai conçu ce laboratoire d'infrastructure virtualisé. Il illustre ma capacité à :
-* **Gérer le support et l'annuaire d'entreprise** (Active Directory, automatisation PowerShell, gestion RBAC, dépannage).
-* **Segmenter et sécuriser les réseaux** (Pare-feu OPNsense/pfSense, routage, VLANs).
-* **Industrialiser, superviser et documenter** (Scripts de déploiement, suivi sous Git).
+J’ai notamment eu l’occasion de travailler sur des environnements Windows et Linux, la virtualisation avec VMware ESXi/vCenter, les réseaux, la sauvegarde, la supervision, la gestion des comptes et des droits d’accès ainsi que la sécurisation des infrastructures.
+
+Je souhaite aujourd’hui continuer à développer mes compétences et poursuivre mon parcours avec un **Mastère Expert Cybersécurité en alternance**.
+
+Aegis Infra Lab me permet de mettre en pratique mes connaissances dans un environnement personnel, de tester différentes technologies et de documenter progressivement mon travail.
 
 ---
 
-## 📜 Certifications IT prioritaires pour mon profil
+## 💼 Expérience
 
-Pour valider officiellement mes compétences terrain :
+- **≈ 1 an — Administrateur Systèmes, Réseaux & Cybersécurité**  
+  Alternance
 
-### 1. Support & Fondamentaux
-* **CompTIA A+** : Référence internationale pour le support, le dépannage matériel/système et la relation utilisateur.
-* **Microsoft Certified: Azure Fundamentals (AZ-900)** : Validation de la compréhension des environnements cloud hybrides.
+- **3 mois — Technicien Informatique**  
+  Stage
 
-### 2. Administration Système & Réseau
-* **Microsoft Certified: Windows Server Hybrid Administrator Associate (AZ-800 / AZ-801)** : La certification clé pour valider la maîtrise d'Active Directory, Hyper-V et Windows Server.
-* **Cisco CCNA (200-301)** ou **CompTIA Network+** : Incontournable pour prouver la maîtrise du réseau (VLANs, routage, commutation).
+---
 
-### 3. Sécurité
-* **CompTIA Security+ (SY0-701)** : La certification de référence pour valoriser la gestion des accès, le durcissement d'infrastructure et les bonnes pratiques de sécurité.
-  
-## Présentation du Projet
-Ce projet a pour objectif la conception, le déploiement et le durcissement complet d'une infrastructure réseau et système pour une PME fictive.
-L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la segmentation réseau, la gestion centralisée des identités, le contrôle des accès et la supervision.
+## 🎓 Formation
 
-## Topologie Réseau
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0b1654d6-e73d-4eed-b582-e3c65ae153f5" />
+- **2025 — Bachelor Administrateur d’Infrastructures Sécurisées**  
+  Niveau 6 — Bac+3
 
-## 🛠️ Briques Techniques & Composants
-* **Pare-feu & Routage :** OPNsense (Segmentation VLAN, règles de filtrage ACL, VPN)
-* **Identity & Annuaire :** Windows Server 2022 (Active Directory DS, DNS, GPO de durcissement)
-* **Services Linux :** Debian 12 (Reverse Proxy NGINX avec certificats SSL/TLS)
-* **Supervision & Log :** Zabbix Server & Agents
-* **Sauvegarde :** Stratégie 3-2-1
-* **Automatisation :** Scripts PowerShell (gestion AD) et Bash
+- **2024 — Titre Professionnel Technicien Informatique**  
+  Niveau 5 — Bac+2
 
-## Fonctionnalités & Sécurisation Mises en Œuvre
-### 🔐 1. Sécurité Réseau
-- Isolation des flux via segmentation.
-- Blocage par défaut du trafic inter-zones (Principe du moindre privilège).
+- **Projet 2026 — Mastère Expert Cybersécurité**  
+  Recherche d’une alternance de 2 ans
 
-### 🏢 2. Administration Système & Identity
-- Déploiement du domaine `aegis.local`.
-- Organisation de l'annuaire via Unités d'Organisation (OU) par service.
-- Application de GPO pour le durcissement du pare-feu local et le verrouillage des sessions.
+---
 
-### 📊 3. Monitoring & MCO
-- Surveillance en temps réel de la disponibilité et des ressources (CPU/RAM/Disque).
-  
-## Deploy-AegisAD.ps1
-Voici le bloc Markdown complet à intégrer dans le README.md de ton projet GitHub, avec la section Code source intégrée et formatée pour mettre en valeur ton script.
+## 🎯 Postes recherchés
 
-Markdown
-## 🛠️ Automatisation Active Directory (`Deploy-AegisAD.ps1`)
+Je recherche principalement des opportunités junior en :
 
-Le déploiement de l'arborescence, des groupes de sécurité et des utilisateurs du domaine `aegis.local` est entièrement automatisé via le script PowerShell `Deploy-AegisAD.ps1`.
+- Administration Systèmes & Réseaux
+- Administration d’infrastructures IT
+- Systèmes, Réseaux & Sécurité
+- Cybersécurité des infrastructures
+- Technicien Cybersécurité
+- Analyste SOC Junior
+- Support Informatique N1/N2
 
-### 📌 Fonctionnalités du script
-* **Structure d'OU** : Création de l'OU racine `AEGIS-ENTREPRISE` et des sous-OU (`Utilisateurs`, `Groupes`, `Ordinateurs`, `Serveurs`).
-* **Groupes de sécurité** : Création des groupes globaux par service (`GRP_Informatique`, `GRP_Ressources-Humaines`, `GRP_Comptabilite`).
-* **Provisioning Utilisateurs** : Création des comptes avec identifiants normalisés (`jdupont`, `cmartin`, `tbernard`), mot de passe temporaire et réinitialisation obligatoire à la première connexion.
-* **Gestion des membres** : Affectation automatique de chaque utilisateur à son groupe respectif.
+---
 
-### Code source du script
+## 🏅 Certifications obtenues
 
-```powershell
-# ==============================================================================
-# Nom du script : Deploy-AegisAD.ps1
-# Description   : Automatisation du déploiement AD pour l'infrastructure Aegis
-# Domaine       : aegis.local
-# ==============================================================================
+- **Cisco — Network Technician Career Path**
+- **AWS — Cloud Security Foundations**
+- **Cisco — Junior Cybersecurity Analyst Career Path**
 
-# 1. Structure des Unités d'Organisation (OU)
-$ouBase = "OU=AEGIS-ENTREPRISE,DC=aegis,DC=local"
+---
 
-New-ADOrganizationalUnit -Name "AEGIS-ENTREPRISE" -Path "DC=aegis,DC=local" -ErrorAction SilentlyContinue
-New-ADOrganizationalUnit -Name "Utilisateurs" -Path $ouBase -ErrorAction SilentlyContinue
-New-ADOrganizationalUnit -Name "Groupes" -Path $ouBase -ErrorAction SilentlyContinue
-New-ADOrganizationalUnit -Name "Ordinateurs" -Path $ouBase -ErrorAction SilentlyContinue
-New-ADOrganizationalUnit -Name "Serveurs" -Path $ouBase -ErrorAction SilentlyContinue
+## 📚 Certifications visées
 
-# 2. Création des Groupes de sécurité par service
-$ouGroupes = "OU=Groupes,$ouBase"
-$groupes = @("GRP_Informatique", "GRP_Ressources-Humaines", "GRP_Comptabilite")
+- **CompTIA Security+**
+- **eJPT — Junior Penetration Tester**
+- **CRTP — Certified Red Team Professional**
 
-foreach ($g in $groupes) {
-    New-ADGroup -Name $g -GroupScope Global -GroupCategory Security -Path $ouGroupes -ErrorAction SilentlyContinue
-}
+---
 
-# 3. Création des Utilisateurs et affectation aux groupes
-$ouUsers = "OU=Utilisateurs,$ouBase"
-$users = @(
-    @{Prenom="Jean"; Nom="Dupont"; Service="Informatique"},
-    @{Prenom="Claire"; Nom="Martin"; Service="Ressources-Humaines"},
-    @{Prenom="Thomas"; Nom="Bernard"; Service="Comptabilite"}
-)
+# 🏗️ Aegis Infra Lab
 
-foreach ($u in $users) {
-    $sam = ($u.Prenom.Substring(0,1) + $u.Nom).ToLower()
-    $upn = "$sam@aegis.local"
-    $grp = "GRP_" + $u.Service
+## 📌 Présentation du projet
 
-    New-ADUser -Name "$($u.Prenom) $($u.Nom)" `
-               -GivenName $u.Prenom `
-               -Surname $u.Nom `
-               -SamAccountName $sam `
-               -UserPrincipalName $upn `
-               -Path $ouUsers `
-               -Enabled $true `
-               -AccountPassword (ConvertTo-SecureString "P@ssword2026!" -AsPlainText -Force) `
-               -ChangePasswordAtLogon $true `
-               -ErrorAction SilentlyContinue
+**Aegis Infra Lab** est un laboratoire personnel conçu pour reproduire l’infrastructure informatique d’une PME fictive dans un environnement entièrement virtualisé.
 
-    Add-ADGroupMember -Identity $grp -Members$sam -ErrorAction SilentlyContinue
-}
+L’objectif est de construire progressivement une infrastructure permettant de mettre en pratique plusieurs compétences liées à l’**administration systèmes et réseaux**, à la **sécurisation des infrastructures**, à la **supervision** et à l’**automatisation**.
 
-Exécution
-Pour exécuter le script sur le Contrôleur de Domaine (SRV-AD001), ouvrir PowerShell en tant qu'administrateur :
+Le laboratoire repose principalement sur **VirtualBox**, **OPNsense**, **Windows Server 2022** et **Debian 12**.
+
+Le projet est développé progressivement afin de pouvoir configurer, tester et documenter chaque composant avant d’intégrer de nouvelles fonctionnalités.
+
+---
