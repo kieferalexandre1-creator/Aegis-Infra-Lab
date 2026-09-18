@@ -8,37 +8,40 @@
 [![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)](#)
 # 🎯 Projet Professionnel & Recherche d'Emploi
 
+# 🎯 Projet Professionnel & Recherche d'Emploi
+
 ## 👤 À propos
-Titulaire d'un **Bachelor Administrateur d’Infrastructures Sécurisées** (avec une solide expérience sur le terrain en alternance et en support IT), je suis actuellement à la recherche d'un **CDI**.
+Diplômé d'un **BTS Technicien Informatique** et d'un **Bachelor Administrateur d’Infrastructures Sécurisées**, je cumule plusieurs années d'expérience sur le terrain (support, administration système/réseau et cybersécurité). Je suis actuellement à la recherche d'un poste en **CDI**.
 
 ## 💼 Postes visés
-* **Administrateur / Technicien Système & Réseau**
-* **Technicien Support N1 / N2 / N3**
-* **Gestionnaire d'Infrastructures & Sécurité IT**
+* **Technicien Informatique / Support IT (N1, N2, N3)**
+* **Technicien / Administrateur Système & Réseau**
+* **Gestionnaire / Technicien d'Infrastructures**
+* **Technicien / Analyste Sécurité Informatique**
+* **Consultant / Technicien Déploiement & Migration**
 
 ## 💡 Ma Démarche & Ce Projet (`Aegis-Infra-Lab`)
-Afin de maintenir une pratique constante et de faire évoluer mes compétences, j'ai conçu ce laboratoire d'infrastructure virtualisé. Il illustre ma capacité à :
-* **Déployer et administrer des annuaires d'entreprise** (Active Directory, automatisation PowerShell, gestion RBAC).
+Afin de maintenir une pratique constante et de valoriser mes compétences, j'ai conçu ce laboratoire d'infrastructure virtualisé. Il illustre ma capacité à :
+* **Gérer le support et l'annuaire d'entreprise** (Active Directory, automatisation PowerShell, gestion RBAC, dépannage).
 * **Segmenter et sécuriser les réseaux** (Pare-feu OPNsense/pfSense, routage, VLANs).
-* **Industrialiser et documenter** (Scripts d'installation, suivi rigoureux sous Git).
+* **Industrialiser, superviser et documenter** (Scripts de déploiement, suivi sous Git).
 
 ---
 
-## 📜 Certifications IT prioritaires pour les profils Juniors
+## 📜 Certifications IT prioritaires pour mon profil
 
-Pour valider et renforcer mes compétences terrain, voici les certifications adaptées aux postes d'administrateur et de support avancé :
+Pour valider officiellement mes compétences terrain :
 
-### 1. Système & Cloud (Microsoft)
-* **Microsoft Certified: Windows Server Hybrid Administrator Associate (AZ-800 & AZ-801)** : La référence idéale pour valider l'administration Active Directory, Hyper-V, le stockage et l'interconnexion hybride Azure.
-* **Microsoft Certified: Azure Fundamentals (AZ-900)** : Certification d'entrée pour valider la compréhension globale des services cloud Microsoft.
+### 1. Support & Fondamentaux
+* **CompTIA A+** : Référence internationale pour le support, le dépannage matériel/système et la relation utilisateur.
+* **Microsoft Certified: Azure Fundamentals (AZ-900)** : Validation de la compréhension des environnements cloud hybrides.
 
-### 2. Réseau & Sécurité Périmétrique
-* **Cisco CCNA (200-301)** : Le standard incontournable pour prouver la maîtrise des fondamentaux réseaux (routage, commutation, IPv4/IPv6, VLANs, sécurité de base).
-* **CompTIA Network+** : Une alternative neutre vis-à-vis des constructeurs pour valider la gestion des réseaux d'entreprise.
+### 2. Administration Système & Réseau
+* **Microsoft Certified: Windows Server Hybrid Administrator Associate (AZ-800 / AZ-801)** : La certification clé pour valider la maîtrise d'Active Directory, Hyper-V et Windows Server.
+* **Cisco CCNA (200-301)** ou **CompTIA Network+** : Incontournable pour prouver la maîtrise du réseau (VLANs, routage, commutation).
 
-### 3. Sécurité & Bonnes Pratiques
-* **CompTIA Security+ (SY0-701)** : La certification sécurité la plus demandée par les recruteurs pour les profils juniors. Elle couvre les concepts clés du durcissement, de la gestion des vulnérabilités et des accès.
-
+### 3. Sécurité
+* **CompTIA Security+ (SY0-701)** : La certification de référence pour valoriser la gestion des accès, le durcissement d'infrastructure et les bonnes pratiques de sécurité.
 ## Présentation du Projet
 Ce projet a pour objectif la conception, le déploiement et le durcissement complet d'une infrastructure réseau et système pour une PME fictive.
 L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la segmentation réseau, la gestion centralisée des identités, le contrôle des accès et la supervision.
