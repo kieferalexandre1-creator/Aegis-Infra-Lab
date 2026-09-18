@@ -5,18 +5,18 @@
 🔗 [LinkedIn](https://www.linkedin.com/in/alexandre-kiefer-847334282/) | 🐙 [GitHub](https://github.com/kieferalexandre1-creator) | ✉️ kiefer.alexandre1@gmail.com
 
 [![Statut](https://img.shields.io/badge/Statut-En%20d%C3%A9veloppement-orange)](#)
-[![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)](#)
+[![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)
 
 # 🎯 Projet Professionnel & Recherche d'Emploi
 
 ## 👤 À propos
-Diplômé d'un **BTS Technicien Informatique** et d'un **Bachelor Administrateur d’Infrastructures Sécurisées**, je cumule plusieurs années d'expérience sur le terrain (support, administration système/réseau et cybersécurité). Je suis actuellement à la recherche d'un poste en **CDI**.
+Diplômé d'un **BTS Technicien Informatique** et d'un **Bachelor Administrateur d’Infrastructures Sécurisées**, je cumule **1 an d'alternance** en administration système, réseau et cybersécurité, complété par un **stage de 3 mois** en tant que technicien informatique. Fort de cette expérience de terrain, je suis actuellement à la recherche d'un poste en **CDI**.
 
 ## 💼 Postes visés
 * **Technicien Informatique / Support IT (N1, N2, N3)**
 * **Technicien / Administrateur Système & Réseau**
 * **Gestionnaire / Technicien d'Infrastructures**
-* **Technicien / Analyste Sécurité Informatique**
+* **Technicien / Analyste Sécurité Informatique (SOC)**
 * **Consultant / Technicien Déploiement & Migration**
 
 ## 💡 Ma Démarche & Ce Projet (`Aegis-Infra-Lab`)
@@ -41,6 +41,7 @@ Pour valider officiellement mes compétences terrain :
 
 ### 3. Sécurité
 * **CompTIA Security+ (SY0-701)** : La certification de référence pour valoriser la gestion des accès, le durcissement d'infrastructure et les bonnes pratiques de sécurité.
+  
 ## Présentation du Projet
 Ce projet a pour objectif la conception, le déploiement et le durcissement complet d'une infrastructure réseau et système pour une PME fictive.
 L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la segmentation réseau, la gestion centralisée des identités, le contrôle des accès et la supervision.
