@@ -6,7 +6,6 @@
 
 [![Statut](https://img.shields.io/badge/Statut-En%20d%C3%A9veloppement-orange)](#)
 [![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)](#)
-# 🎯 Projet Professionnel & Recherche d'Emploi
 
 # 🎯 Projet Professionnel & Recherche d'Emploi
 
