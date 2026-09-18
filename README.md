@@ -1,6 +1,4 @@
 # Aegis-Infra-Lab - Infrastructure d'Entreprise Sécurisée 
-Déploiement et durcissement d'une infrastructure d'entreprise virtualisée (OPNsense, Active Directory, Debian 12, Zabbix).
-
 ### 👤 Alexandre KIEFER
 **Administrateur Systèmes, Réseaux & Cybersécurité**  
 📍 Savigny-sur-Orge, Île-de-France  
@@ -12,3 +10,14 @@ Déploiement et durcissement d'une infrastructure d'entreprise virtualisée (OPN
 ## Présentation du Projet
 Ce projet a pour objectif la conception, le déploiement et le durcissement complet d'une infrastructure réseau et système pour une PME fictive.
 L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la segmentation réseau, la gestion centralisée des identités, le contrôle des accès et la supervision.
+
+## Topologie Réseau
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0b1654d6-e73d-4eed-b582-e3c65ae153f5" />
+## Briques Techniques & Composants
+* **Pare-feu & Routage :** OPNsense (Segmentation VLAN, règles de filtrage ACL, VPN)
+* **Identity & Annuaire :** Windows Server 2022 (Active Directory DS, DNS, GPO de durcissement)
+* **Services Linux :** Debian 12 (Reverse Proxy NGINX avec certificats SSL/TLS)
+* **Supervision & Log :** Zabbix Server & Agents
+* **Sauvegarde :** Stratégie 3-2-1
+* **Automatisation :** Scripts PowerShell (gestion AD) et Bash
+
