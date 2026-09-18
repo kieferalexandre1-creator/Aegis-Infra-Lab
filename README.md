@@ -74,7 +74,7 @@ Je recherche principalement des opportunités junior en :
 
 ---
 
-# 🏗️ Aegis Infra Lab
+# Aegis Infra Lab
 
 ## 📌 Présentation du projet
 
