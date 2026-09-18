@@ -13,7 +13,8 @@ L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la 
 
 ## Topologie Réseau
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0b1654d6-e73d-4eed-b582-e3c65ae153f5" />
-## Briques Techniques & Composants
+
+## 🛠️ Briques Techniques & Composants
 * **Pare-feu & Routage :** OPNsense (Segmentation VLAN, règles de filtrage ACL, VPN)
 * **Identity & Annuaire :** Windows Server 2022 (Active Directory DS, DNS, GPO de durcissement)
 * **Services Linux :** Debian 12 (Reverse Proxy NGINX avec certificats SSL/TLS)
@@ -21,3 +22,15 @@ L'environnement est entièrement virtualisé sous **VirtualBox** et intègre la 
 * **Sauvegarde :** Stratégie 3-2-1
 * **Automatisation :** Scripts PowerShell (gestion AD) et Bash
 
+## Fonctionnalités & Sécurisation Mises en Œuvre
+### 🔐 1. Sécurité Réseau
+- Isolation des flux via segmentation.
+- Blocage par défaut du trafic inter-zones (Principe du moindre privilège).
+
+### 🏢 2. Administration Système & Identity
+- Déploiement du domaine `aegis.local`.
+- Organisation de l'annuaire via Unités d'Organisation (OU) par service.
+- Application de GPO pour le durcissement du pare-feu local et le verrouillage des sessions.
+
+### 📊 3. Monitoring & MCO
+- Surveillance en temps réel de la disponibilité et des ressources (CPU/RAM/Disque).
