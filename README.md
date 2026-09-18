@@ -105,3 +105,8 @@ Aegis Infra Lab a pour objectif de mettre en pratique :
 
 ---
 
+## Environnement technique
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/89df2a9c-84b7-4425-864f-4a3ee7357820" />
+
+
