@@ -234,7 +234,7 @@ foreach ($u in $users) {
                -UserPrincipalName $upn `
                -Path $ouUsers `
                -Enabled $true `
-               -AccountPassword (ConvertTo-SecureString "P@ssword2026!" -AsPlainText -Force) `
+               -AccountPassword (ConvertTo-SecureString "*******" -AsPlainText -Force) `
                -ChangePasswordAtLogon $true `
                -ErrorAction SilentlyContinue
 
