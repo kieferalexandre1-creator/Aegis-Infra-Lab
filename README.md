@@ -241,5 +241,29 @@ foreach ($u in $users) {
     Add-ADGroupMember -Identity $grp -Members$sam -ErrorAction SilentlyContinue
 }
 
+## 🧪 Tests & Validation
 
+Chaque nouvelle fonctionnalité intégrée au laboratoire doit être accompagnée de tests permettant de vérifier son fonctionnement.
+
+Les validations pourront notamment comprendre :
+
+- tests de résolution DNS ;
+
+- attribution d’adresses via DHCP ;
+
+- intégration d’un poste au domaine ;
+
+- application des GPO ;
+
+- tests des droits d’accès ;
+
+- tests des règles de filtrage OPNsense ;
+
+- vérification des communications entre les différentes zones ;
+
+- supervision des ressources système ;
+
+- tests d’accès aux différents services ;
+
+- tests de sauvegarde et de restauration.
 
