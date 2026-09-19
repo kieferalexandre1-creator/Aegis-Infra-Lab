@@ -241,10 +241,7 @@ foreach ($u in $users) {
     Add-ADGroupMember -Identity $grp -Members$sam -ErrorAction SilentlyContinue
 }
 
-
-
-
-## Tests & Validation
+## 🧪 Tests & Validation
 
 Chaque nouvelle fonctionnalité intégrée au laboratoire doit être accompagnée de tests permettant de vérifier son fonctionnement.
 
@@ -270,7 +267,11 @@ Les validations pourront notamment comprendre :
 
 - tests de sauvegarde et de restauration.
 
-## Évolutions prévues
+Les captures et résultats seront progressivement documentés dans le dépôt.
+
+---
+
+## 🚀 Évolutions prévues
 
 Aegis Infra Lab est un projet évolutif. Plusieurs améliorations sont prévues au fur et à mesure de ma progression :
 
@@ -289,3 +290,5 @@ Aegis Infra Lab est un projet évolutif. Plusieurs améliorations sont prévues 
 - amélioration de la stratégie de sauvegarde et de restauration ;
 
 - exploration d’un environnement hybride avec Microsoft Entra ID.
+
+
