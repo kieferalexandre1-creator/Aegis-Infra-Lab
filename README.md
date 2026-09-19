@@ -186,109 +186,281 @@ Le déploiement de l'arborescence, des groupes de sécurité et des utilisateurs
 * **Provisioning Utilisateurs** : Création des comptes avec identifiants normalisés (`jdupont`, `cmartin`, `tbernard`), mot de passe temporaire et réinitialisation obligatoire à la première connexion.
 * **Gestion des membres** : Affectation automatique de chaque utilisateur à son groupe respectif.
 
----
+## ⚙️ Automatisation PowerShell
 
-### 📜 Code source du script
+Une partie de la configuration Active Directory est automatisée avec PowerShell.
+
+Le script permet notamment de :
+
+- créer l’arborescence des unités d’organisation ;
+- créer les groupes de sécurité ;
+- créer plusieurs utilisateurs de test ;
+- affecter automatiquement les utilisateurs aux groupes correspondants ;
+- faciliter le déploiement initial de l’environnement Active Directory.
+
+### Exemple de script
 
 ```powershell
-# ==============================================================================
-# Nom du script : Deploy-AegisAD.ps1
-# Description   : Automatisation du déploiement AD pour l'infrastructure Aegis
-# Domaine       : aegis.local
-# ==============================================================================
+Import-Module ActiveDirectory
 
-# 1. Structure des Unités d'Organisation (OU)
-$ouBase = "OU=AEGIS-ENTREPRISE,DC=aegis,DC=local"
+$DomainDN = "DC=aegis,DC=local"
+$BaseOU = "OU=AEGIS-ENTREPRISE,$DomainDN"
 
-New-ADOrganizationalUnit -Name "AEGIS-ENTREPRISE" -Path "DC=aegis,DC=local" -ErrorAction SilentlyContinue
-New-ADOrganizationalUnit -Name "Utilisateurs" -Path $ouBase -ErrorAction SilentlyContinue
-New-ADOrganizationalUnit -Name "Groupes" -Path $ouBase -ErrorAction SilentlyContinue
-New-ADOrganizationalUnit -Name "Ordinateurs" -Path $ouBase -ErrorAction SilentlyContinue
-New-ADOrganizationalUnit -Name "Serveurs" -Path $ouBase -ErrorAction SilentlyContinue
+# Création de l'OU principale
+New-ADOrganizationalUnit `
+    -Name "AEGIS-ENTREPRISE" `
+    -Path $DomainDN `
+    -ProtectedFromAccidentalDeletion $true
 
-# 2. Création des Groupes de sécurité par service
-$ouGroupes = "OU=Groupes,$ouBase"
-$groupes = @("GRP_Informatique", "GRP_Ressources-Humaines", "GRP_Comptabilite")
-
-foreach ($g in $groupes) {
-    New-ADGroup -Name $g -GroupScope Global -GroupCategory Security -Path $ouGroupes -ErrorAction SilentlyContinue
-}
-
-# 3. Création des Utilisateurs et affectation aux groupes
-$ouUsers = "OU=Utilisateurs,$ouBase"
-$users = @(
-    @{Prenom="Jean"; Nom="Dupont"; Service="Informatique"},
-    @{Prenom="Claire"; Nom="Martin"; Service="Ressources-Humaines"},
-    @{Prenom="Thomas"; Nom="Bernard"; Service="Comptabilite"}
+# Création des sous-OU
+$OUs = @(
+    "Utilisateurs",
+    "Groupes",
+    "Ordinateurs",
+    "Serveurs"
 )
 
-foreach ($u in $users) {
-    $sam = ($u.Prenom.Substring(0,1) + $u.Nom).ToLower()
-    $upn = "$sam@aegis.local"
-    $grp = "GRP_" + $u.Service
+foreach ($OU in $OUs) {
+    New-ADOrganizationalUnit `
+        -Name $OU `
+        -Path $BaseOU `
+        -ProtectedFromAccidentalDeletion $true
+}
 
-    New-ADUser -Name "$($u.Prenom) $($u.Nom)" `
-               -GivenName $u.Prenom `
-               -Surname $u.Nom `
-               -SamAccountName $sam `
-               -UserPrincipalName $upn `
-               -Path $ouUsers `
-               -Enabled $true `
-               -AccountPassword (ConvertTo-SecureString "*******" -AsPlainText -Force) `
-               -ChangePasswordAtLogon $true `
-               -ErrorAction SilentlyContinue
+# Création des groupes
+$Groups = @(
+    "Informatique",
+    "RH",
+    "Comptabilite"
+)
 
-    Add-ADGroupMember -Identity $grp -Members$sam -ErrorAction SilentlyContinue
+foreach ($Group in $Groups) {
+    New-ADGroup `
+        -Name $Group `
+        -GroupScope Global `
+        -GroupCategory Security `
+        -Path "OU=Groupes,$BaseOU"
+}
 
+# Demande du mot de passe utilisateur
+$Password = Read-Host "Entrez le mot de passe temporaire des utilisateurs" -AsSecureString
+
+# Création des utilisateurs
+$Users = @(
+    @{
+        Prenom = "Jean"
+        Nom = "Dupont"
+        Login = "jdupont"
+        Groupe = "Informatique"
+    },
+    @{
+        Prenom = "Claire"
+        Nom = "Martin"
+        Login = "cmartin"
+        Groupe = "RH"
+    },
+    @{
+        Prenom = "Thomas"
+        Nom = "Bernard"
+        Login = "tbernard"
+        Groupe = "Comptabilite"
+    }
+)
+
+foreach ($User in $Users) {
+
+    New-ADUser `
+        -Name "$($User.Prenom) $($User.Nom)" `
+        -GivenName $User.Prenom `
+        -Surname $User.Nom `
+        -SamAccountName $User.Login `
+        -UserPrincipalName "$($User.Login)@aegis.local" `
+        -Path "OU=Utilisateurs,$BaseOU" `
+        -AccountPassword $Password `
+        -Enabled $true `
+        -ChangePasswordAtLogon $true
+
+    Add-ADGroupMember `
+        -Identity $User.Groupe `
+        -Members $User.Login
+}
+```
+
+Le mot de passe n’est pas stocké en clair dans le script. Il est demandé au moment de l’exécution avec `Read-Host -AsSecureString`.
+
+---
+
+## 🖥️ Intégration des postes Windows
+
+Des postes clients Windows sont intégrés au domaine Active Directory afin de reproduire le fonctionnement d’un environnement d’entreprise.
+
+Les postes clients permettent notamment de tester :
+
+- l’attribution d’une configuration réseau ;
+- la résolution DNS ;
+- la communication avec le contrôleur de domaine ;
+- l’intégration au domaine `aegis.local` ;
+- l’authentification avec un compte Active Directory ;
+- l’application des stratégies de groupe ;
+- les droits d’accès des différents utilisateurs.
+
+Les machines intégrées au domaine sont ensuite placées dans l’unité d’organisation dédiée aux ordinateurs.
+
+---
+
+## 🔐 Stratégies de groupe — GPO
+
+Des stratégies de groupe sont progressivement mises en place afin de renforcer la sécurité et de standardiser la configuration des postes Windows.
+
+Les GPO prévues ou mises en place concernent notamment :
+
+- la politique de mots de passe ;
+- le verrouillage des comptes après plusieurs tentatives échouées ;
+- le verrouillage automatique des sessions ;
+- la configuration du pare-feu Windows ;
+- le renforcement de certains paramètres de sécurité ;
+- la limitation de certains accès utilisateurs ;
+- la gestion des paramètres Windows Defender ;
+- le déploiement éventuel de ressources réseau.
+
+Chaque stratégie sera testée depuis un poste client intégré au domaine.
+
+La bonne application des GPO pourra notamment être vérifiée avec :
+
+```powershell
+gpupdate /force
+```
+
+Puis :
+
+```powershell
+gpresult /r
+```
 
 ---
 
 ## 🧪 Tests & Validation
 
-Chaque nouvelle fonctionnalité intégrée au laboratoire doit être accompagnée de tests permettant de vérifier son fonctionnement.
+Chaque nouvelle fonctionnalité intégrée à Aegis Infra Lab fait l’objet de tests afin de vérifier son bon fonctionnement.
 
-Les validations pourront notamment comprendre :
+Les validations comprennent notamment :
 
 - tests de résolution DNS ;
-
-- attribution d’adresses via DHCP ;
-
-- intégration d’un poste au domaine ;
-
+- attribution d’adresses IP via DHCP ;
+- intégration d’un poste Windows au domaine ;
+- authentification avec un compte du domaine ;
 - application des GPO ;
-
-- tests des droits d’accès ;
-
+- vérification des droits d’accès ;
 - tests des règles de filtrage OPNsense ;
-
-- vérification des communications entre les différentes zones ;
-
+- vérification des communications entre les différentes zones réseau ;
 - supervision des ressources système ;
-
 - tests d’accès aux différents services ;
-
 - tests de sauvegarde et de restauration.
 
-Les captures et résultats seront progressivement documentés dans le dépôt.
+Les captures d’écran et les résultats seront progressivement ajoutés à la documentation du projet.
+
+---
+
+## 📸 Documentation et preuves de fonctionnement
+
+Le projet est documenté progressivement avec des captures d’écran et des résultats de tests.
+
+Les éléments documentés pourront notamment inclure :
+
+- structure Active Directory ;
+- unités d’organisation ;
+- utilisateurs et groupes ;
+- intégration des postes au domaine ;
+- GPO appliquées ;
+- résultats de `gpresult` ;
+- configuration DNS et DHCP ;
+- règles OPNsense ;
+- supervision Zabbix ;
+- services Linux ;
+- scripts PowerShell et Bash ;
+- tests de sauvegarde et de restauration.
+
+L’objectif est de pouvoir montrer non seulement la configuration mise en place, mais également son fonctionnement réel.
 
 ---
 
 ## 🚀 Évolutions prévues
 
-Aegis Infra Lab est un projet évolutif. Plusieurs améliorations sont prévues au fur et à mesure de ma progression :
+Aegis Infra Lab est un projet évolutif.
+
+Plusieurs améliorations pourront être ajoutées progressivement :
 
 - intégration d’un SIEM ;
-
 - centralisation des journaux Windows et Linux ;
-
-- mise en place de scénarios de détection d’incidents ;
-
+- mise en place de scénarios de détection ;
 - approfondissement de la supervision ;
-
 - développement de nouvelles automatisations PowerShell et Bash ;
-
 - conteneurisation de certains services ;
+- amélioration de la stratégie de sauvegarde ;
+- mise en place de tests de restauration plus complets ;
+- exploration d’un environnement hybride avec des services cloud.
 
-- amélioration de la stratégie de sauvegarde et de restauration ;
+---
 
-- exploration d’un environnement hybride avec Microsoft Entra ID.
+## 📁 Organisation du dépôt
+
+```text
+Aegis-Infra-Lab/
+├── README.md
+├── docs/
+│   ├── architecture/
+│   ├── installation/
+│   └── security/
+├── scripts/
+│   ├── powershell/
+│   └── bash/
+├── configs/
+└── screenshots/
+```
+
+---
+
+## 📌 État du projet
+
+🚧 **Projet actuellement en cours de développement**
+
+Les différentes briques de l’infrastructure sont mises en place progressivement puis testées et documentées.
+
+### Étapes en cours
+
+- finalisation de l’environnement Active Directory ;
+- intégration des postes Windows au domaine ;
+- mise en place des GPO ;
+- tests des comptes utilisateurs et des droits d’accès ;
+- ajout progressif des captures et preuves de fonctionnement.
+
+### Étapes suivantes
+
+- finalisation de la zone services Linux ;
+- mise en place de NGINX ;
+- déploiement de Zabbix ;
+- amélioration des règles de filtrage réseau ;
+- mise en place de la stratégie de sauvegarde ;
+- automatisation de nouvelles tâches avec PowerShell et Bash.
+
+---
+
+## 🎯 Objectif final
+
+L’objectif d’Aegis Infra Lab est de construire progressivement une infrastructure d’entreprise sécurisée dans un environnement virtualisé.
+
+Ce laboratoire me permet de mettre en pratique et de documenter mes compétences en :
+
+- administration Windows et Linux ;
+- Active Directory ;
+- DNS et DHCP ;
+- gestion des utilisateurs et des groupes ;
+- GPO ;
+- segmentation réseau ;
+- filtrage avec OPNsense ;
+- supervision ;
+- sauvegarde ;
+- automatisation ;
+- sécurisation des infrastructures.
+
+Le projet continuera d’évoluer au fur et à mesure de ma progression et de l’intégration de nouvelles technologies.
