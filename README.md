@@ -241,6 +241,9 @@ foreach ($u in $users) {
     Add-ADGroupMember -Identity $grp -Members$sam -ErrorAction SilentlyContinue
 }
 
+
+
+
 ## 🧪 Tests & Validation
 
 Chaque nouvelle fonctionnalité intégrée au laboratoire doit être accompagnée de tests permettant de vérifier son fonctionnement.
