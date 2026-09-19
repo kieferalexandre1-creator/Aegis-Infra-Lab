@@ -241,6 +241,8 @@ foreach ($u in $users) {
     Add-ADGroupMember -Identity $grp -Members$sam -ErrorAction SilentlyContinue
 }
 
+---
+
 ## 🧪 Tests & Validation
 
 Chaque nouvelle fonctionnalité intégrée au laboratoire doit être accompagnée de tests permettant de vérifier son fonctionnement.
@@ -290,5 +292,3 @@ Aegis Infra Lab est un projet évolutif. Plusieurs améliorations sont prévues 
 - amélioration de la stratégie de sauvegarde et de restauration ;
 
 - exploration d’un environnement hybride avec Microsoft Entra ID.
-
-
