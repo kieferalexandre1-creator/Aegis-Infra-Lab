@@ -401,8 +401,9 @@ Plusieurs améliorations pourront être ajoutées progressivement :
 - exploration d’un environnement hybride avec des services cloud.
 
 ---
-
 ## 📁 Organisation du dépôt
+
+Le dépôt est organisé afin de séparer la documentation, les scripts, les configurations, les captures d’écran et les tests réalisés.
 
 ```text
 Aegis-Infra-Lab/
@@ -410,57 +411,464 @@ Aegis-Infra-Lab/
 ├── docs/
 │   ├── architecture/
 │   ├── installation/
+│   ├── active-directory/
+│   ├── network/
+│   ├── linux/
 │   └── security/
 ├── scripts/
 │   ├── powershell/
 │   └── bash/
 ├── configs/
-└── screenshots/
+├── screenshots/
+│   ├── active-directory/
+│   ├── windows-clients/
+│   ├── gpo/
+│   ├── dns-dhcp/
+│   ├── opnsense/
+│   ├── debian/
+│   ├── nginx/
+│   ├── zabbix/
+│   └── backup/
+└── tests/
 ```
+
+Cette organisation évoluera progressivement avec l’avancement du laboratoire.
+
+---
+
+## 🐧 Environnement Linux — Debian 12
+
+Une machine **Debian 12** est intégrée au laboratoire afin d’héberger différents services internes et de travailler sur l’administration Linux.
+
+Cette machine permettra notamment de mettre en pratique :
+
+- l’administration d’un serveur Linux ;
+- la gestion des utilisateurs et des permissions ;
+- la configuration réseau ;
+- l’installation et la gestion de services ;
+- la sécurisation du système ;
+- l’utilisation de scripts Bash ;
+- la supervision des ressources ;
+- la consultation et l’analyse des journaux système.
+
+La configuration sera progressivement documentée avec les commandes utilisées, les fichiers de configuration modifiés et les différents tests réalisés.
+
+---
+
+## 🌐 NGINX
+
+NGINX sera utilisé comme service Web et reverse proxy au sein de la zone services.
+
+Les objectifs sont notamment de travailler sur :
+
+- l’installation et la configuration de NGINX ;
+- l’hébergement de services Web internes ;
+- la configuration d’un reverse proxy ;
+- la gestion des virtual hosts ;
+- la sécurisation des communications avec SSL/TLS ;
+- la gestion des ports et des règles réseau ;
+- la journalisation des accès et des erreurs.
+
+Des tests seront réalisés afin de vérifier l’accès aux services depuis les réseaux autorisés.
+
+---
+
+## 📊 Supervision avec Zabbix
+
+Zabbix sera utilisé afin de superviser progressivement les différents équipements et serveurs du laboratoire.
+
+La supervision pourra notamment concerner :
+
+- Windows Server 2022 ;
+- les postes Windows ;
+- Debian 12 ;
+- certains services réseau ;
+- l’utilisation du processeur ;
+- la mémoire ;
+- l’espace disque ;
+- la disponibilité des machines ;
+- l’état des services ;
+- certains événements système.
+
+Des alertes pourront également être configurées afin de détecter les indisponibilités ou certains comportements anormaux.
+
+La partie supervision sera documentée avec :
+
+- l’ajout des hôtes ;
+- la configuration des agents ;
+- les métriques collectées ;
+- les tableaux de bord ;
+- les alertes ;
+- les tests de disponibilité.
+
+---
+
+## 💾 Sauvegarde & Restauration
+
+Une stratégie de sauvegarde sera progressivement mise en place afin de travailler sur la protection des données et la continuité de service.
+
+Les objectifs sont notamment de :
+
+- sauvegarder certaines configurations importantes ;
+- sauvegarder les données nécessaires au laboratoire ;
+- conserver plusieurs copies ;
+- séparer les sauvegardes du reste de l’infrastructure ;
+- documenter les procédures de sauvegarde ;
+- effectuer des tests de restauration.
+
+Une approche inspirée de la règle **3-2-1** sera appliquée dans la mesure du possible au sein du laboratoire.
+
+Les tests permettront notamment de vérifier :
+
+- le bon déroulement des sauvegardes ;
+- l’intégrité des données ;
+- la disponibilité des fichiers ;
+- la restauration effective des données ;
+- le temps nécessaire à une restauration.
+
+---
+
+## 🔄 Automatisation Linux avec Bash
+
+En complément de PowerShell pour l’environnement Windows, Bash sera utilisé afin d’automatiser certaines tâches Linux.
+
+Les scripts pourront notamment permettre de :
+
+- automatiser certaines installations ;
+- récupérer des informations système ;
+- vérifier l’état des services ;
+- automatiser certaines tâches d’administration ;
+- effectuer des contrôles de disponibilité ;
+- faciliter la maintenance de Debian.
+
+Les scripts seront progressivement ajoutés au dépôt avec leur documentation.
+
+---
+
+## 🔎 Journalisation
+
+La journalisation fait partie du projet afin de mieux comprendre le fonctionnement des différents systèmes et services.
+
+Les journaux pourront notamment être utilisés pour analyser :
+
+- les connexions utilisateurs ;
+- les événements Windows ;
+- les événements Active Directory ;
+- les logs OPNsense ;
+- les journaux Linux ;
+- les logs NGINX ;
+- les événements Zabbix ;
+- les erreurs système ;
+- les tentatives de connexion.
+
+À terme, une centralisation des journaux pourra être mise en place afin de préparer l’intégration d’une solution SIEM.
+
+---
+
+## 🛡️ Sécurisation Linux
+
+La machine Debian sera progressivement durcie afin de limiter sa surface d’attaque.
+
+Les mesures pourront notamment comprendre :
+
+- mise à jour régulière du système ;
+- suppression ou désactivation des services inutiles ;
+- gestion stricte des utilisateurs et des permissions ;
+- sécurisation des accès distants ;
+- limitation des ports exposés ;
+- contrôle des services actifs ;
+- surveillance des journaux ;
+- sécurisation de NGINX ;
+- utilisation de SSL/TLS lorsque nécessaire.
+
+Chaque modification importante sera testée afin de vérifier qu’elle n’empêche pas le fonctionnement normal des services.
+
+---
+
+## 📸 Documentation & Captures
+
+Les différentes étapes d’Aegis Infra Lab sont documentées avec des captures d’écran afin de montrer le fonctionnement réel de l’infrastructure et les résultats obtenus.
+
+Les captures sont classées par thème dans le dossier :
+
+```text
+screenshots/
+├── active-directory/
+├── windows-clients/
+├── gpo/
+├── dns-dhcp/
+├── opnsense/
+├── debian/
+├── nginx/
+├── zabbix/
+└── backup/
+```
+
+### 🗂️ Active Directory
+
+Captures prévues :
+
+- structure des unités d’organisation ;
+- utilisateurs créés ;
+- groupes de sécurité ;
+- appartenance des utilisateurs aux groupes.
+
+Exemple :
+
+```markdown
+![Structure Active Directory](screenshots/active-directory/ad-structure.png)
+```
+
+---
+
+### 🖥️ Postes Windows
+
+Captures prévues :
+
+- poste Windows intégré au domaine `aegis.local` ;
+- machine visible dans Active Directory ;
+- ouverture de session avec un compte du domaine ;
+- configuration réseau du poste.
+
+Exemple :
+
+```markdown
+![Poste intégré au domaine](screenshots/windows-clients/domain-join.png)
+```
+
+---
+
+### 🔐 GPO
+
+Captures prévues :
+
+- stratégies de groupe créées ;
+- liaison des GPO aux unités d’organisation ;
+- résultat de `gpupdate /force` ;
+- résultat de `gpresult /r` ;
+- preuve qu’une stratégie est réellement appliquée sur le poste client.
+
+Exemple :
+
+```markdown
+![GPO appliquées](screenshots/gpo/gpresult.png)
+```
+
+---
+
+### 🌐 DNS & DHCP
+
+Captures prévues :
+
+- zone DNS du domaine ;
+- enregistrements DNS ;
+- étendue DHCP ;
+- bail DHCP attribué à un poste client ;
+- résultats de `nslookup` ;
+- résultats de `ipconfig /all`.
+
+Exemple :
+
+```markdown
+![Configuration DHCP](screenshots/dns-dhcp/dhcp-scope.png)
+```
+
+---
+
+### 🔥 OPNsense
+
+Captures prévues :
+
+- interfaces réseau ;
+- règles de pare-feu ;
+- segmentation des différentes zones ;
+- test de communication autorisée ;
+- test de communication bloquée.
+
+Exemple :
+
+```markdown
+![Règles OPNsense](screenshots/opnsense/firewall-rules.png)
+```
+
+---
+
+### 🐧 Debian 12
+
+Captures prévues :
+
+- configuration réseau ;
+- services actifs ;
+- utilisateurs et permissions ;
+- état du système ;
+- tests de communication avec les autres machines.
+
+Exemple :
+
+```markdown
+![Serveur Debian](screenshots/debian/debian-network.png)
+```
+
+---
+
+### 🌍 NGINX
+
+Captures prévues :
+
+- installation du service ;
+- configuration NGINX ;
+- service actif ;
+- page Web accessible ;
+- reverse proxy ;
+- configuration SSL/TLS.
+
+Exemple :
+
+```markdown
+![NGINX](screenshots/nginx/nginx-service.png)
+```
+
+---
+
+### 📊 Zabbix
+
+Captures prévues :
+
+- tableau de bord ;
+- hôtes supervisés ;
+- métriques Windows et Linux ;
+- disponibilité des machines ;
+- alertes configurées.
+
+Exemple :
+
+```markdown
+![Dashboard Zabbix](screenshots/zabbix/dashboard.png)
+```
+
+---
+
+### 💾 Sauvegarde & Restauration
+
+Captures prévues :
+
+- configuration de la sauvegarde ;
+- exécution d’une sauvegarde ;
+- résultat du job ;
+- restauration d’un fichier ou d’une configuration ;
+- preuve du succès de la restauration.
+
+Exemple :
+
+```markdown
+![Test de restauration](screenshots/backup/restore-test.png)
+```
+
+---
+
+## ✅ Principe de validation
+
+Pour chaque technologie mise en place, l’objectif est de conserver au minimum :
+
+1. une capture de la configuration ;
+2. une capture du test réalisé ;
+3. une capture du résultat obtenu.
+
+Cela permet de montrer non seulement que la technologie a été installée, mais également qu’elle fonctionne réellement dans le laboratoire.
 
 ---
 
 ## 📌 État du projet
 
-🚧 **Projet actuellement en cours de développement**
+🚧 **Aegis Infra Lab est actuellement en cours de développement.**
 
-Les différentes briques de l’infrastructure sont mises en place progressivement puis testées et documentées.
+### ✅ Déjà réalisé
 
-### Étapes en cours
+- création de l’environnement virtualisé ;
+- déploiement d’OPNsense ;
+- mise en place de la segmentation réseau ;
+- installation de Windows Server 2022 ;
+- déploiement d’Active Directory Domain Services ;
+- création du domaine `aegis.local` ;
+- création de la structure des unités d’organisation ;
+- création des groupes de sécurité ;
+- création des comptes utilisateurs de test ;
+- mise en place des services DNS et DHCP ;
+- automatisation d’une partie de la configuration Active Directory avec PowerShell.
 
-- finalisation de l’environnement Active Directory ;
+### 🔄 En cours
+
 - intégration des postes Windows au domaine ;
-- mise en place des GPO ;
-- tests des comptes utilisateurs et des droits d’accès ;
-- ajout progressif des captures et preuves de fonctionnement.
+- authentification avec les comptes Active Directory ;
+- mise en place des stratégies de groupe ;
+- tests des GPO ;
+- documentation des différentes étapes ;
+- ajout des captures de validation.
 
-### Étapes suivantes
+### ⏳ Prochaines étapes
 
-- finalisation de la zone services Linux ;
-- mise en place de NGINX ;
+- finalisation des règles de filtrage OPNsense ;
+- déploiement de Debian 12 ;
+- configuration de NGINX ;
 - déploiement de Zabbix ;
-- amélioration des règles de filtrage réseau ;
+- mise en place de la supervision ;
 - mise en place de la stratégie de sauvegarde ;
-- automatisation de nouvelles tâches avec PowerShell et Bash.
+- tests de restauration ;
+- développement de scripts Bash ;
+- approfondissement de la journalisation ;
+- amélioration du durcissement des systèmes.
 
 ---
 
-## 🎯 Objectif final
+## 🚀 Évolutions prévues
 
-L’objectif d’Aegis Infra Lab est de construire progressivement une infrastructure d’entreprise sécurisée dans un environnement virtualisé.
+Une fois l’infrastructure principale stabilisée, plusieurs évolutions pourront être ajoutées :
 
-Ce laboratoire me permet de mettre en pratique et de documenter mes compétences en :
+- intégration d’un SIEM ;
+- centralisation des logs Windows et Linux ;
+- création de règles de détection ;
+- scénarios de détection d’incidents ;
+- automatisation plus avancée ;
+- utilisation de Docker pour certains services ;
+- ajout de nouvelles machines Linux ;
+- amélioration de la supervision ;
+- tests de restauration plus avancés ;
+- exploration d’un environnement cloud ou hybride.
+
+---
+
+## 🎯 Finalité du projet
+
+Aegis Infra Lab a pour objectif de reproduire progressivement une infrastructure informatique d’entreprise cohérente, segmentée et sécurisée.
+
+Ce laboratoire me permet de mettre en pratique mes connaissances en :
 
 - administration Windows et Linux ;
 - Active Directory ;
 - DNS et DHCP ;
-- gestion des utilisateurs et des groupes ;
-- GPO ;
-- segmentation réseau ;
-- filtrage avec OPNsense ;
+- gestion des utilisateurs, groupes et droits d’accès ;
+- stratégies de groupe ;
+- réseau et segmentation ;
+- pare-feu et filtrage ;
 - supervision ;
-- sauvegarde ;
+- sauvegarde et restauration ;
 - automatisation ;
+- journalisation ;
 - sécurisation des infrastructures.
 
-Le projet continuera d’évoluer au fur et à mesure de ma progression et de l’intégration de nouvelles technologies.
+L’objectif est également de disposer d’un projet concret permettant de présenter les configurations réalisées, les choix techniques, les scripts développés et les différents tests de validation.
+
+---
+
+## 🔗 Liens
+
+- **LinkedIn :** à compléter
+- **GitHub :** https://github.com/kieferalexandre1-creator
+
+---
+
+### 🛡️ Aegis Infra Lab
+
+**Projet personnel — Systèmes, Réseaux & Cybersécurité**
+
+Construit, testé et documenté progressivement.
