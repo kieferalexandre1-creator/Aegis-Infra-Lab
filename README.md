@@ -244,7 +244,7 @@ foreach ($u in $users) {
 
 
 
-## 🧪 Tests & Validation
+## Tests & Validation
 
 Chaque nouvelle fonctionnalité intégrée au laboratoire doit être accompagnée de tests permettant de vérifier son fonctionnement.
 
@@ -270,3 +270,22 @@ Les validations pourront notamment comprendre :
 
 - tests de sauvegarde et de restauration.
 
+## Évolutions prévues
+
+Aegis Infra Lab est un projet évolutif. Plusieurs améliorations sont prévues au fur et à mesure de ma progression :
+
+- intégration d’un SIEM ;
+
+- centralisation des journaux Windows et Linux ;
+
+- mise en place de scénarios de détection d’incidents ;
+
+- approfondissement de la supervision ;
+
+- développement de nouvelles automatisations PowerShell et Bash ;
+
+- conteneurisation de certains services ;
+
+- amélioration de la stratégie de sauvegarde et de restauration ;
+
+- exploration d’un environnement hybride avec Microsoft Entra ID.
