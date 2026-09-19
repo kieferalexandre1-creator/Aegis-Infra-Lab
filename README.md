@@ -239,7 +239,7 @@ foreach ($u in $users) {
                -ErrorAction SilentlyContinue
 
     Add-ADGroupMember -Identity $grp -Members$sam -ErrorAction SilentlyContinue
-}
+
 
 ---
 
