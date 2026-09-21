@@ -156,6 +156,202 @@ Plusieurs principes de sécurité sont progressivement appliqués au laboratoire
 
 ---
 
+## 🔥 Déploiement d’OPNsense
+
+OPNsense constitue la première brique réseau d’Aegis Infra Lab.
+
+Il est utilisé comme **pare-feu et routeur principal** afin de gérer le routage, la segmentation et le filtrage des communications entre les différentes zones du laboratoire.
+
+Son rôle est central dans le projet, car l’ensemble des réseaux internes transitent par OPNsense avant de pouvoir communiquer entre eux ou accéder à Internet.
+
+---
+
+### 🖥️ Déploiement de la machine virtuelle
+
+OPNsense est installé dans une machine virtuelle dédiée sous VirtualBox.
+
+Configuration utilisée :
+
+- **Nom de la VM :** `OPNsense-FW`
+- **Système :** FreeBSD 64-bit
+- **CPU :** 2 vCPU
+- **Mémoire :** 4 Go
+- **Stockage :** 20 à 32 Go
+- **Interface WAN :** NAT
+- **Interfaces internes :** réseaux VirtualBox dédiés aux différentes zones du laboratoire
+
+L’interface WAN permet à OPNsense d’accéder à Internet via la connexion réseau de la machine hôte.
+
+Les autres interfaces seront utilisées pour connecter les différentes zones du laboratoire.
+
+---
+
+### 📌 Importance d’OPNsense dans le projet
+
+OPNsense se situe au cœur de l’architecture Aegis Infra Lab.
+
+Il permet notamment de :
+
+- relier les différents réseaux ;
+- assurer le routage entre les sous-réseaux ;
+- contrôler les communications entre les zones ;
+- appliquer des règles de pare-feu ;
+- segmenter les postes clients, les serveurs et les services ;
+- limiter les flux au strict nécessaire ;
+- isoler les services sensibles ;
+- appliquer le principe du moindre privilège ;
+- journaliser les communications ;
+- tester des scénarios de sécurité réalistes.
+
+Sans cette segmentation, les différentes machines du laboratoire pourraient communiquer librement entre elles, ce qui ne correspondrait pas à une architecture d’entreprise sécurisée.
+
+---
+
+### 🗺️ Schéma du rôle d’OPNsense
+
+Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les différentes zones réseau qu’il contrôle.
+
+![Rôle d'OPNsense dans Aegis Infra Lab](screenshots/opnsense/opnsense-role.png)
+
+---
+
+### 🌐 Segmentation réseau
+
+L’infrastructure est progressivement séparée en plusieurs zones.
+
+```text
+Internet
+   │
+   │
+ WAN / NAT
+   │
+┌───────────────┐
+│   OPNsense    │
+│ Firewall /    │
+│ Router        │
+└───────────────┘
+   │
+   ├── LAN Utilisateurs
+   │   └── Postes Windows
+   │
+   ├── LAN Infrastructure
+   │   └── Windows Server 2022
+   │       ├── Active Directory
+   │       ├── DNS
+   │       ├── DHCP
+   │       └── GPO
+   │
+   ├── Zone Services
+   │   └── Debian 12
+   │       ├── NGINX
+   │       └── Zabbix
+   │
+   └── Zone Sauvegarde
+       └── Services de sauvegarde
+
+Chaque zone dispose de son propre sous-réseau et de règles de filtrage adaptées à son rôle.
+
+🔌 Interfaces réseau prévues
+
+Le découpage prévu est le suivant :
+
+Interface	Zone	Sous-réseau
+WAN	Internet	NAT VirtualBox
+LAN 1	Utilisateurs	192.168.10.0/24
+LAN 2	Infrastructure	192.168.20.0/24
+LAN 3	Services	192.168.30.0/24
+LAN 4	Sauvegarde	192.168.40.0/24
+
+Les adresses pourront être adaptées au fur et à mesure de la configuration du laboratoire.
+
+🔐 Filtrage réseau
+
+Les règles de pare-feu seront progressivement mises en place afin d’appliquer une logique de moindre privilège.
+
+Quelques exemples de règles prévues :
+
+autoriser les postes utilisateurs à accéder à Internet ;
+limiter l’accès des postes utilisateurs aux serveurs ;
+autoriser uniquement les services nécessaires vers Windows Server ;
+autoriser Zabbix à superviser les serveurs et équipements ;
+empêcher l’accès direct des utilisateurs à la zone de sauvegarde ;
+limiter les communications entre les différentes zones ;
+bloquer les flux non explicitement autorisés.
+
+L’objectif est de réduire la surface d’attaque et d’éviter qu’une machine compromise puisse communiquer librement avec l’ensemble de l’infrastructure.
+
+🧪 Tests de validation
+
+La configuration d’OPNsense sera validée avec différents tests.
+
+Les tests comprendront notamment :
+
+vérification du fonctionnement de l’interface WAN ;
+vérification de l’accès à Internet ;
+vérification des interfaces internes ;
+accès à l’interface Web d’administration ;
+test de connectivité avec les différentes machines ;
+test du routage entre les réseaux ;
+test des règles de pare-feu ;
+test d’un flux explicitement autorisé ;
+test d’un flux explicitement bloqué ;
+vérification des journaux OPNsense.
+
+Les résultats seront documentés avec des captures d’écran.
+
+📸 Captures prévues
+
+Les captures OPNsense seront enregistrées dans :
+
+screenshots/opnsense/
+
+Les principales captures prévues sont :
+
+console OPNsense après installation ;
+interfaces WAN et LAN ;
+tableau de bord Web ;
+attribution des interfaces ;
+règles de pare-feu ;
+segmentation des réseaux ;
+test d’un flux autorisé ;
+test d’un flux bloqué ;
+journaux du pare-feu.
+
+Exemples de fichiers :
+
+screenshots/opnsense/
+├── installation-console.png
+├── interfaces.png
+├── dashboard.png
+├── firewall-rules.png
+├── allowed-traffic-test.png
+├── blocked-traffic-test.png
+└── firewall-logs.png
+📌 État de cette étape
+
+🚧 Configuration en cours
+
+L’installation de la machine virtuelle OPNsense est actuellement en cours.
+
+Les prochaines étapes seront :
+
+finaliser l’installation ;
+attribuer les interfaces réseau ;
+configurer l’accès à l’interface Web ;
+créer les différentes zones ;
+attribuer les sous-réseaux ;
+mettre en place les premières règles de filtrage ;
+effectuer les tests de connectivité ;
+documenter les résultats obtenus.
+
+Pour l’image que je viens de créer, tu l’enregistres dans ton dépôt sous :
+
+```
+
+<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/bcdf33cb-8f2e-4bcc-a655-fa13c91ad6d0" />
+
+
+Et la ligne qui l’affiche est déjà placée au bon endroit dans le bloc :
 ## ⚙️ Automatisation
 
 Certaines tâches d’administration sont automatisées afin de rendre le laboratoire plus facilement reproductible.
