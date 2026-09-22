@@ -213,12 +213,11 @@ Le WAN utilise la connectivité fournie par VirtualBox tandis que le LAN permet 
 
 ---
 
-### 🌐 Interface Web d’administration
+## 🌐 Interface Web d’administration
 
 L’administration d’OPNsense est réalisée depuis son interface Web sécurisée.
 
 Elle permet notamment de gérer :
-
 - les interfaces réseau ;
 - les règles de pare-feu ;
 - le NAT ;
@@ -226,11 +225,10 @@ Elle permet notamment de gérer :
 - le routage ;
 - les différents services réseau.
 
-L’interface d’administration est accessible depuis le réseau LAN via HTTPS.
+L’interface d’administration est accessible depuis le réseau LAN via HTTPS :
 
-```text
-https://192.168.56.2
-```
+`https://192.168.56.2`
+
 <img width="225" height="227" alt="image" src="https://github.com/user-attachments/assets/9430fb63-dcdf-45d4-85e6-cbbc8fa0ed6e" />
 
 
@@ -274,15 +272,18 @@ Cette configuration sera ensuite adaptée lorsque les différentes zones du labo
 
 ---
 
-### ✅ Validation d’un flux autorisé
+## ✅ Validation d’un flux autorisé
 
-La journalisation d’OPNsense permet de vérifier qu’un trafic autorisé traverse correctement le pare-feu.
+La journalisation d’OPNsense permet de vérifier qu’un trafic légitime traverse correctement le pare-feu.
 
 La capture suivante montre plusieurs entrées avec l’action :
 
-```text
-pass
-```
+`pass`
+
+Ces événements confirment qu’OPNsense autorise et journalise les communications correspondant aux règles configurées.
+
+Cette étape permet de vérifier que le pare-feu ne bloque pas les flux nécessaires au bon fonctionnement de l’infrastructure.
+
 <img width="377" height="209" alt="Capture d&#39;écran 2026-09-22 200824 - Copie" src="https://github.com/user-attachments/assets/af24778a-110a-4446-8434-f7a4e53346ef" />
 
 
@@ -292,13 +293,17 @@ Cette étape permet de vérifier que le pare-feu ne bloque pas les communication
 
 ---
 
-### ⛔ Validation d’un flux bloqué
+## 🚫 Validation d’un flux bloqué
 
 Un test de blocage a également été réalisé afin de vérifier l’application effective d’une règle personnalisée.
 
-Le trafic provenant du LAN a été volontairement dirigé vers un service dont l’accès devait être refusé.
+Le trafic provenant du réseau LAN a été volontairement dirigé vers un service dont l’accès devait être refusé.
 
 Les journaux OPNsense affichent alors plusieurs événements associés à la règle :
+
+`USER_RULE: Block LAN to Services`
+
+Le journal montre que le trafic concerné est bien identifié puis bloqué par le pare-feu, ce qui confirme le bon fonctionnement de la règle mise en place.
 
 ```text
 USER_RULE: Block LAN to Services
