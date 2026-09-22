@@ -211,15 +211,14 @@ Sans cette segmentation, les différentes machines du laboratoire pourraient com
 
 Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les différentes zones réseau qu’il contrôle.
 
-![Rôle d'OPNsense dans Aegis Infra Lab](screenshots/opnsense/opnsense-role.png)
-
+<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/bcdf33cb-8f2e-4bcc-a655-fa13c91ad6d0" />
 ---
 
 ### 🌐 Segmentation réseau
 
 L’infrastructure est progressivement séparée en plusieurs zones.
 
-```text
+``
 Internet
    │
    │
@@ -344,11 +343,8 @@ mettre en place les premières règles de filtrage ;
 effectuer les tests de connectivité ;
 documenter les résultats obtenus.
 
-Pour l’image que je viens de créer, tu l’enregistres dans ton dépôt sous :
 
-```
-
-<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/bcdf33cb-8f2e-4bcc-a655-fa13c91ad6d0" />
+``
 
 
 Et la ligne qui l’affiche est déjà placée au bon endroit dans le bloc :
