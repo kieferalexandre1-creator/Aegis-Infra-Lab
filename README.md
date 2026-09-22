@@ -156,171 +156,212 @@ Plusieurs principes de sécurité sont progressivement appliqués au laboratoire
 
 ---
 
-## 🔥 Déploiement d’OPNsense
+## 🔥 Déploiement et configuration d’OPNsense
 
-OPNsense constitue la première brique réseau d’Aegis Infra Lab.
+OPNsense constitue la brique réseau centrale d’Aegis Infra Lab.
 
-Il est utilisé comme **pare-feu et routeur principal** afin de gérer le routage, la segmentation et le filtrage des communications entre les différentes zones du laboratoire.
+Il est utilisé comme **pare-feu et routeur** afin de gérer le routage, le filtrage et progressivement la segmentation des différentes zones du laboratoire.
 
-Son rôle est central dans le projet, car l’ensemble des réseaux internes transitent par OPNsense avant de pouvoir communiquer entre eux ou accéder à Internet.
+Son rôle est notamment de :
+
+- contrôler les communications entre les réseaux ;
+- appliquer des règles de pare-feu ;
+- autoriser uniquement les flux nécessaires ;
+- bloquer certains accès ;
+- assurer l’accès Internet via le WAN ;
+- journaliser les communications ;
+- préparer la séparation entre les zones Utilisateurs, Infrastructure, Services et Sauvegarde.
 
 ---
 
-### 🖥️ Déploiement de la machine virtuelle
+### 🗺️ Rôle d’OPNsense dans l’infrastructure
+
+Le schéma suivant présente la place d’OPNsense dans l’architecture prévue d’Aegis Infra Lab.
+
+![Rôle d'OPNsense dans Aegis Infra Lab](screenshots/opnsense/06-opnsense-role.png)
+
+L’objectif est de faire transiter les communications entre les différentes zones par OPNsense afin de pouvoir appliquer des politiques de sécurité adaptées à chaque réseau.
+
+---
+
+### 🖥️ Installation de la machine virtuelle
 
 OPNsense est installé dans une machine virtuelle dédiée sous VirtualBox.
 
-Configuration utilisée :
+La configuration actuellement utilisée comprend :
 
-- **Nom de la VM :** `OPNsense-FW`
-- **Système :** FreeBSD 64-bit
-- **CPU :** 2 vCPU
-- **Mémoire :** 4 Go
-- **Stockage :** 20 à 32 Go
-- **Interface WAN :** NAT
-- **Interfaces internes :** réseaux VirtualBox dédiés aux différentes zones du laboratoire
+- une interface **WAN** permettant l’accès à Internet ;
+- une interface **LAN** dédiée au laboratoire ;
+- une adresse IP fixe pour l’administration du pare-feu.
 
-L’interface WAN permet à OPNsense d’accéder à Internet via la connexion réseau de la machine hôte.
+La console permet de vérifier directement l’état des interfaces réseau.
 
-Les autres interfaces seront utilisées pour connecter les différentes zones du laboratoire.
+![Console OPNsense](screenshots/opnsense/01-console-opnsense.png)
 
----
+Configuration observée :
 
-### 📌 Importance d’OPNsense dans le projet
+```text
+LAN : 192.168.56.2/24
+WAN : attribution DHCP
+```
 
-OPNsense se situe au cœur de l’architecture Aegis Infra Lab.
-
-Il permet notamment de :
-
-- relier les différents réseaux ;
-- assurer le routage entre les sous-réseaux ;
-- contrôler les communications entre les zones ;
-- appliquer des règles de pare-feu ;
-- segmenter les postes clients, les serveurs et les services ;
-- limiter les flux au strict nécessaire ;
-- isoler les services sensibles ;
-- appliquer le principe du moindre privilège ;
-- journaliser les communications ;
-- tester des scénarios de sécurité réalistes.
-
-Sans cette segmentation, les différentes machines du laboratoire pourraient communiquer librement entre elles, ce qui ne correspondrait pas à une architecture d’entreprise sécurisée.
+Le WAN utilise la connectivité fournie par VirtualBox tandis que le LAN permet aux machines du laboratoire de communiquer avec OPNsense.
 
 ---
 
-### 🗺️ Schéma du rôle d’OPNsense
+### 🌐 Interface Web d’administration
 
-Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les différentes zones réseau qu’il contrôle.
+L’administration d’OPNsense est réalisée depuis son interface Web sécurisée.
 
+Elle permet notamment de gérer :
 
-<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/cafd65f8-3dc6-4fd9-bdb4-ddcbe50c4c21" />
+- les interfaces réseau ;
+- les règles de pare-feu ;
+- le NAT ;
+- les journaux ;
+- le routage ;
+- les différents services réseau.
+
+![Interface Web OPNsense](screenshots/opnsense/02-interface-web-nat.png)
+
+L’interface d’administration est accessible depuis le réseau LAN via HTTPS.
+
+```text
+https://192.168.56.2
+```
 
 ---
 
-### 🌐 Segmentation réseau
+### 🔐 Mise en place des règles de pare-feu
 
-L’infrastructure est progressivement séparée en plusieurs zones.
+Des règles LAN ont été créées afin de tester le fonctionnement du filtrage réseau.
 
-<img width="1916" height="821" alt="image" src="https://github.com/user-attachments/assets/935a9515-f671-43f8-a1b6-31989163d3e0" />
+Deux comportements ont notamment été configurés :
 
+- autorisation du trafic LAN nécessaire ;
+- blocage volontaire de certains flux vers des services.
 
-Chaque zone dispose de son propre sous-réseau et de règles de filtrage adaptées à son rôle.
+<img width="1045" height="339" alt="Capture d&#39;écran 2026-09-21 221337" src="https://github.com/user-attachments/assets/76c76034-9891-4a4a-88e1-899870719a0e" />
 
-🔌 Interfaces réseau prévues
+Les règles permettent de reproduire le principe suivant :
 
-Le découpage prévu est le suivant :
-
-Interface	Zone	Sous-réseau
-WAN	Internet	NAT VirtualBox
-LAN 1	Utilisateurs	192.168.10.0/24
-LAN 2	Infrastructure	192.168.20.0/24
-LAN 3	Services	192.168.30.0/24
-LAN 4	Sauvegarde	192.168.40.0/24
-
-Les adresses pourront être adaptées au fur et à mesure de la configuration du laboratoire.
-
-🔐 Filtrage réseau
-
-Les règles de pare-feu seront progressivement mises en place afin d’appliquer une logique de moindre privilège.
-
-Quelques exemples de règles prévues :
-
-autoriser les postes utilisateurs à accéder à Internet ;
-limiter l’accès des postes utilisateurs aux serveurs ;
-autoriser uniquement les services nécessaires vers Windows Server ;
-autoriser Zabbix à superviser les serveurs et équipements ;
-empêcher l’accès direct des utilisateurs à la zone de sauvegarde ;
-limiter les communications entre les différentes zones ;
-bloquer les flux non explicitement autorisés.
-
-L’objectif est de réduire la surface d’attaque et d’éviter qu’une machine compromise puisse communiquer librement avec l’ensemble de l’infrastructure.
-
-🧪 Tests de validation
-
-La configuration d’OPNsense sera validée avec différents tests.
-
-Les tests comprendront notamment :
-
-vérification du fonctionnement de l’interface WAN ;
-vérification de l’accès à Internet ;
-vérification des interfaces internes ;
-accès à l’interface Web d’administration ;
-test de connectivité avec les différentes machines ;
-test du routage entre les réseaux ;
-test des règles de pare-feu ;
-test d’un flux explicitement autorisé ;
-test d’un flux explicitement bloqué ;
-vérification des journaux OPNsense.
-
-Les résultats seront documentés avec des captures d’écran.
-
-📸 Captures prévues
-
-Les captures OPNsense seront enregistrées dans :
-
-screenshots/opnsense/
-
-Les principales captures prévues sont :
-
-console OPNsense après installation ;
-interfaces WAN et LAN ;
-tableau de bord Web ;
-attribution des interfaces ;
-règles de pare-feu ;
-segmentation des réseaux ;
-test d’un flux autorisé ;
-test d’un flux bloqué ;
-journaux du pare-feu.
-
-Exemples de fichiers :
-
-screenshots/opnsense/
-├── installation-console.png
-├── interfaces.png
-├── dashboard.png
-├── firewall-rules.png
-├── allowed-traffic-test.png
-├── blocked-traffic-test.png
-└── firewall-logs.png
-📌 État de cette étape
-
-🚧 Configuration en cours
-
-L’installation de la machine virtuelle OPNsense est actuellement en cours.
-
-Les prochaines étapes seront :
-
-finaliser l’installation ;
-attribuer les interfaces réseau ;
-configurer l’accès à l’interface Web ;
-créer les différentes zones ;
-attribuer les sous-réseaux ;
-mettre en place les premières règles de filtrage ;
-effectuer les tests de connectivité ;
-documenter les résultats obtenus.
+```text
+Trafic nécessaire
+        │
+        ▼
+      PASS
+        │
+        ▼
+Communication autorisée
 
 
-``
+Trafic non autorisé
+        │
+        ▼
+      BLOCK
+        │
+        ▼
+Communication refusée
+```
 
+Cette configuration sera ensuite adaptée lorsque les différentes zones du laboratoire seront complètement déployées.
+
+---
+
+### ✅ Validation d’un flux autorisé
+
+La journalisation d’OPNsense permet de vérifier qu’un trafic autorisé traverse correctement le pare-feu.
+
+La capture suivante montre plusieurs entrées avec l’action :
+
+```text
+pass
+```
+<img width="377" height="209" alt="Capture d&#39;écran 2026-09-22 200824 - Copie" src="https://github.com/user-attachments/assets/af24778a-110a-4446-8434-f7a4e53346ef" />
+
+
+Ces événements confirment qu’OPNsense autorise et journalise les communications correspondant aux règles configurées.
+
+![Trafic autorisé OPNsense](screenshots/opnsense/04-allowed-traffic-logs.png)
+
+Cette étape permet de vérifier que le pare-feu ne bloque pas les communications légitimes nécessaires au fonctionnement de l’infrastructure.
+
+---
+
+### ⛔ Validation d’un flux bloqué
+
+Un test de blocage a également été réalisé afin de vérifier l’application effective d’une règle personnalisée.
+
+Le trafic provenant du LAN a été volontairement dirigé vers un service dont l’accès devait être refusé.
+
+Les journaux OPNsense affichent alors plusieurs événements associés à la règle :
+
+```text
+USER_RULE: Block LAN to Services
+```
+<img width="1026" height="498" alt="Capture d&#39;écran 2026-09-22 201459" src="https://github.com/user-attachments/assets/1ce85c25-c855-4613-b5db-f2c6b2b7d8e9" />
+
+
+
+Le journal montre notamment un trafic provenant de :
+
+```text
+192.168.56.10
+```
+
+vers :
+
+```text
+192.168.56.2:10001
+```
+
+Le trafic est refusé par OPNsense conformément à la règle de filtrage configurée.
+
+Ce test permet de confirmer que :
+
+- la règle personnalisée est bien prise en compte ;
+- le pare-feu bloque effectivement le trafic concerné ;
+- les événements sont correctement journalisés ;
+- les logs peuvent être utilisés pour analyser les communications réseau.
+
+---
+
+### 🧪 Résultats des tests
+
+Les premiers tests réalisés permettent de valider plusieurs éléments :
+
+| Test | Résultat |
+|---|---|
+| Démarrage d’OPNsense | ✅ Validé |
+| Configuration WAN | ✅ Validée |
+| Configuration LAN | ✅ Validée |
+| Accès à l’interface Web | ✅ Validé |
+| Création de règles LAN | ✅ Validée |
+| Trafic autorisé | ✅ Validé |
+| Trafic bloqué | ✅ Validé |
+| Journalisation des flux | ✅ Validée |
+
+Ces tests montrent qu’OPNsense est capable d’assurer le **routage, le filtrage et la journalisation** des communications du laboratoire.
+
+---
+
+### 🔜 Évolutions prévues
+
+La configuration OPNsense évoluera avec le déploiement des autres composants d’Aegis Infra Lab.
+
+Les prochaines étapes comprendront notamment :
+
+- création des différentes zones réseau ;
+- séparation du LAN Utilisateurs ;
+- séparation du LAN Infrastructure ;
+- création de la Zone Services ;
+- création de la Zone Sauvegarde ;
+- règles spécifiques entre les différentes zones ;
+- limitation des ports et protocoles autorisés ;
+- supervision des communications ;
+- amélioration de la journalisation.
+
+L’objectif final est d'appliquer une logique de **segmentation réseau et de moindre privilège**, dans laquelle seuls les flux réellement nécessaires sont autorisés.
 
 Et la ligne qui l’affiche est déjà placée au bon endroit dans le bloc :
 ## ⚙️ Automatisation
