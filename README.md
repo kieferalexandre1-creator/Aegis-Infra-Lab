@@ -108,7 +108,8 @@ Aegis Infra Lab a pour objectif de mettre en pratique :
 
 ## Environnement technique
 
-<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/9be49945-99d2-4eed-bd17-33f843b96701" />
+<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/cafd65f8-3dc6-4fd9-bdb4-ddcbe50c4c21" />
+
 
 
 
@@ -219,7 +220,7 @@ Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les
 
 L’infrastructure est progressivement séparée en plusieurs zones.
 
-<img width="1916" height="821" alt="image" src="https://github.com/user-attachments/assets/fcbaef27-fadc-46cb-8675-7561c3fb7b49" />
+<img width="1916" height="821" alt="image" src="https://github.com/user-attachments/assets/935a9515-f671-43f8-a1b6-31989163d3e0" />
 
 
 Chaque zone dispose de son propre sous-réseau et de règles de filtrage adaptées à son rôle.
