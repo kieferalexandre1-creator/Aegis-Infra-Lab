@@ -9,15 +9,15 @@
 
 ## 👤 À propos de moi
 
-Profil **junior en administration systèmes, réseaux et cybersécurité**, titulaire d’un **Titre Professionnel Technicien Informatique obtenu en 2024** et d’un **Bachelor Administrateur d’Infrastructures Sécurisées obtenu en 2025**.
+Profil junior en systèmes, réseaux et cybersécurité, j’ai obtenu un Titre Professionnel Technicien Informatique en 2024, puis un Bachelor Administrateur d’Infrastructures Sécurisées en 2025.
 
-Mon parcours m’a permis d’acquérir une première expérience professionnelle de **3 mois en tant que Technicien Informatique**, puis d’environ **1 an en alternance en tant qu’Administrateur Systèmes, Réseaux & Cybersécurité**.
+J’ai commencé mon parcours avec un stage de 3 mois chez Kertios, principalement autour du support informatique et de l’administration systèmes et réseaux. J’ai ensuite réalisé environ un an d’alternance chez Cesam Seed en tant qu’Administrateur Systèmes, Réseaux & Cybersécurité.
 
-J’ai notamment eu l’occasion de travailler sur des environnements Windows et Linux, la virtualisation avec VMware ESXi/vCenter, les réseaux, la sauvegarde, la supervision, la gestion des comptes et des droits d’accès ainsi que la sécurisation des infrastructures.
+Ces expériences m’ont permis de travailler sur des environnements Windows et Linux, la virtualisation avec VMware ESXi/vCenter, les réseaux, la sauvegarde, la supervision, la gestion des comptes et des droits d’accès, ainsi que sur différents sujets liés à la sécurisation des infrastructures.
 
-Je souhaite aujourd’hui continuer à développer mes compétences et poursuivre mon parcours avec un **Mastère Expert Cybersécurité en alternance**.
+Je souhaite aujourd’hui continuer à progresser dans ces domaines et poursuivre mon parcours avec un Mastère Expert Cybersécurité en alternance.
 
-Aegis Infra Lab me permet de mettre en pratique mes connaissances dans un environnement personnel, de tester différentes technologies et de documenter progressivement mon travail.
+J’ai créé Aegis Infra Lab pour continuer à pratiquer en dehors du cadre professionnel, tester différentes technologies, construire une infrastructure complète et documenter concrètement les étapes de mon travail.
 
 ---
 
@@ -218,35 +218,8 @@ Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les
 
 L’infrastructure est progressivement séparée en plusieurs zones.
 
-``
-Internet
-   │
-   │
- WAN / NAT
-   │
-┌───────────────┐
-│   OPNsense    │
-│ Firewall /    │
-│ Router        │
-└───────────────┘
-   │
-   ├── LAN Utilisateurs
-   │   └── Postes Windows
-   │
-   ├── LAN Infrastructure
-   │   └── Windows Server 2022
-   │       ├── Active Directory
-   │       ├── DNS
-   │       ├── DHCP
-   │       └── GPO
-   │
-   ├── Zone Services
-   │   └── Debian 12
-   │       ├── NGINX
-   │       └── Zabbix
-   │
-   └── Zone Sauvegarde
-       └── Services de sauvegarde
+<img width="1916" height="821" alt="image" src="https://github.com/user-attachments/assets/fcbaef27-fadc-46cb-8675-7561c3fb7b49" />
+
 
 Chaque zone dispose de son propre sous-réseau et de règles de filtrage adaptées à son rôle.
 
