@@ -108,8 +108,6 @@ Aegis Infra Lab a pour objectif de mettre en pratique :
 
 ## Environnement technique
 
-<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/cafd65f8-3dc6-4fd9-bdb4-ddcbe50c4c21" />
-
 
 
 
@@ -213,7 +211,9 @@ Sans cette segmentation, les différentes machines du laboratoire pourraient com
 
 Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les différentes zones réseau qu’il contrôle.
 
-<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/bcdf33cb-8f2e-4bcc-a655-fa13c91ad6d0" />
+
+<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/cafd65f8-3dc6-4fd9-bdb4-ddcbe50c4c21" />
+
 ---
 
 ### 🌐 Segmentation réseau
