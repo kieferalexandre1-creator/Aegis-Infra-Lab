@@ -226,14 +226,13 @@ Elle permet notamment de gérer :
 - le routage ;
 - les différents services réseau.
 
-<img width="225" height="227" alt="image" src="https://github.com/user-attachments/assets/9430fb63-dcdf-45d4-85e6-cbbc8fa0ed6e" />
-
-
 L’interface d’administration est accessible depuis le réseau LAN via HTTPS.
 
 ```text
 https://192.168.56.2
 ```
+<img width="225" height="227" alt="image" src="https://github.com/user-attachments/assets/9430fb63-dcdf-45d4-85e6-cbbc8fa0ed6e" />
+
 
 ---
 
@@ -246,7 +245,6 @@ Deux comportements ont notamment été configurés :
 - autorisation du trafic LAN nécessaire ;
 - blocage volontaire de certains flux vers des services.
 
-<img width="1045" height="339" alt="Capture d&#39;écran 2026-09-21 221337" src="https://github.com/user-attachments/assets/76c76034-9891-4a4a-88e1-899870719a0e" />
 
 Les règles permettent de reproduire le principe suivant :
 
@@ -271,6 +269,9 @@ Communication refusée
 
 Cette configuration sera ensuite adaptée lorsque les différentes zones du laboratoire seront complètement déployées.
 
+<img width="1045" height="339" alt="Capture d&#39;écran 2026-09-21 221337" src="https://github.com/user-attachments/assets/76c76034-9891-4a4a-88e1-899870719a0e" />
+
+
 ---
 
 ### ✅ Validation d’un flux autorisé
@@ -286,8 +287,6 @@ pass
 
 
 Ces événements confirment qu’OPNsense autorise et journalise les communications correspondant aux règles configurées.
-
-![Trafic autorisé OPNsense](screenshots/opnsense/04-allowed-traffic-logs.png)
 
 Cette étape permet de vérifier que le pare-feu ne bloque pas les communications légitimes nécessaires au fonctionnement de l’infrastructure.
 
@@ -305,8 +304,6 @@ Les journaux OPNsense affichent alors plusieurs événements associés à la rè
 USER_RULE: Block LAN to Services
 ```
 <img width="1026" height="498" alt="Capture d&#39;écran 2026-09-22 201459" src="https://github.com/user-attachments/assets/1ce85c25-c855-4613-b5db-f2c6b2b7d8e9" />
-
-
 
 Le journal montre notamment un trafic provenant de :
 
