@@ -109,7 +109,7 @@ Aegis Infra Lab a pour objectif de mettre en pratique :
 ## Environnement technique
 
 
-
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/38c60b17-fe22-4984-968f-ca9f7d45d998" />
 
 
 ## 🏗️ Architecture de l’infrastructure
@@ -128,7 +128,9 @@ Elle comprend progressivement :
 
 - différentes zones réseau séparées et contrôlées par OPNsense.
 
-### Schéma de l’architectur
+### Schéma de l’architecture
+
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/1394c67a-daa6-442a-b6f1-919eb8b5e970" />
 
 ## 🔐 Sécurisation de l’infrastructure
 
@@ -196,7 +198,8 @@ La configuration actuellement utilisée comprend :
 
 La console permet de vérifier directement l’état des interfaces réseau.
 
-![Console OPNsense](screenshots/opnsense/01-console-opnsense.png)
+<img width="1280" height="355" alt="image" src="https://github.com/user-attachments/assets/85f89181-4801-4247-a93e-aac8e31ab48e" />
+
 
 Configuration observée :
 
@@ -222,7 +225,8 @@ Elle permet notamment de gérer :
 - le routage ;
 - les différents services réseau.
 
-![Interface Web OPNsense](screenshots/opnsense/02-interface-web-nat.png)
+<img width="225" height="227" alt="image" src="https://github.com/user-attachments/assets/9430fb63-dcdf-45d4-85e6-cbbc8fa0ed6e" />
+
 
 L’interface d’administration est accessible depuis le réseau LAN via HTTPS.
 
@@ -364,6 +368,7 @@ Les prochaines étapes comprendront notamment :
 L’objectif final est d'appliquer une logique de **segmentation réseau et de moindre privilège**, dans laquelle seuls les flux réellement nécessaires sont autorisés.
 
 Et la ligne qui l’affiche est déjà placée au bon endroit dans le bloc :
+
 ## ⚙️ Automatisation
 
 Certaines tâches d’administration sont automatisées afin de rendre le laboratoire plus facilement reproductible.
