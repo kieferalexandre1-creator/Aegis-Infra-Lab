@@ -180,7 +180,8 @@ Son rôle est notamment de :
 
 Le schéma suivant présente la place d’OPNsense dans l’architecture prévue d’Aegis Infra Lab.
 
-![Rôle d'OPNsense dans Aegis Infra Lab](screenshots/opnsense/06-opnsense-role.png)
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/bde7b15f-4bf9-4f49-bf65-249acb841f54" />
+
 
 L’objectif est de faire transiter les communications entre les différentes zones par OPNsense afin de pouvoir appliquer des politiques de sécurité adaptées à chaque réseau.
 
