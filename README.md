@@ -84,13 +84,13 @@ Je recherche principalement des opportunités junior en :
 
 ## 📌 Présentation du projet
 
-**Aegis Infra Lab** est un laboratoire personnel conçu pour reproduire l’infrastructure informatique d’une PME fictive dans un environnement entièrement virtualisé.
+Aegis Infra Lab est un projet personnel que j’ai créé pour mettre en pratique mes compétences en administration systèmes, réseaux et cybersécurité dans un environnement proche de celui d’une PME.
 
-L’objectif est de construire progressivement une infrastructure permettant de mettre en pratique plusieurs compétences liées à l’**administration systèmes et réseaux**, à la **sécurisation des infrastructures**, à la **supervision** et à l’**automatisation**.
+L’idée est de construire progressivement une infrastructure complète et entièrement virtualisée, afin de pouvoir expérimenter, configurer et sécuriser différents services sans dépendre d’un environnement de production.
 
-Le laboratoire repose principalement sur **VirtualBox**, **OPNsense**, **Windows Server 2022** et **Debian 12**.
+Le laboratoire s’appuie principalement sur VirtualBox, OPNsense, Windows Server 2022 et Debian 12. Au fil du projet, j’y intègre différents éléments liés à l’administration système, à la gestion du réseau, à la sécurité, à la supervision et à l’automatisation.
 
-Le projet est développé progressivement afin de pouvoir configurer, tester et documenter chaque composant avant d’intégrer de nouvelles fonctionnalités.
+Je développe Aegis Infra Lab étape par étape : chaque composant est d’abord installé et configuré, puis testé et documenté avant de passer à la suite. Cela me permet à la fois de mieux comprendre le fonctionnement de l’infrastructure et de garder une trace claire des choix techniques et des configurations mises en place.
 
 ---
 
