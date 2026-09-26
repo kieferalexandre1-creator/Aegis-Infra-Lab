@@ -51,16 +51,18 @@ En parallèle, je développe Aegis Infra Lab, mon laboratoire personnel. Je l’
 
 ## 🎯 Postes recherchés
 
+🎯 Postes recherchés
+
 Je recherche principalement des opportunités junior en :
 
-- Administration Systèmes & Réseaux
-- Administration d’infrastructures IT
-- Systèmes, Réseaux & Sécurité
-- Cybersécurité des infrastructures
-- Technicien Cybersécurité
-- Analyste SOC Junior
-- Support Informatique N1/N2
-
+* Administration Systèmes & Réseaux
+* Administration d’infrastructures IT
+* Systèmes, Réseaux & Cybersécurité
+* Cybersécurité des infrastructures
+* Analyste SOC Junior
+* Technicien Cybersécurité
+* Cloud / Infrastructure Junior
+* Support Informatique N1/N2
 ---
 
 ## 🏅 Certifications obtenues
@@ -94,20 +96,20 @@ Je développe Aegis Infra Lab étape par étape : chaque composant est d’abord
 
 ---
 
-## 🎯 Objectifs du Lab
+🎯 Objectifs du Lab
 
-Aegis Infra Lab a pour objectif de mettre en pratique :
+Aegis Infra Lab a pour objectif de mettre en pratique et d’approfondir :
 
-- l’administration de systèmes Windows et Linux ;
-- le déploiement et l’administration d’Active Directory ;
-- la gestion des utilisateurs, groupes et droits d’accès ;
-- les services DNS et DHCP ;
-- la segmentation et le filtrage réseau ;
-- l’administration d’un pare-feu OPNsense ;
-- la sécurisation des systèmes et des services ;
-- la supervision des équipements et serveurs ;
-- l’automatisation de tâches d’administration ;
-- la sauvegarde et la continuité de service.
+* l’administration de systèmes Windows et Linux ;
+* le déploiement et l’administration d’Active Directory ;
+* la gestion des utilisateurs, groupes et droits d’accès ;
+* la configuration des services DNS et DHCP ;
+* la segmentation et le filtrage réseau ;
+* l’administration d’un pare-feu OPNsense ;
+* le durcissement et la sécurisation des systèmes et services ;
+* la supervision des équipements et serveurs ;
+* l’automatisation des tâches d’administration ;
+* la sauvegarde, la restauration et la continuité de service.
 
 ---
 
