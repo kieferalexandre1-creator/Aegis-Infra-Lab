@@ -134,7 +134,9 @@ Elle comprend progressivement :
 
 - différentes zones réseau séparées et contrôlées par OPNsense.
 
-### Schéma de l’architectur
+### Schéma de l’architecture
+
+
 
 ## 🔐 Sécurisation de l’infrastructure
 
