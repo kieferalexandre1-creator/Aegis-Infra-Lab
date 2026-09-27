@@ -113,31 +113,28 @@ L’infrastructure est organisée autour de plusieurs zones distinctes :
 
 OPNsense assure le routage, le filtrage et le contrôle des flux entre ces différentes zones.
 
-## 🔐 Sécurisation de l’infrastructure
+## Sécurisation de l’infrastructure
 
-Plusieurs principes de sécurité sont progressivement appliqués au laboratoire :
+La sécurité d’Aegis Infra Lab est intégrée progressivement à chaque couche de l’infrastructure.
 
-- segmentation des différentes zones réseau ;
+L’objectif est de ne pas seulement protéger les machines individuellement, mais de mettre en place plusieurs niveaux de contrôle : réseau, systèmes, utilisateurs, services, supervision et sauvegarde.
 
-- filtrage des communications entre les zones ;
+### 🛡️ Principes de sécurité appliqués
 
-- principe du moindre privilège ;
-
-- gestion centralisée des utilisateurs et des groupes ;
-
+- **Segmentation réseau** afin de séparer les postes utilisateurs, les serveurs, les services et les sauvegardes ;
+- **Filtrage des communications** entre les différentes zones avec OPNsense ;
+- application du **principe du moindre privilège** ;
+- gestion centralisée des utilisateurs et des groupes avec Active Directory ;
 - contrôle des droits d’accès ;
+- durcissement des postes et serveurs Windows via **GPO** ;
+- sécurisation progressive des services Linux ;
+- utilisation de **HTTPS / SSL/TLS** lorsque cela est nécessaire ;
+- supervision des systèmes et des services ;
+- journalisation des événements et des communications ;
+- sauvegarde et tests de restauration.
 
-- durcissement des systèmes Windows via GPO ;
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/a887f090-2806-4a12-861f-b3f742b2adcc" />
 
-- sécurisation des services Linux ;
-
-- utilisation de certificats SSL/TLS ;
-
-- supervision des systèmes et services ;
-
-- journalisation des événements.
-
----
 
 ## 🔥 Déploiement d’OPNsense
 
