@@ -90,49 +90,28 @@ L’objectif n’est pas uniquement d’installer des technologies, mais de comp
 
 ---
 
-## Environnement technique
+## Environnement technique & choix technologiques
 
-## 🖥️ Environnement technique
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/10154402-b84a-4c9c-8a7a-cc349484ec7e" />
 
-L’environnement technique d’Aegis Infra Lab a été pensé pour reproduire progressivement une infrastructure d’entreprise cohérente, virtualisée et sécurisée.
-
-J’ai choisi ces différentes technologies afin de travailler des compétences complémentaires en **administration systèmes**, **réseaux**, **sécurité**, **supervision**, **automatisation** et **sauvegarde**.
-
-![Environnement technique](screenshots/overview/environnement-technique.png)
-
-Chaque brique du laboratoire répond à un besoin précis :
-
-- **VirtualBox** : héberger les différentes machines virtuelles du projet dans un environnement isolé ;
-- **OPNsense** : assurer le rôle de pare-feu, de routage et de segmentation réseau ;
-- **Windows Server 2022** : mettre en place les services d’infrastructure Microsoft comme Active Directory, DNS, DHCP et les GPO ;
-- **Windows Client** : simuler un poste utilisateur intégré au domaine ;
-- **Debian 12** : disposer d’un environnement Linux pour l’administration système et l’hébergement de services ;
-- **NGINX** : travailler la mise en place de services web et de reverse proxy ;
-- **Zabbix** : superviser les systèmes, les services et la disponibilité des ressources ;
-- **Veeam Backup** : mettre en œuvre la sauvegarde et la restauration des machines et des données ;
-- **PowerShell / Bash** : automatiser certaines tâches d’administration et de configuration.
-
-L’objectif est de construire un laboratoire réaliste, dans lequel chaque composant s’intègre dans une logique d’ensemble et permet de reproduire des cas d’usage proches d’un environnement professionnel.
 
 ## 🏗️ Architecture de l’infrastructure
 
-L’infrastructure est organisée autour d’un pare-feu **OPNsense**, chargé du routage et du contrôle des communications entre les différentes zones du laboratoire.
+Cette architecture présente l’organisation générale d’Aegis Infra Lab et la manière dont les différents systèmes, services et zones réseau interagissent entre eux.
 
-Elle comprend progressivement :
+L’objectif est de reproduire une infrastructure d’entreprise segmentée, dans laquelle les rôles sont séparés et les communications contrôlées par OPNsense.
 
-- un environnement **Windows Server 2022** pour Active Directory, DNS et DHCP ;
-
-- des postes clients Windows intégrés au domaine ;
-
-- un serveur **Debian 12** pour différents services Linux ;
-
-- une solution de supervision ;
-
-- différentes zones réseau séparées et contrôlées par OPNsense.
-
-### Schéma de l’architecture
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/1f5c32b5-9bb7-4801-b1f1-5d5ed1db8903" />
 
 
+L’infrastructure est organisée autour de plusieurs zones distinctes :
+
+- **LAN Utilisateurs** : postes Windows intégrés au domaine ;
+- **LAN Infrastructure** : Windows Server 2022, Active Directory, DNS, DHCP et GPO ;
+- **Zone Services** : Debian 12, NGINX, Zabbix et autres services Linux ;
+- **Zone Sauvegarde** : Veeam Backup & Replication et repository dédié.
+
+OPNsense assure le routage, le filtrage et le contrôle des flux entre ces différentes zones.
 
 ## 🔐 Sécurisation de l’infrastructure
 
