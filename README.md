@@ -9,30 +9,27 @@
 
 ## 👤 À propos de moi
 
-Je suis actuellement en début de parcours dans les domaines des systèmes, des réseaux et de la cybersécurité.
+Je suis **junior en administration systèmes, réseaux et cybersécurité**, avec une première expérience professionnelle en support informatique, administration systèmes et réseaux et sécurisation des infrastructures.
 
-J’ai obtenu un Titre Professionnel Technicien Informatique en 2024, puis un Bachelor Administrateur d’Infrastructures Sécurisées en 2025. J’ai commencé mon expérience professionnelle avec un stage de trois mois chez Kertios, principalement autour du support informatique et de l’administration systèmes et réseaux, avant de poursuivre avec environ un an d’alternance chez Cesam Seed en tant qu’Administrateur Systèmes, Réseaux & Cybersécurité.
+J’ai obtenu un **Titre Professionnel Technicien Informatique en 2024**, puis un **Bachelor Administrateur d’Infrastructures Sécurisées en 2025**.
 
-Au fil de ces expériences, j’ai eu l’occasion de travailler sur des environnements Windows et Linux, la virtualisation avec VMware ESXi et vCenter, les réseaux, la sauvegarde, la supervision, la gestion des comptes et des droits d’accès, ainsi que sur différents sujets liés à la sécurisation des infrastructures.
+J’ai commencé mon parcours avec un stage de trois mois chez **Kertios**, principalement autour du support informatique et de l’administration systèmes et réseaux, avant de poursuivre avec environ un an d’alternance chez **Cesam Seed** en tant qu’Administrateur Systèmes, Réseaux & Cybersécurité.
 
-Je souhaite aujourd’hui continuer à progresser techniquement, approfondir mes compétences en cybersécurité et poursuivre mon parcours avec un Mastère Expert Cybersécurité en alternance.
+Au fil de ces expériences, j’ai travaillé sur des environnements Windows et Linux, la virtualisation avec VMware ESXi/vCenter, les réseaux, la sauvegarde, la supervision, la gestion des comptes et des droits d’accès ainsi que sur différents sujets liés à la sécurisation des infrastructures.
 
-En parallèle, je développe Aegis Infra Lab, mon laboratoire personnel. Je l’utilise pour continuer à pratiquer en dehors du cadre professionnel, tester de nouvelles technologies, construire progressivement une infrastructure complète et documenter concrètement mon travail.
+Je souhaite aujourd’hui continuer à développer mes compétences sur des environnements systèmes, réseaux, infrastructures IT et cybersécurité.
 
-
-
-
-
+En parallèle, je développe **Aegis Infra Lab**, mon laboratoire personnel. Il me permet de pratiquer en dehors du cadre professionnel, tester différentes technologies, construire progressivement une infrastructure complète et documenter concrètement les configurations et les tests réalisés.
 
 ---
 
 ## 💼 Expérience
 
 - **≈ 1 an — Administrateur Systèmes, Réseaux & Cybersécurité**  
-  Alternance
+  Alternance — Cesam Seed
 
 - **3 mois — Technicien Informatique**  
-  Stage
+  Stage — Kertios
 
 ---
 
@@ -44,25 +41,6 @@ En parallèle, je développe Aegis Infra Lab, mon laboratoire personnel. Je l’
 - **2024 — Titre Professionnel Technicien Informatique**  
   Niveau 5 — Bac+2
 
-- **Projet 2026 — Mastère Expert Cybersécurité**  
-  Recherche d’une alternance de 2 ans
-
----
-
-## 🎯 Postes recherchés
-
-🎯 Postes recherchés
-
-Je recherche principalement des opportunités junior en :
-
-* Administration Systèmes & Réseaux
-* Administration d’infrastructures IT
-* Systèmes, Réseaux & Cybersécurité
-* Cybersécurité des infrastructures
-* Analyste SOC Junior
-* Technicien Cybersécurité
-* Cloud / Infrastructure Junior
-* Support Informatique N1/N2
 ---
 
 ## 🏅 Certifications obtenues
@@ -73,50 +51,68 @@ Je recherche principalement des opportunités junior en :
 
 ---
 
-## 📚 Certifications visées
-
-- **CompTIA Security+**
-- **eJPT — Junior Penetration Tester**
-- **CRTP — Certified Red Team Professional**
-
-
----
-
-# Aegis Infra Lab
+# 🛡️ Aegis Infra Lab
 
 ## 📌 Présentation du projet
 
 Aegis Infra Lab est un projet personnel que j’ai créé pour mettre en pratique mes compétences en administration systèmes, réseaux et cybersécurité dans un environnement proche de celui d’une PME.
 
-L’idée est de construire progressivement une infrastructure complète et entièrement virtualisée, afin de pouvoir expérimenter, configurer et sécuriser différents services sans dépendre d’un environnement de production.
+L’objectif est de construire progressivement une infrastructure complète et entièrement virtualisée afin de pouvoir installer, configurer, sécuriser, superviser et tester différents services sans dépendre d’un environnement de production.
 
-Le laboratoire s’appuie principalement sur VirtualBox, OPNsense, Windows Server 2022 et Debian 12. Au fil du projet, j’y intègre différents éléments liés à l’administration système, à la gestion du réseau, à la sécurité, à la supervision et à l’automatisation.
+Le laboratoire s’appuie principalement sur **VirtualBox, OPNsense, Windows Server 2022 et Debian 12**, avec l’intégration progressive de solutions de supervision, sauvegarde, automatisation et sécurité.
 
-Je développe Aegis Infra Lab étape par étape : chaque composant est d’abord installé et configuré, puis testé et documenté avant de passer à la suite. Cela me permet à la fois de mieux comprendre le fonctionnement de l’infrastructure et de garder une trace claire des choix techniques et des configurations mises en place.
+Chaque composant est installé, configuré, testé puis documenté avant de passer à l’étape suivante. Cette approche me permet de mieux comprendre le fonctionnement de l’infrastructure tout en conservant une trace claire des choix techniques et des résultats obtenus.
 
 ---
 
-🎯 Objectifs du Lab
+## 🎯 Objectifs du Lab
 
-Aegis Infra Lab a pour objectif de mettre en pratique et d’approfondir :
+Aegis Infra Lab a pour objectif de reproduire progressivement une infrastructure informatique d’entreprise cohérente, sécurisée et documentée.
 
-* l’administration de systèmes Windows et Linux ;
-* le déploiement et l’administration d’Active Directory ;
-* la gestion des utilisateurs, groupes et droits d’accès ;
-* la configuration des services DNS et DHCP ;
-* la segmentation et le filtrage réseau ;
-* l’administration d’un pare-feu OPNsense ;
-* le durcissement et la sécurisation des systèmes et services ;
-* la supervision des équipements et serveurs ;
-* l’automatisation des tâches d’administration ;
-* la sauvegarde, la restauration et la continuité de service.
+Le projet me permet notamment de :
+
+- administrer des environnements **Windows et Linux** ;
+- déployer et gérer un **Active Directory** ;
+- administrer les **utilisateurs, groupes et droits d’accès** ;
+- configurer les services **DNS et DHCP** ;
+- intégrer des postes clients au domaine ;
+- appliquer et tester des **GPO** ;
+- segmenter les réseaux et contrôler les flux avec **OPNsense** ;
+- sécuriser les communications entre les différentes zones ;
+- mettre en place des services Linux avec **Debian** et **NGINX** ;
+- superviser les systèmes et services avec **Zabbix** ;
+- mettre en place une stratégie de **sauvegarde et de restauration** ;
+- automatiser certaines tâches avec **PowerShell** et **Bash** ;
+- centraliser et analyser progressivement les journaux système ;
+- documenter chaque configuration, test et résultat obtenu.
+
+L’objectif n’est pas uniquement d’installer des technologies, mais de comprendre leur rôle dans une infrastructure, de les faire fonctionner ensemble et de vérifier leur bon fonctionnement à travers des tests concrets.
 
 ---
 
 ## Environnement technique
 
-<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/cafd65f8-3dc6-4fd9-bdb4-ddcbe50c4c21" />
+## 🖥️ Environnement technique
 
+L’environnement technique d’Aegis Infra Lab a été pensé pour reproduire progressivement une infrastructure d’entreprise cohérente, virtualisée et sécurisée.
+
+J’ai choisi ces différentes technologies afin de travailler des compétences complémentaires en **administration systèmes**, **réseaux**, **sécurité**, **supervision**, **automatisation** et **sauvegarde**.
+
+![Environnement technique](screenshots/overview/environnement-technique.png)
+
+Chaque brique du laboratoire répond à un besoin précis :
+
+- **VirtualBox** : héberger les différentes machines virtuelles du projet dans un environnement isolé ;
+- **OPNsense** : assurer le rôle de pare-feu, de routage et de segmentation réseau ;
+- **Windows Server 2022** : mettre en place les services d’infrastructure Microsoft comme Active Directory, DNS, DHCP et les GPO ;
+- **Windows Client** : simuler un poste utilisateur intégré au domaine ;
+- **Debian 12** : disposer d’un environnement Linux pour l’administration système et l’hébergement de services ;
+- **NGINX** : travailler la mise en place de services web et de reverse proxy ;
+- **Zabbix** : superviser les systèmes, les services et la disponibilité des ressources ;
+- **Veeam Backup** : mettre en œuvre la sauvegarde et la restauration des machines et des données ;
+- **PowerShell / Bash** : automatiser certaines tâches d’administration et de configuration.
+
+L’objectif est de construire un laboratoire réaliste, dans lequel chaque composant s’intègre dans une logique d’ensemble et permet de reproduire des cas d’usage proches d’un environnement professionnel.
 
 ## 🏗️ Architecture de l’infrastructure
 
