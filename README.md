@@ -49,7 +49,7 @@ En parallèle, je développe **Aegis Infra Lab**, mon laboratoire personnel. Il 
 - **AWS — Cloud Security Foundations**
 - **Cisco — Junior Cybersecurity Analyst Career Path**
 
----
+--
 
 # 🛡️ Aegis Infra Lab
 
@@ -121,20 +121,7 @@ L’objectif est de ne pas seulement protéger les machines individuellement, ma
 
 ### 🛡️ Principes de sécurité appliqués
 
-- **Segmentation réseau** afin de séparer les postes utilisateurs, les serveurs, les services et les sauvegardes ;
-- **Filtrage des communications** entre les différentes zones avec OPNsense ;
-- application du **principe du moindre privilège** ;
-- gestion centralisée des utilisateurs et des groupes avec Active Directory ;
-- contrôle des droits d’accès ;
-- durcissement des postes et serveurs Windows via **GPO** ;
-- sécurisation progressive des services Linux ;
-- utilisation de **HTTPS / SSL/TLS** lorsque cela est nécessaire ;
-- supervision des systèmes et des services ;
-- journalisation des événements et des communications ;
-- sauvegarde et tests de restauration.
-
 <img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/a887f090-2806-4a12-861f-b3f742b2adcc" />
-
 
 ## 🔥 Déploiement d’OPNsense
 
