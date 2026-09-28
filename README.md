@@ -125,11 +125,11 @@ L’objectif est de ne pas seulement protéger les machines individuellement, ma
 
 ## 🔥 Déploiement d’OPNsense
 
-OPNsense constitue la première brique réseau d’Aegis Infra Lab.
+OPNsense est la pièce centrale du réseau dans Aegis Infra Lab.
 
-Il est utilisé comme **pare-feu et routeur principal** afin de gérer le routage, la segmentation et le filtrage des communications entre les différentes zones du laboratoire.
+Je l’utilise comme **pare-feu et routeur** pour relier les différentes zones du laboratoire, contrôler les flux entre elles et gérer l’accès à Internet.
 
-Son rôle est central dans le projet, car l’ensemble des réseaux internes transitent par OPNsense avant de pouvoir communiquer entre eux ou accéder à Internet.
+L’objectif est d’éviter que toutes les machines puissent communiquer librement entre elles, et de pouvoir définir précisément quels échanges sont autorisés ou bloqués selon les besoins.
 
 ---
 
@@ -149,75 +149,95 @@ Configuration utilisée :
 
 L’interface WAN permet à OPNsense d’accéder à Internet via la connexion réseau de la machine hôte.
 
-Les autres interfaces seront utilisées pour connecter les différentes zones du laboratoire.
+Les autres interfaces sont utilisées pour connecter les différentes zones du laboratoire.
 
 ---
 
-### 📌 Importance d’OPNsense dans le projet
+### 🌐 Interface Web d’administration
 
-OPNsense se situe au cœur de l’architecture Aegis Infra Lab.
+Une fois OPNsense installé et les interfaces réseau configurées, l’administration du pare-feu est réalisée depuis son interface Web.
 
-Il permet notamment de :
+Le tableau de bord permet d’avoir une vue rapide sur l’état du système, les services actifs, les passerelles ainsi que les interfaces LAN et WAN.
 
-- relier les différents réseaux ;
-- assurer le routage entre les sous-réseaux ;
-- contrôler les communications entre les zones ;
-- appliquer des règles de pare-feu ;
-- segmenter les postes clients, les serveurs et les services ;
-- limiter les flux au strict nécessaire ;
-- isoler les services sensibles ;
-- appliquer le principe du moindre privilège ;
-- journaliser les communications ;
-- tester des scénarios de sécurité réalistes.
+<img width="1280" height="355" alt="Capture d&#39;écran 2026-09-22 203306" src="https://github.com/user-attachments/assets/085a4b0b-1e87-4504-b75a-a3ddbbd8a0f9" />
 
-Sans cette segmentation, les différentes machines du laboratoire pourraient communiquer librement entre elles, ce qui ne correspondrait pas à une architecture d’entreprise sécurisée.
 
 ---
+
+### 📌 Pourquoi OPNsense est important dans le projet
+
+J’ai choisi OPNsense pour avoir un point central capable de gérer les communications entre les différentes zones du laboratoire.
+
+Il me permet de travailler concrètement sur :
+
+- le routage entre les sous-réseaux ;
+- la création de règles de pare-feu ;
+- le filtrage des flux entre les zones ;
+- la séparation des postes, serveurs et services ;
+- le principe du moindre privilège ;
+- la journalisation des communications ;
+- les tests de flux autorisés et bloqués.
+
+L’intérêt est surtout de pouvoir reproduire une logique proche d’une infrastructure d’entreprise, où les machines ne communiquent pas toutes librement entre elles et où chaque accès doit répondre à un besoin précis.
+
+---
+
 
 ### 🗺️ Schéma du rôle d’OPNsense
 
 Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les différentes zones réseau qu’il contrôle.
 
-<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/bcdf33cb-8f2e-4bcc-a655-fa13c91ad6d0" />
+<img width="1312" height="1199" alt="Schéma du rôle d'OPNsense dans Aegis Infra Lab" src="https://github.com/user-attachments/assets/bcdf33cb-8f2e-4bcc-a655-fa13c91ad6d0" />
+
 ---
 
 ### 🌐 Segmentation réseau
 
-L’infrastructure est progressivement séparée en plusieurs zones.
-
-<img width="1916" height="821" alt="image" src="https://github.com/user-attachments/assets/935a9515-f671-43f8-a1b6-31989163d3e0" />
-
-
-Chaque zone dispose de son propre sous-réseau et de règles de filtrage adaptées à son rôle.
-
-🔌 Interfaces réseau prévues
+Chaque zone du laboratoire dispose de son propre sous-réseau afin de séparer les usages et de mieux contrôler les communications entre les différents équipements.
 
 Le découpage prévu est le suivant :
 
-Interface	Zone	Sous-réseau
-WAN	Internet	NAT VirtualBox
-LAN 1	Utilisateurs	192.168.10.0/24
-LAN 2	Infrastructure	192.168.20.0/24
-LAN 3	Services	192.168.30.0/24
-LAN 4	Sauvegarde	192.168.40.0/24
+| Interface | Zone | Sous-réseau |
+|---|---|---|
+| WAN | Internet | NAT VirtualBox |
+| LAN 1 | Utilisateurs | `192.168.10.0/24` |
+| LAN 2 | Infrastructure | `192.168.20.0/24` |
+| LAN 3 | Services | `192.168.30.0/24` |
+| LAN 4 | Sauvegarde | `192.168.40.0/24` |
 
-Les adresses pourront être adaptées au fur et à mesure de la configuration du laboratoire.
+Ce découpage permet de séparer les postes clients, les serveurs, les services et les sauvegardes afin d’éviter qu’ils puissent communiquer librement entre eux.
 
-🔐 Filtrage réseau
+---
 
-Les règles de pare-feu seront progressivement mises en place afin d’appliquer une logique de moindre privilège.
+### 🔌 Interfaces réseau
 
-Quelques exemples de règles prévues :
+OPNsense est chargé de relier ces différentes zones et d’appliquer les règles de filtrage associées à chaque interface.
 
-autoriser les postes utilisateurs à accéder à Internet ;
-limiter l’accès des postes utilisateurs aux serveurs ;
-autoriser uniquement les services nécessaires vers Windows Server ;
-autoriser Zabbix à superviser les serveurs et équipements ;
-empêcher l’accès direct des utilisateurs à la zone de sauvegarde ;
-limiter les communications entre les différentes zones ;
-bloquer les flux non explicitement autorisés.
+À ce stade du projet, la configuration est mise en place progressivement. Les sous-réseaux et interfaces pourront être ajustés au fur et à mesure de l’évolution du laboratoire.
 
-L’objectif est de réduire la surface d’attaque et d’éviter qu’une machine compromise puisse communiquer librement avec l’ensemble de l’infrastructure.
+![Interfaces OPNsense](screenshots/opnsense/interfaces-opnsense.png)
+
+---
+
+### 🔐 Filtrage réseau
+
+Les règles de pare-feu sont mises en place afin d’appliquer une logique de **moindre privilège**.
+
+L’objectif est de n’autoriser que les communications réellement nécessaires au fonctionnement de l’infrastructure.
+
+Quelques exemples de règles prévues ou mises en place :
+
+- autoriser les postes utilisateurs à accéder à Internet ;
+- limiter l’accès des postes utilisateurs aux serveurs ;
+- autoriser uniquement les services nécessaires vers Windows Server ;
+- permettre à Zabbix de superviser les serveurs et équipements ;
+- empêcher l’accès direct des utilisateurs à la zone de sauvegarde ;
+- limiter les communications entre les différentes zones ;
+- bloquer les flux qui ne sont pas explicitement autorisés.
+
+![Règles de pare-feu OPNsense](screenshots/opnsense/firewall-rules.png)
+
+Cette approche permet de réduire la surface d’attaque et de limiter les mouvements possibles en cas de compromission d’une machine.
 
 🧪 Tests de validation
 
