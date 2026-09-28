@@ -1,4 +1,3 @@
-<img width="374" height="206" alt="Capture d&#39;écran 2026-09-21 215815" src="https://github.com/user-attachments/assets/ae9765d6-2bb5-4d30-ab92-3775245c1f67" />
 # Aegis-Infra-Lab - Infrastructure d'Entreprise Sécurisée 
 ### 👤 Alexandre KIEFER
 **Administrateur Systèmes, Réseaux & Cybersécurité**  
