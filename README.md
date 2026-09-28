@@ -266,7 +266,8 @@ Les journaux OPNsense font apparaître plusieurs événements associés à la r�
 
 `USER_RULE: Block LAN to Services`
 
-<img width="..." alt="Logs OPNsense - trafic bloqué" src="..." />
+<img width="1026" height="498" alt="Capture d&#39;écran 2026-09-22 201459" src="https://github.com/user-attachments/assets/5208f4c7-e05b-401b-901a-07a3a2f1c2de" />
+
 
 Cette capture confirme que le trafic concerné est bien identifié, bloqué puis journalisé par OPNsense.
 
