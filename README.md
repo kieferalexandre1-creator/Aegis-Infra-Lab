@@ -349,3 +349,102 @@ Le domaine Active Directory utilisé dans Aegis Infra Lab est :
 
 
 Ce domaine servira ensuite à intégrer les postes Windows, centraliser les comptes utilisateurs, gérer les groupes et appliquer les stratégies de groupe.
+
+### 👥 Active Directory — OU, utilisateurs et groupes
+
+Après le déploiement de Windows Server 2022, j’ai mis en place Active Directory afin de centraliser la gestion des utilisateurs, des groupes et des ordinateurs du domaine `aegis.local`.
+
+L’objectif est de reproduire une organisation simple d’entreprise, avec une structure claire permettant ensuite d’appliquer des droits d’accès et des stratégies de groupe de manière ciblée.
+
+La structure utilisée comprend notamment :
+
+- une OU principale `AEGIS-ENTREPRISE` ;
+- une OU `Utilisateurs` ;
+- une OU `Groupes` ;
+- une OU `Ordinateurs` ;
+- une OU `Serveurs`.
+
+Des groupes de sécurité ont également été créés pour représenter plusieurs services :
+
+- `Informatique`
+- `RH`
+- `Comptabilite`
+
+### 🗂️ Structure des unités d’organisation
+
+L’arborescence Active Directory permet de séparer les différents types d’objets et de garder une organisation claire du domaine.
+
+<img width="398" height="205" alt="Capture d&#39;écran 2026-09-28 173556" src="https://github.com/user-attachments/assets/8d803896-45bc-4eb9-9832-7362b1b77d79" />
+
+
+Cette structure servira ensuite de base pour l’intégration des postes, l’application des GPO et la gestion des droits d’accès.
+
+---
+
+### ⚙️ Automatisation avec PowerShell
+
+Une partie de la configuration Active Directory est automatisée avec PowerShell afin de rendre le déploiement plus rapide et reproductible.
+
+Le script permet notamment de :
+
+- créer l’OU principale `AEGIS-ENTREPRISE` ;
+- créer les sous-OU ;
+- créer les groupes de sécurité ;
+- créer plusieurs utilisateurs de test ;
+- affecter automatiquement les utilisateurs à leur groupe ;
+- demander un mot de passe temporaire au moment de l’exécution.
+
+<img width="944" height="716" alt="Capture d&#39;écran 2026-09-28 173525" src="https://github.com/user-attachments/assets/a4622450-8487-4978-8622-4fab1ea9f2b7" />
+
+Le mot de passe n’est pas stocké directement dans le script : il est demandé au moment de l’exécution avec `Read-Host -AsSecureString`.
+
+### 👤 Utilisateurs et groupes de sécurité
+
+Des utilisateurs de test ont été créés afin de reproduire plusieurs profils présents dans une petite entreprise.
+
+Chaque compte est rattaché à un groupe de sécurité correspondant à son service, ce qui permet ensuite de gérer plus facilement les droits d’accès et d’appliquer des règles adaptées.
+
+Exemples de comptes utilisés dans le laboratoire :
+
+- `jdupont` → groupe `Informatique`
+- `cmartin` → groupe `RH`
+- `tbernard` → groupe `Comptabilite`
+
+<img width="151" height="121" alt="image" src="https://github.com/user-attachments/assets/9ad979a4-f7ba-40dd-ad95-446b90405a0d" />
+
+
+Les groupes de sécurité permettent notamment de :
+
+- centraliser la gestion des droits ;
+- éviter d’attribuer des permissions directement à chaque utilisateur ;
+- simplifier l’administration des accès ;
+- préparer l’application de droits sur les dossiers, services et ressources réseau.
+
+<img width="322" height="88" alt="image" src="https://github.com/user-attachments/assets/ea069b9c-ff0a-42b1-8534-35d554f74de5" />
+
+
+Lors de la création des comptes, un mot de passe temporaire est attribué et l’utilisateur doit le modifier lors de sa première connexion.
+
+### 🌐 DNS & DHCP
+
+Windows Server 2022 assure également les services **DNS** et **DHCP** du laboratoire.
+
+Ces deux rôles sont importants pour permettre aux postes clients de communiquer correctement sur le réseau et d’intégrer le domaine `aegis.local`.
+
+#### 🌍 DNS
+
+Le service DNS permet de résoudre les noms de machines et de services du domaine `aegis.local`.
+
+Il est notamment utilisé pour :
+
+- permettre aux postes clients de localiser le contrôleur de domaine ;
+- résoudre les noms des machines internes ;
+- assurer le bon fonctionnement d’Active Directory ;
+- simplifier l’accès aux différents services du laboratoire.
+
+Une zone DNS dédiée au domaine `aegis.local` est configurée sur le serveur.
+
+<img alt="Zone DNS aegis.local" src="...">
+
+Des tests de résolution sont ensuite réalisés depuis le serveur ou un poste client afin de vérifier que les noms sont correctement résolus.
+
