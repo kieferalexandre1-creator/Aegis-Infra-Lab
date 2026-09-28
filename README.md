@@ -1,3 +1,4 @@
+<img width="374" height="206" alt="Capture d&#39;écran 2026-09-21 215815" src="https://github.com/user-attachments/assets/ae9765d6-2bb5-4d30-ab92-3775245c1f67" />
 # Aegis-Infra-Lab - Infrastructure d'Entreprise Sécurisée 
 ### 👤 Alexandre KIEFER
 **Administrateur Systèmes, Réseaux & Cybersécurité**  
@@ -151,6 +152,9 @@ L’interface WAN permet à OPNsense d’accéder à Internet via la connexion r
 
 Les autres interfaces sont utilisées pour connecter les différentes zones du laboratoire.
 
+<img width="374" height="206" alt="Capture d&#39;écran 2026-09-21 215815" src="https://github.com/user-attachments/assets/9d9e51c9-ab7a-4ed0-8270-0535b833a2c1" />
+
+
 ---
 
 ### 🌐 Interface Web d’administration
@@ -159,7 +163,7 @@ Une fois OPNsense installé et les interfaces réseau configurées, l’administ
 
 Le tableau de bord permet d’avoir une vue rapide sur l’état du système, les services actifs, les passerelles ainsi que les interfaces LAN et WAN.
 
-<img width="1280" height="355" alt="Capture d&#39;écran 2026-09-22 203306" src="https://github.com/user-attachments/assets/085a4b0b-1e87-4504-b75a-a3ddbbd8a0f9" />
+<img width="225" height="227" alt="Capture d&#39;écran 2026-09-22 203011" src="https://github.com/user-attachments/assets/c5223775-27a3-48e5-9b76-7d4370290d0c" />
 
 
 ---
@@ -215,7 +219,7 @@ OPNsense est chargé de relier ces différentes zones et d’appliquer les règl
 
 À ce stade du projet, la configuration est mise en place progressivement. Les sous-réseaux et interfaces pourront être ajustés au fur et à mesure de l’évolution du laboratoire.
 
-![Interfaces OPNsense](screenshots/opnsense/interfaces-opnsense.png)
+<img width="1280" height="355" alt="Capture d&#39;écran 2026-09-22 203306" src="https://github.com/user-attachments/assets/02062444-51a2-471f-95a3-b90ada471e0e" />
 
 ---
 
@@ -235,9 +239,40 @@ Quelques exemples de règles prévues ou mises en place :
 - limiter les communications entre les différentes zones ;
 - bloquer les flux qui ne sont pas explicitement autorisés.
 
-![Règles de pare-feu OPNsense](screenshots/opnsense/firewall-rules.png)
+<img width="1026" height="498" alt="Capture d&#39;écran 2026-09-22 201459" src="https://github.com/user-attachments/assets/4588ae7a-b9eb-4bd8-ad44-b2814caa520a" />
+
+### ✅ Validation d’un flux autorisé
+
+Un premier test a été réalisé afin de vérifier qu’un trafic légitime pouvait traverser correctement le pare-feu.
+
+Les journaux OPNsense affichent plusieurs entrées avec l’action :
+
+`pass`
+
+Cela confirme que les communications correspondant aux règles autorisées sont bien prises en compte et journalisées par le pare-feu.
+
+<img width="377" height="209" alt="Capture d&#39;écran 2026-09-22 200824 - Copie" src="https://github.com/user-attachments/assets/67f81f02-2bf9-4556-93a7-224255b771ec" />
+
+Cette étape permet de vérifier que les flux nécessaires au fonctionnement de l’infrastructure ne sont pas bloqués.
 
 Cette approche permet de réduire la surface d’attaque et de limiter les mouvements possibles en cas de compromission d’une machine.
+
+### ⛔ Validation d’un flux bloqué
+
+Un second test a été réalisé afin de vérifier qu’une règle de blocage personnalisée était bien appliquée.
+
+Le trafic provenant du réseau LAN a volontairement été dirigé vers un service dont l’accès devait être refusé.
+
+Les journaux OPNsense font apparaître plusieurs événements associés à la règle :
+
+`USER_RULE: Block LAN to Services`
+
+<img width="..." alt="Logs OPNsense - trafic bloqué" src="..." />
+
+Cette capture confirme que le trafic concerné est bien identifié, bloqué puis journalisé par OPNsense.
+
+Ce test permet de valider le bon fonctionnement du filtrage mis en place entre les différentes zones du laboratoire.
+
 
 🧪 Tests de validation
 
