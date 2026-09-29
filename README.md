@@ -433,18 +433,117 @@ Ces deux rôles sont importants pour permettre aux postes clients de communiquer
 
 #### 🌍 DNS
 
-Le service DNS permet de résoudre les noms de machines et de services du domaine `aegis.local`.
+Le service DNS est utilisé pour résoudre les noms de machines et de services du domaine `aegis.local`.
 
-Il est notamment utilisé pour :
+Il joue un rôle important dans le fonctionnement d’Active Directory, notamment pour permettre aux postes clients de localiser le contrôleur de domaine et d’accéder aux différents services du laboratoire.
 
-- permettre aux postes clients de localiser le contrôleur de domaine ;
+Une zone DNS dédiée au domaine `aegis.local` est configurée sur `SRV-AEGISAD`.
+
+Le DNS permet notamment de :
+
 - résoudre les noms des machines internes ;
+- localiser le contrôleur de domaine ;
 - assurer le bon fonctionnement d’Active Directory ;
-- simplifier l’accès aux différents services du laboratoire.
+- permettre aux postes clients d’accéder aux différents services du laboratoire.
 
-Une zone DNS dédiée au domaine `aegis.local` est configurée sur le serveur.
+Des tests de résolution sont ensuite réalisés depuis `WIN-CLIENT01`.
 
-<img alt="Zone DNS aegis.local" src="...">
+Le premier test permet de vérifier que le nom du serveur Active Directory est correctement résolu vers son adresse IP :
 
-Des tests de résolution sont ensuite réalisés depuis le serveur ou un poste client afin de vérifier que les noms sont correctement résolus.
+<img width="295" height="59" alt="Capture d&#39;écran 2026-09-29 151736" src="https://github.com/user-attachments/assets/654d10b7-9a78-4b70-8ea9-6624f5db2fae" />
+
+Un second test permet de vérifier les enregistrements SRV utilisés par Active Directory pour localiser le contrôleur de domaine :
+
+<img width="410" height="111" alt="Capture d&#39;écran 2026-09-29 153313" src="https://github.com/user-attachments/assets/fec133e4-bef1-4254-b163-fdf98c3647bc" />
+
+
+#### 📡 DHCP
+
+Le service DHCP est utilisé pour attribuer automatiquement les paramètres réseau aux postes clients du laboratoire.
+
+Une étendue DHCP est configurée sur le réseau `192.168.56.0/24`.
+
+La plage d’adresses distribuée est comprise entre `192.168.56.20` et `192.168.56.50`.
+
+=
+<img width="472" height="236" alt="image" src="https://github.com/user-attachments/assets/a51abb00-6d73-4118-b1f3-ef3cdf4a0157" />
+
+
+Les options de l’étendue permettent ensuite de transmettre automatiquement les principaux paramètres réseau aux postes clients :
+
+- passerelle par défaut : `192.168.56.2` ;
+- serveur DNS : `192.168.56.10` ;
+- suffixe DNS : `aegis.local`.
+  
+<img width="502" height="290" alt="image" src="https://github.com/user-attachments/assets/74126015-0e64-4932-8b7f-f451aa326082" />
+
+
+Afin de vérifier le bon fonctionnement du service, `WIN-CLIENT01` est configuré pour obtenir automatiquement sa configuration réseau.
+
+Le poste reçoit alors l’adresse `192.168.56.20`, ainsi que la passerelle et le suffixe DNS définis dans l’étendue.
+
+<img width="323" height="127" alt="image" src="https://github.com/user-attachments/assets/19eb264f-c8f7-4a42-8f69-5bc53d159b07" />
+
+
+Le bail attribué au poste client apparaît également dans la console DHCP du serveur.
+
+<img width="855" height="257" alt="image" src="https://github.com/user-attachments/assets/e1be41b5-10dc-4901-886f-0f12c6214d4c" />
+
+Ces tests permettent de confirmer que le serveur DHCP distribue correctement les paramètres réseau aux postes clients du laboratoire.
+
+### 💻 Intégration du poste Windows au domaine
+
+Une fois les services Active Directory, DNS et DHCP configurés, le poste `WIN-CLIENT01` est intégré au domaine `aegis.local`.
+
+L’objectif est de permettre au poste client d’utiliser les comptes centralisés dans Active Directory et de recevoir les stratégies de groupe appliquées au domaine.
+
+La jonction est réalisée en utilisant un compte administrateur du domaine.
+
+Après l’intégration, le poste apparaît dans Active Directory comme objet ordinateur.
+
+<img width="403" height="149" alt="image" src="https://github.com/user-attachments/assets/4808fda3-c574-46c1-b42f-dc68160964d7" />
+
+Le poste est ensuite déplacé dans l’unité d’organisation dédiée aux ordinateurs du laboratoire afin de faciliter l’application des futures stratégies de groupe.
+
+<img width="327" height="62" alt="image" src="https://github.com/user-attachments/assets/69e702f2-7f86-4e93-a74e-c17ff2c80a8c" />
+
+### 👤 Connexion avec un utilisateur Active Directory
+
+Après l’intégration du poste au domaine, une connexion est réalisée avec un compte utilisateur créé dans Active Directory.
+
+Cette étape permet de vérifier que l’authentification centralisée fonctionne correctement et que le poste client utilise bien le contrôleur de domaine `SRV-AEGISAD`.
+
+<img width="237" height="77" alt="image" src="https://github.com/user-attachments/assets/f080706c-637d-47c3-aa68-a9f7225efbd2" />
+
+### 🔐 Stratégies de groupe — GPO
+
+Les stratégies de groupe permettent de centraliser la configuration et la sécurisation des postes et des utilisateurs du domaine `aegis.local`.
+
+Dans Aegis Infra Lab, les GPO sont utilisées pour appliquer automatiquement certaines règles aux utilisateurs et aux ordinateurs présents dans les différentes unités d’organisation.
+
+L’objectif est de reproduire une administration centralisée proche d’un environnement d’entreprise, où les paramètres ne sont pas configurés manuellement poste par poste.
+
+Plusieurs stratégies sont mises en place afin de tester différents types de configuration :
+
+- restrictions utilisateur ;
+- paramètres de sécurité ;
+- configuration des postes ;
+- application automatique de règles selon l’unité d’organisation.
+
+#### 🚫 Restriction du Panneau de configuration
+
+Une première stratégie de groupe est mise en place afin d’interdire l’accès au Panneau de configuration et aux paramètres Windows pour les utilisateurs concernés.
+
+La GPO est liée à l’unité d’organisation `Utilisateurs`, ce qui permet de cibler les comptes présents dans cette OU.
+
+Chemin de configuration :
+
+<img width="831" height="529" alt="Capture d&#39;écran 2026-09-29 165338" src="https://github.com/user-attachments/assets/deb4ad0e-b452-4519-be17-e704cae84ef9" />
+
+Après actualisation des stratégies sur le poste client, l’ouverture du Panneau de configuration est refusée pour l’utilisateur concerné.
+
+<img width="473" height="270" alt="image" src="https://github.com/user-attachments/assets/4c667ee0-a4d4-474e-a4f5-5602da3bf991" />
+
+Ce test confirme que la stratégie configurée sur le contrôleur de domaine est correctement appliquée au poste client.
+
 
