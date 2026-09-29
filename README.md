@@ -546,4 +546,35 @@ Après actualisation des stratégies sur le poste client, l’ouverture du Panne
 
 Ce test confirme que la stratégie configurée sur le contrôleur de domaine est correctement appliquée au poste client.
 
+#### 🔒 GPO de verrouillage automatique
+
+Une seconde stratégie de groupe est mise en place afin de renforcer la sécurité des postes du domaine.
+
+Cette GPO force le verrouillage automatique de la session après `300 secondes` d’inactivité.
+
+Le paramètre configuré est le suivant :
+
+<img width="544" height="228" alt="Capture d&#39;écran 2026-09-29 170516" src="https://github.com/user-attachments/assets/342be955-794a-40f3-bc9a-71451dfff933" />
+
+Après application de la stratégie sur le poste client, la session se verrouille automatiquement lorsque la période d’inactivité définie est atteinte. 
+
+Cette mesure permet de limiter les risques d’accès non autorisé à une session laissée ouverte sans surveillance.
+
+<img width="510" height="401" alt="Capture d&#39;écran 2026-09-29 170543" src="https://github.com/user-attachments/assets/6b121a4e-4554-47e7-8a4e-0e9e927b417c" />
+
+
+## 💾 Sauvegarde & restauration avec Veeam
+
+Afin de renforcer la résilience de l’infrastructure, une solution de sauvegarde est mise en place avec Veeam Backup & Replication Community Edition.
+
+L’objectif est de sauvegarder les principales machines du laboratoire et de vérifier qu’une restauration peut être réalisée en cas de suppression ou de perte de données.
+
+Les tests réalisés comprennent :
+
+- création d’un dépôt de sauvegarde ;
+- ajout des machines du laboratoire ;
+- création d’un job de sauvegarde ;
+- exécution et validation du job ;
+- suppression volontaire d’un fichier de test ;
+- restauration du fichier à partir d’une sauvegarde.
 
