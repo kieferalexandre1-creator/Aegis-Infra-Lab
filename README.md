@@ -562,19 +562,35 @@ Cette mesure permet de limiter les risques d’accès non autorisé à une sessi
 
 <img width="510" height="401" alt="Capture d&#39;écran 2026-09-29 170543" src="https://github.com/user-attachments/assets/6b121a4e-4554-47e7-8a4e-0e9e927b417c" />
 
+### 💾 Sauvegarde du serveur
 
-## 💾 Sauvegarde & restauration avec Veeam
+Afin de protéger les services critiques du laboratoire, une sauvegarde du serveur `SRV-AEGISAD` est mise en place avec la fonctionnalité **Sauvegarde Windows Server**.
 
-Afin de renforcer la résilience de l’infrastructure, une solution de sauvegarde est mise en place avec Veeam Backup & Replication Community Edition.
+L’objectif est de disposer d’une copie du système permettant de récupérer les données et les composants du serveur en cas de problème.
 
-L’objectif est de sauvegarder les principales machines du laboratoire et de vérifier qu’une restauration peut être réalisée en cas de suppression ou de perte de données.
+Une sauvegarde complète du serveur est sélectionnée afin d’inclure les données, les applications ainsi que l’état du système.
 
-Les tests réalisés comprennent :
+<img width="324" height="280" alt="Capture d&#39;écran 2026-09-29 212508" src="https://github.com/user-attachments/assets/0632605e-0634-41b3-a268-564d82da34f0" />
 
-- création d’un dépôt de sauvegarde ;
-- ajout des machines du laboratoire ;
-- création d’un job de sauvegarde ;
-- exécution et validation du job ;
-- suppression volontaire d’un fichier de test ;
-- restauration du fichier à partir d’une sauvegarde.
+<img src="screenshots/windows-server/backup-full-server.png" alt="Sélection d'une sauvegarde complète du serveur" />
+
+La sauvegarde est stockée sur un volume dédié `E:`, séparé du disque système.
+
+<img width="326" height="288" alt="Capture d&#39;écran 2026-09-29 212529" src="https://github.com/user-attachments/assets/b13a3fe3-393f-48a9-be47-fe0b0efcc271" />
+
+
+Avant l’exécution, l’assistant permet de vérifier les différents éléments inclus dans la sauvegarde, notamment le disque système, l’état du système et les éléments nécessaires à une récupération complète.
+
+<!-- CAPTURE 3 ICI :
+écran Confirmation avec Disque local C:, État du système,
+Récupération complète, Réservé au système -->
+
+<img src="screenshots/windows-server/backup-confirmation.png" alt="Éléments inclus dans la sauvegarde Windows Server" />
+
+La sauvegarde est ensuite exécutée et son résultat est contrôlé depuis la console Windows Server Backup.
+
+<img width="1129" height="719" alt="Capture d&#39;écran 2026-09-29 213417" src="https://github.com/user-attachments/assets/52426e85-9eac-47a9-8abe-4ad184d9974f" />
+
+
+La réussite de cette opération permet de valider la mise en place d’une première stratégie de protection du contrôleur de domaine et de ses services.
 
