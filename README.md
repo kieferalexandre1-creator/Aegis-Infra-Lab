@@ -92,7 +92,7 @@ L’objectif n’est pas uniquement d’installer des technologies, mais de comp
 
 ## Environnement technique & choix technologiques
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/10154402-b84a-4c9c-8a7a-cc349484ec7e" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2d3db288-8ff5-40bb-ac7e-0c61f2e93d9b" />
 
 
 ## 🏗️ Architecture de l’infrastructure
