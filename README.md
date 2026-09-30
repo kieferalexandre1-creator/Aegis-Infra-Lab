@@ -101,21 +101,7 @@ L’objectif n’est pas uniquement d’installer des technologies, mais de comp
 
 ## 🏗️ Architecture de l’infrastructure
 
-Cette architecture présente l’organisation générale d’Aegis Infra Lab et la manière dont les différents systèmes, services et zones réseau interagissent entre eux.
-
-L’objectif est de reproduire une infrastructure d’entreprise segmentée, dans laquelle les rôles sont séparés et les communications contrôlées par OPNsense.
-
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/de56d94f-fa52-4a39-a197-06e905f504b8" />
-
-
-L’infrastructure est organisée autour de plusieurs zones distinctes :
-
-- **LAN Utilisateurs** : postes Windows intégrés au domaine ;
-- **LAN Infrastructure** : Windows Server 2022, Active Directory, DNS, DHCP et GPO ;
-- **Zone Services** : Debian 12, NGINX, Zabbix et autres services Linux ;
-- **Zone Sauvegarde** : Veeam Backup & Replication et repository dédié.
-
-OPNsense assure le routage, le filtrage et le contrôle des flux entre ces différentes zones.
 
 ## Sécurisation de l’infrastructure
 
