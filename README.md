@@ -584,6 +584,57 @@ La sauvegarde est ensuite exécutée et son résultat est contrôlé depuis la c
 
 <img width="1129" height="719" alt="Capture d&#39;écran 2026-09-29 213417" src="https://github.com/user-attachments/assets/52426e85-9eac-47a9-8abe-4ad184d9974f" />
 
-
 La réussite de cette opération permet de valider la mise en place d’une première stratégie de protection du contrôleur de domaine et de ses services.
 
+### ♻️ Test de restauration
+
+Afin de vérifier que la sauvegarde est réellement exploitable, un test de restauration est réalisé sur un fichier volontairement supprimé.
+
+Un fichier de test est créé sur le serveur, puis supprimé après l’exécution de la sauvegarde.
+
+Depuis **Sauvegarde Windows Server**, l’assistant de récupération est utilisé afin de restaurer le fichier depuis la dernière sauvegarde disponible.
+
+<img width="367" height="289" alt="image" src="https://github.com/user-attachments/assets/652dbb82-bccb-4cd9-a7e5-724b81babdb0" />
+
+Le fichier est ensuite restauré à son emplacement d’origine.
+
+<img width="395" height="303" alt="image" src="https://github.com/user-attachments/assets/890fd8d9-259b-4a78-a0c2-c9acdda97908" />
+
+Ce test permet de confirmer que la sauvegarde réalisée est exploitable et que les données peuvent être récupérées en cas de suppression ou de problème.
+
+### ✅ Bilan de l’environnement Windows
+
+Cette première partie du laboratoire a permis de mettre en place et de valider les principaux services d’une infrastructure Windows d’entreprise.
+
+Les éléments suivants ont été déployés et testés :
+
+- Windows Server 2022 comme contrôleur de domaine ;
+- Active Directory avec utilisateurs, groupes et unités d’organisation ;
+- services DNS et DHCP ;
+- intégration d’un poste Windows au domaine ;
+- authentification avec un compte Active Directory ;
+- application de stratégies de groupe (GPO) ;
+- automatisation de certaines tâches avec PowerShell ;
+- sauvegarde complète du serveur ;
+- test de restauration des données.
+
+Cette étape constitue la base de l’infrastructure Aegis Infra Lab et permet désormais d’intégrer progressivement les autres briques du projet, notamment Linux, les services web et la supervision.
+
+## 🐧 Debian 12 & services Linux
+
+Après la mise en place de l’environnement Windows, une machine Debian 12 est ajoutée au laboratoire afin d’intégrer une partie Linux à l’infrastructure.
+
+L’objectif est de disposer d’un serveur Linux dédié à l’hébergement de services, à l’administration système et aux futurs tests de supervision et de sécurisation.
+
+### 🏗️ Déploiement de Debian 12
+
+Configuration prévue :
+
+- Nom de la VM : `SRV-DEBIAN01`
+- Système : Debian 12
+- CPU : 2 vCPU
+- Mémoire : 2 à 4 Go
+- Stockage : 20 à 30 Go
+- Adresse IP : `192.168.56.30/24`
+- Passerelle : `192.168.56.2`
+- DNS : `192.168.56.10`
