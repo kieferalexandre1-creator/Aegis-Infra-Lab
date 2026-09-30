@@ -765,24 +765,28 @@ Le serveur Debian héberge désormais un portail interne intégré à l’infras
 
 Cette partie du projet permet de mettre en pratique l’administration Linux, les services web, le DNS, l’automatisation et la documentation technique au sein d’une même infrastructure.
 
-## 🔐 Sécurisation du portail avec HTTPS
+🔐 Sécurisation du portail avec HTTPS
 
 Le portail Aegis est sécurisé avec HTTPS afin de chiffrer les communications entre les postes clients et le serveur NGINX.
-Un certificat TLS est généré pour le nom interne web.aegis.local puis intégré à la configuration NGINX. Le serveur est configuré pour écouter sur le port 443 et rediriger automatiquement les connexions HTTP vers HTTPS.
-Afin d’éviter les avertissements liés à un certificat non reconnu, une autorité de certification interne est mise en place dans le laboratoire. Le certificat racine de cette autorité est ajouté aux autorités de confiance du système client, permettant au navigateur de valider le certificat présenté par web.aegis.local.
+Une autorité de certification interne nommée Aegis Root CA est mise en place afin de signer les certificats utilisés dans le laboratoire. Un certificat serveur est ensuite généré pour le nom interne web.aegis.local et configuré dans NGINX.
+Le serveur web écoute sur le port 443 et les connexions HTTP sont automatiquement redirigées vers HTTPS.
 
-La connexion au portail est ainsi reconnue comme sécurisée par Firefox. Les détails de la connexion confirment l’utilisation de TLS 1.3 avec chiffrement AES-128-GCM et SHA-256.
-La configuration NGINX est également contrôlée avec nginx -t avant le rechargement du service afin de vérifier l’absence d’erreur de syntaxe.
+Le certificat racine Aegis Root CA est ajouté aux autorités de certification de confiance du poste client. Le navigateur peut ainsi vérifier l’identité du serveur et établir une connexion HTTPS sans avertissement de sécurité.
+Les informations de connexion confirment l’utilisation de TLS 1.3 avec un chiffrement AES-128-GCM et SHA-256.
 
-<img width="1257" height="807" alt="image" src="https://github.com/user-attachments/assets/96ccef7c-83b7-47bd-a0f4-9b0031bff6d8" />
+<img width="856" height="487" alt="image" src="https://github.com/user-attachments/assets/8163c3e4-1f7e-466d-8fb8-2aee180f4fbc" />
 
-La connexion à web.aegis.local est désormais reconnue comme sécurisée par le navigateur. Le trafic entre le client et le serveur NGINX est chiffré avec TLS 1.3.
+Cette configuration permet de mettre en pratique plusieurs éléments liés à la sécurisation des services web : gestion d’une autorité de certification interne, génération et signature d’un certificat serveur, gestion de la confiance côté client et chiffrement des communications.
 
-Sous la deuxième capture — celle avec les détails du certificat :
-Le certificat présenté correspond au service interne web.aegis.local et permet de vérifier l’identité du serveur lors de l’établissement de la connexion HTTPS.
+Le portail web.aegis.local est accessible en HTTPS et le certificat présenté par le serveur est reconnu comme fiable par le navigateur.
 
+Sous la capture de la fenêtre de sécurité :
+Firefox confirme que la connexion au portail est sécurisée et que le certificat est vérifié par l’autorité interne Aegis Infra Lab.
 
-Par contre, avant de mettre la deuxième capture sur GitHub, je corrigerais quand même l’émetteur Internet Widgits Pty Ltd. Techniquement ton HTTPS fonctionne, mais visuellement ça fait bizarre dans un projet appelé Aegis. L’idéal serait d’avoir Aegis Root CA comme émetteur.
+<img width="847" height="529" alt="image" src="https://github.com/user-attachments/assets/804ce53d-4280-4be0-8849-ec121f96d59e" />
+
+Le certificat serveur de web.aegis.local est signé par l’autorité de certification interne Aegis Root CA, distincte du certificat serveur et utilisée comme racine de confiance du laboratoire.
+<img width="799" height="661" alt="image" src="https://github.com/user-attachments/assets/5280fe1e-ca86-4797-890d-1d224b373f1b" />
 
 
 
