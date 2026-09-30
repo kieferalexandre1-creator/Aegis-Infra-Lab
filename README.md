@@ -9,18 +9,17 @@
 
 ## 👤 À propos de moi
 
-Je suis **junior en administration systèmes, réseaux et cybersécurité**, avec une première expérience professionnelle en support informatique, administration systèmes et réseaux et sécurisation des infrastructures.
+Je travaille dans les domaines de l’administration systèmes, réseaux et cybersécurité, avec une première expérience professionnelle en support informatique, administration des systèmes et réseaux et sécurisation des infrastructures.
 
 J’ai obtenu un **Titre Professionnel Technicien Informatique en 2024**, puis un **Bachelor Administrateur d’Infrastructures Sécurisées en 2025**.
 
-J’ai commencé mon parcours avec un stage de trois mois chez **Kertios**, principalement autour du support informatique et de l’administration systèmes et réseaux, avant de poursuivre avec environ un an d’alternance chez **Cesam Seed** en tant qu’Administrateur Systèmes, Réseaux & Cybersécurité.
+J’ai commencé mon parcours avec un stage de trois mois chez **Kertios**, principalement autour du support informatique et de l’administration systèmes et réseaux. J’ai ensuite poursuivi avec environ un an d’alternance chez **Cesam Seed** en tant qu’Administrateur Systèmes, Réseaux & Cybersécurité.
 
-Au fil de ces expériences, j’ai travaillé sur des environnements Windows et Linux, la virtualisation avec VMware ESXi/vCenter, les réseaux, la sauvegarde, la supervision, la gestion des comptes et des droits d’accès ainsi que sur différents sujets liés à la sécurisation des infrastructures.
+Ces expériences m’ont permis de travailler sur des environnements Windows et Linux, la virtualisation avec VMware ESXi/vCenter, les réseaux, la sauvegarde, la supervision, la gestion des comptes et des droits d’accès ainsi que sur différents sujets liés à la sécurisation des infrastructures.
 
-Je souhaite aujourd’hui continuer à développer mes compétences sur des environnements systèmes, réseaux, infrastructures IT et cybersécurité.
+Je souhaite aujourd’hui poursuivre mon parcours professionnel sur des missions liées aux systèmes, aux réseaux, aux infrastructures IT et à la cybersécurité.
 
-En parallèle, je développe **Aegis Infra Lab**, mon laboratoire personnel. Il me permet de pratiquer en dehors du cadre professionnel, tester différentes technologies, construire progressivement une infrastructure complète et documenter concrètement les configurations et les tests réalisés.
-
+En parallèle, je développe **Aegis Infra Lab**, un laboratoire personnel conçu pour reproduire progressivement une infrastructure d’entreprise virtualisée et sécurisée. Ce projet me permet de continuer à pratiquer, tester différentes technologies et documenter concrètement les configurations, les choix techniques et les tests réalisés.
 ---
 
 ## 💼 Expérience
