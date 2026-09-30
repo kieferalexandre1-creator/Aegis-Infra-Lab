@@ -765,7 +765,7 @@ Le serveur Debian héberge désormais un portail interne intégré à l’infras
 
 Cette partie du projet permet de mettre en pratique l’administration Linux, les services web, le DNS, l’automatisation et la documentation technique au sein d’une même infrastructure.
 
-🔐 Sécurisation du portail avec HTTPS
+## 🔐 Sécurisation du portail avec HTTPS
 
 Le portail Aegis est sécurisé avec HTTPS afin de chiffrer les communications entre les postes clients et le serveur NGINX.
 Une autorité de certification interne nommée Aegis Root CA est mise en place afin de signer les certificats utilisés dans le laboratoire. Un certificat serveur est ensuite généré pour le nom interne web.aegis.local et configuré dans NGINX.
