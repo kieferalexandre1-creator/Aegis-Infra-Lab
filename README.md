@@ -200,21 +200,33 @@ Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les
 
 ### 🌐 Segmentation réseau
 
-Chaque zone du laboratoire dispose de son propre sous-réseau afin de séparer les usages et de mieux contrôler les communications entre les différents équipements.
+À ce stade du projet, les différentes machines du laboratoire utilisent un réseau Aegis commun afin de permettre les premiers déploiements et tests.
 
-Le découpage prévu est le suivant :
+La configuration réseau actuellement utilisée est la suivante :
 
 | Interface | Zone | Sous-réseau |
 |---|---|---|
 | WAN | Internet | NAT VirtualBox |
-| LAN 1 | Utilisateurs | `192.168.10.0/24` |
-| LAN 2 | Infrastructure | `192.168.20.0/24` |
-| LAN 3 | Services | `192.168.30.0/24` |
-| LAN 4 | Sauvegarde | `192.168.40.0/24` |
+| LAN | Réseau Aegis | `192.168.56.0/24` |
 
-Ce découpage permet de séparer les postes clients, les serveurs, les services et les sauvegardes afin d’éviter qu’ils puissent communiquer librement entre eux.
+Adresses principales utilisées actuellement :
 
----
+- OPNsense LAN : `192.168.56.2`
+- SRV-AEGISAD : `192.168.56.10`
+- WIN-CLIENT01 : attribution DHCP à partir de `192.168.56.20`
+- Plage DHCP : `192.168.56.20` à `192.168.56.50`
+
+### Architecture cible
+
+À terme, le laboratoire pourra être segmenté en plusieurs zones dédiées :
+
+- Utilisateurs
+- Infrastructure
+- Services
+- Supervision
+- Sauvegarde
+
+Cette évolution permettra de séparer davantage les postes, serveurs, services et sauvegardes afin de mieux contrôler les communications entre les différentes zones.
 
 ### 🔌 Interfaces réseau
 
