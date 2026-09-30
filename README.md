@@ -694,22 +694,18 @@ Les informations affichées sont générées à partir de l’état réel du ser
 
 <img width="637" height="384" alt="Capture d&#39;écran 2026-09-30 184745" src="https://github.com/user-attachments/assets/07855c23-0a93-44f4-ba07-c783fe9e0260" />
 
---
-
 ## ⚙️ Automatisation de la mise à jour
 
 La mise à jour de la page d’état est automatisée avec systemd.
 Un timer exécute périodiquement le script chargé de récupérer les informations système et de régénérer la page de supervision légère du portail.
 Cette automatisation permet de maintenir les informations à jour sans intervention manuelle et constitue une première approche de supervision avant le déploiement d’un outil dédié comme Zabbix.
 
--- 
 ## 🔐 Sécurité et contrôle des accès
 
 Le portail comprend également une zone d’administration protégée par authentification.
 Cette séparation permet de distinguer les informations générales du portail des zones réservées à l’administration.
 Les journaux NGINX permettent également de conserver une trace des accès au serveur web et d’identifier d’éventuelles erreurs ou tentatives d’accès.
 
---
 ## 🛡️ Protection des données et principes RGPD
 
 Une section dédiée à la protection des données a été ajoutée afin de documenter les bonnes pratiques appliquées dans le laboratoire.
@@ -727,7 +723,7 @@ Cette section ne présente pas le laboratoire comme certifié conforme au RGPD. 
 
 <img width="956" height="461" alt="Capture d&#39;écran 2026-09-30 192717" src="https://github.com/user-attachments/assets/93673d25-e4f7-429c-bab8-6fbb899803a2" />
 
-🧰 Suivi des incidents
+## 🧰 Suivi des incidents
 
 Le portail contient une section consacrée aux incidents rencontrés pendant le déploiement.
 Chaque incident peut être documenté avec :
@@ -742,8 +738,6 @@ Les incidents liés à la jonction au domaine, à la résolution DNS et à la co
 Cette partie permet également de montrer la démarche de diagnostic utilisée pendant le projet.
 
 <img width="690" height="428" alt="Capture d&#39;écran 2026-09-30 191902" src="https://github.com/user-attachments/assets/e32f0ef2-8d78-4c5c-88e3-9e0a038ecc9b" />
-
---
 
 ## 📝 Journal des changements
 
