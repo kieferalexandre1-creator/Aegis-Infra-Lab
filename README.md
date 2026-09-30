@@ -11,7 +11,7 @@
 
 Mon CV est disponible ici : 
 
-[Consulter mon CV] https://drive.google.com/drive/folders/1oWsbNc7SqeIi7sD4AIL0xSP9bl1ns_SC?usp=drive_link
+https://drive.google.com/drive/folders/1oWsbNc7SqeIi7sD4AIL0xSP9bl1ns_SC?usp=drive_link
 
 ## 👤 À propos de moi
 
