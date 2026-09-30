@@ -26,7 +26,6 @@ Ces expériences m’ont permis de travailler sur des environnements Windows et 
 Je souhaite aujourd’hui poursuivre mon parcours professionnel sur des missions liées aux systèmes, aux réseaux, aux infrastructures IT et à la cybersécurité.
 
 En parallèle, je développe **Aegis Infra Lab**, un laboratoire personnel conçu pour reproduire progressivement une infrastructure d’entreprise virtualisée et sécurisée. Ce projet me permet de continuer à pratiquer, tester différentes technologies et documenter concrètement les configurations, les choix techniques et les tests réalisés.
----
 
 ## 💼 Expérience
 
