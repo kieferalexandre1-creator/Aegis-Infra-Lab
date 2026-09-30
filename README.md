@@ -706,6 +706,9 @@ Le portail comprend également une zone d’administration protégée par authen
 Cette séparation permet de distinguer les informations générales du portail des zones réservées à l’administration.
 Les journaux NGINX permettent également de conserver une trace des accès au serveur web et d’identifier d’éventuelles erreurs ou tentatives d’accès.
 
+<img width="236" height="199" alt="Capture d&#39;écran 2026-09-30 184223" src="https://github.com/user-attachments/assets/413b0dce-2176-4e1b-91bd-139e7d9cf380" />
+
+
 ## 🛡️ Protection des données et principes RGPD
 
 Une section dédiée à la protection des données a été ajoutée afin de documenter les bonnes pratiques appliquées dans le laboratoire.
