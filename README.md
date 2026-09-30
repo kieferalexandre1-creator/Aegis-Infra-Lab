@@ -635,6 +635,132 @@ Configuration prévue :
 - CPU : 2 vCPU
 - Mémoire : 2 à 4 Go
 - Stockage : 20 à 30 Go
-- Adresse IP : `192.168.56.30/24`
+- Adresse IP : `192.168.56.22/24`
 - Passerelle : `192.168.56.2`
 - DNS : `192.168.56.10`
+  
+🌐 Déploiement du serveur web NGINX
+
+Afin d’ajouter un service web interne au laboratoire Aegis, j’ai installé NGINX sur le serveur Debian. L’objectif était d’héberger un portail technique centralisant les informations utiles à l’exploitation de l’infrastructure.
+Après l’installation, le service a été activé au démarrage du système puis vérifié avec systemctl. Le statut active (running) confirme que NGINX fonctionne correctement sur le serveur.
+La page par défaut de NGINX a ensuite été testée depuis un poste du réseau afin de vérifier que le service HTTP était bien accessible à distance.
+
+<img width="598" height="395" alt="Capture d&#39;écran 2026-09-30 172247" src="https://github.com/user-attachments/assets/db39b389-d909-4613-82ac-26cba26275f8" />
+
+
+🌐 Intégration au DNS interne
+
+Pour éviter d’accéder au serveur web directement par son adresse IP, un enregistrement DNS de type A a été créé dans la zone aegis.local.
+Le nom web.aegis.local permet ainsi d’accéder au portail NGINX depuis les machines utilisant le serveur DNS Active Directory.
+Cette configuration permet d’intégrer le service Linux au reste de l’infrastructure et de conserver une résolution de noms centralisée.
+
+<img width="371" height="263" alt="Capture d&#39;écran 2026-09-30 175639" src="https://github.com/user-attachments/assets/bd8fa447-9c24-4a80-afbd-83e3be6434e1" />
+
+🖥️ Création du portail Aegis Internal Portal
+
+La page NGINX par défaut a ensuite été remplacée par un portail technique interne développé pour le laboratoire.
+Ce portail permet de centraliser plusieurs informations concernant l’infrastructure :
+- environnement Windows ;
+- réseau et pare-feu ;
+- serveur Debian ;
+- services web ;
+- sauvegarde ;
+- documentation ;
+- sécurité ;
+- protection des données.
+  
+L’objectif est de disposer d’une interface simple permettant de retrouver rapidement l’état et l’organisation des différents composants du laboratoire.
+
+<img width="695" height="434" alt="Capture d&#39;écran 2026-09-30 184941" src="https://github.com/user-attachments/assets/e5f5c5a0-f1d9-46bd-9f48-f83e79e2ad00" />
+
+📊 État des services
+
+Une page dédiée à l’état des services a été ajoutée au portail afin d’obtenir une vue synthétique du serveur Debian.
+Elle affiche notamment :
+
+- le nom d’hôte ;
+- l’adresse IP ;
+- l’uptime ;
+- l’utilisation du disque ;
+- l’utilisation de la mémoire ;
+- l’état du service NGINX ;
+- l’état du service SSH ;
+- le résultat de la résolution DNS Active Directory.
+  
+Les informations affichées sont générées à partir de l’état réel du serveur et ne sont pas simplement renseignées manuellement dans la page.
+
+<img width="637" height="384" alt="Capture d&#39;écran 2026-09-30 184745" src="https://github.com/user-attachments/assets/07855c23-0a93-44f4-ba07-c783fe9e0260" />
+
+⚙️ Automatisation de la mise à jour
+
+La mise à jour de la page d’état est automatisée avec systemd.
+Un timer exécute périodiquement le script chargé de récupérer les informations système et de régénérer la page de supervision légère du portail.
+Cette automatisation permet de maintenir les informations à jour sans intervention manuelle et constitue une première approche de supervision avant le déploiement d’un outil dédié comme Zabbix.
+
+
+🔐 Sécurité et contrôle des accès
+
+Le portail comprend également une zone d’administration protégée par authentification.
+Cette séparation permet de distinguer les informations générales du portail des zones réservées à l’administration.
+Les journaux NGINX permettent également de conserver une trace des accès au serveur web et d’identifier d’éventuelles erreurs ou tentatives d’accès.
+
+
+🛡️ Protection des données et principes RGPD
+
+Une section dédiée à la protection des données a été ajoutée afin de documenter les bonnes pratiques appliquées dans le laboratoire.
+Elle présente notamment :
+
+- la minimisation des données ;
+- l’utilisation d’identités fictives ;
+- la gestion centralisée des accès ;
+- le principe du moindre privilège ;
+- la journalisation ;
+- la sauvegarde ;
+- la conservation limitée des informations.
+- 
+Cette section ne présente pas le laboratoire comme certifié conforme au RGPD. Elle permet plutôt de montrer comment certains principes de protection des données peuvent être intégrés à la conception et à l’exploitation d’une infrastructure.
+
+<img width="956" height="461" alt="Capture d&#39;écran 2026-09-30 192717" src="https://github.com/user-attachments/assets/93673d25-e4f7-429c-bab8-6fbb899803a2" />
+
+🧰 Suivi des incidents
+
+Le portail contient une section consacrée aux incidents rencontrés pendant le déploiement.
+Chaque incident peut être documenté avec :
+
+- le problème constaté ;
+- la cause identifiée ;
+- les vérifications effectuées ;
+- la résolution mise en œuvre ;
+- le résultat final.
+Les incidents liés à la jonction au domaine, à la résolution DNS et à la connectivité SSH ont par exemple été conservés afin de garder une trace des problèmes rencontrés et des solutions appliquées.
+
+Cette partie permet également de montrer la démarche de diagnostic utilisée pendant le projet.
+
+<img width="690" height="428" alt="Capture d&#39;écran 2026-09-30 191902" src="https://github.com/user-attachments/assets/e32f0ef2-8d78-4c5c-88e3-9e0a038ecc9b" />
+
+📝 Journal des changements
+
+Un journal des changements a été ajouté afin de suivre les principales évolutions du laboratoire.
+Il permet de conserver une trace des déploiements et modifications importantes, comme :
+
+- l’installation d’OPNsense ;
+- le déploiement de Windows Server ;
+- la jonction du poste client au domaine ;
+- l’intégration de Debian à Active Directory ;
+- le déploiement de NGINX ;
+- la création du portail interne.
+  
+Chaque changement est associé à un objectif et à un état de validation.
+
+<img width="639" height="241" alt="Capture d&#39;écran 2026-09-30 191949" src="https://github.com/user-attachments/assets/9ed7cb07-7a63-42a6-b866-dd7d3bf7f9af" />
+
+✅ Bilan du déploiement NGINX
+
+Le déploiement de NGINX a permis d’aller au-delà de la simple installation d’un serveur web.
+Le serveur Debian héberge désormais un portail interne intégré à l’infrastructure Aegis, avec résolution DNS, état des services, automatisation avec systemd, documentation, suivi des incidents, journal des changements et prise en compte de plusieurs principes de sécurité et de protection des données.
+
+Cette partie du projet permet de mettre en pratique l’administration Linux, les services web, le DNS, l’automatisation et la documentation technique au sein d’une même infrastructure.
+
+
+
+
