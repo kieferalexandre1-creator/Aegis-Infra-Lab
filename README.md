@@ -7,6 +7,12 @@
 [![Statut](https://img.shields.io/badge/Statut-En%20d%C3%A9veloppement-orange)](#)
 [![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)
 
+## 📄 CV
+
+Mon CV est disponible ici : 
+
+[Consulter mon CV] https://drive.google.com/drive/folders/1oWsbNc7SqeIi7sD4AIL0xSP9bl1ns_SC?usp=drive_link
+
 ## 👤 À propos de moi
 
 Je travaille dans les domaines de l’administration systèmes, réseaux et cybersécurité, avec une première expérience professionnelle en support informatique, administration des systèmes et réseaux et sécurisation des infrastructures.
