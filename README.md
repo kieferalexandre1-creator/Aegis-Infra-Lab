@@ -105,8 +105,7 @@ Cette architecture présente l’organisation générale d’Aegis Infra Lab et 
 
 L’objectif est de reproduire une infrastructure d’entreprise segmentée, dans laquelle les rôles sont séparés et les communications contrôlées par OPNsense.
 
-<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/1f5c32b5-9bb7-4801-b1f1-5d5ed1db8903" />
-
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/7605b991-a5ca-446e-8955-29100ff13da9" />
 
 L’infrastructure est organisée autour de plusieurs zones distinctes :
 
