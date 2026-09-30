@@ -571,20 +571,11 @@ Une sauvegarde complète du serveur est sélectionnée afin d’inclure les donn
 
 <img width="324" height="280" alt="Capture d&#39;écran 2026-09-29 212508" src="https://github.com/user-attachments/assets/0632605e-0634-41b3-a268-564d82da34f0" />
 
-<img src="screenshots/windows-server/backup-full-server.png" alt="Sélection d'une sauvegarde complète du serveur" />
-
 La sauvegarde est stockée sur un volume dédié `E:`, séparé du disque système.
 
 <img width="326" height="288" alt="Capture d&#39;écran 2026-09-29 212529" src="https://github.com/user-attachments/assets/b13a3fe3-393f-48a9-be47-fe0b0efcc271" />
 
-
 Avant l’exécution, l’assistant permet de vérifier les différents éléments inclus dans la sauvegarde, notamment le disque système, l’état du système et les éléments nécessaires à une récupération complète.
-
-<!-- CAPTURE 3 ICI :
-écran Confirmation avec Disque local C:, État du système,
-Récupération complète, Réservé au système -->
-
-<img src="screenshots/windows-server/backup-confirmation.png" alt="Éléments inclus dans la sauvegarde Windows Server" />
 
 La sauvegarde est ensuite exécutée et son résultat est contrôlé depuis la console Windows Server Backup.
 
