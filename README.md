@@ -43,7 +43,7 @@ Niveau 6 – Bac +3
 
 2024 – Titre Professionnel Technicien Informatique
 Niveau 5 – Bac +2
----
+
 
 ## 🏅 Certifications obtenues
 
