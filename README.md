@@ -15,36 +15,34 @@ Mon CV est disponible ici :
 
 ## 👤 À propos de moi
 
-Je travaille dans les domaines de l’administration systèmes, réseaux et cybersécurité, avec une première expérience professionnelle en support informatique, administration des systèmes et réseaux et sécurisation des infrastructures.
+Je suis diplômé d’un Titre Professionnel Technicien Informatique (2024) et d’un Bachelor Administrateur d’Infrastructures Sécurisées (2025). Je souhaite aujourd’hui poursuivre mon parcours avec un Mastère Expert Cybersécurité en alternance, sur une durée de deux ans, avec un rythme d’une semaine en formation et de trois semaines en entreprise.
 
-J’ai obtenu un **Titre Professionnel Technicien Informatique en 2024**, puis un **Bachelor Administrateur d’Infrastructures Sécurisées en 2025**.
+J’ai commencé mon parcours professionnel par un stage de trois mois chez Kertios, principalement consacré au support informatique et à l’administration systèmes et réseaux. J’ai ensuite réalisé environ un an d’alternance chez CESAM SEED en tant qu’Administrateur Systèmes, Réseaux & Cybersécurité.
 
-J’ai commencé mon parcours avec un stage de trois mois chez **Kertios**, principalement autour du support informatique et de l’administration systèmes et réseaux. J’ai ensuite poursuivi avec environ un an d’alternance chez **Cesam Seed** en tant qu’Administrateur Systèmes, Réseaux & Cybersécurité.
+Ces expériences m’ont permis de développer des compétences en environnements Windows et Linux, virtualisation VMware ESXi/vCenter, administration réseau, sauvegarde, supervision, gestion des comptes et des droits d’accès, ainsi qu’en sécurisation des infrastructures.
 
-Ces expériences m’ont permis de travailler sur des environnements Windows et Linux, la virtualisation avec VMware ESXi/vCenter, les réseaux, la sauvegarde, la supervision, la gestion des comptes et des droits d’accès ainsi que sur différents sujets liés à la sécurisation des infrastructures.
+Je recherche actuellement une alternance dans les domaines de l’administration systèmes et réseaux, de l’ingénierie des infrastructures IT ou de la cybersécurité, afin de mettre à profit mes compétences, de participer à des projets techniques et de continuer à progresser dans ces domaines.
 
-Je souhaite aujourd’hui poursuivre mon parcours professionnel sur des missions liées aux systèmes, aux réseaux, aux infrastructures IT et à la cybersécurité.
+En parallèle, je développe Aegis Infra Lab, un laboratoire personnel conçu pour reproduire progressivement une infrastructure d’entreprise virtualisée et sécurisée. Ce projet me permet de continuer à pratiquer, d’expérimenter différentes technologies et de documenter les configurations et les tests réalisés.
 
-En parallèle, je développe **Aegis Infra Lab**, un laboratoire personnel conçu pour reproduire progressivement une infrastructure d’entreprise virtualisée et sécurisée. Ce projet me permet de continuer à pratiquer, tester différentes technologies et documenter concrètement les configurations, les choix techniques et les tests réalisés.
+## 💼 Expérience professionnelle
 
-## 💼 Expérience
+≈ 1 an – Administrateur Systèmes, Réseaux & Cybersécurité
+Alternance – CESAM SEED
 
-- **≈ 1 an — Administrateur Systèmes, Réseaux & Cybersécurité**  
-  Alternance — Cesam Seed
-
-- **3 mois — Technicien Informatique**  
-  Stage — Kertios
-
----
+3 mois – Technicien Informatique
+Stage – Kertios
 
 ## 🎓 Formation
 
-- **2025 — Bachelor Administrateur d’Infrastructures Sécurisées**  
-  Niveau 6 — Bac+3
+Mastère Expert Cybersécurité – Alternance recherchée
+Parcours sur 2 ans – Rythme : 1 semaine en formation / 3 semaines en entreprise
 
-- **2024 — Titre Professionnel Technicien Informatique**  
-  Niveau 5 — Bac+2
+2025 – Bachelor Administrateur d’Infrastructures Sécurisées
+Niveau 6 – Bac +3
 
+2024 – Titre Professionnel Technicien Informatique
+Niveau 5 – Bac +2
 ---
 
 ## 🏅 Certifications obtenues
