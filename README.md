@@ -877,11 +877,6 @@ Nginx by Zabbix agent
 
 exploite ensuite ces données afin de les intégrer à la supervision centralisée.
 
-📸 Capture MANQUANTE recommandée
-Ici, je ferais une nouvelle capture dans :
-Supervision → Dernières données → SRV-AEGIS-WEB
-Filtre sur NGINX.
-Il faudrait que la capture montre plusieurs métriques telles que :
 
 ## 🪟 Supervision des services Windows
 
