@@ -786,5 +786,209 @@ Firefox confirme que la connexion au portail est sécurisée et que le certifica
 Le certificat serveur de web.aegis.local est signé par l’autorité de certification interne Aegis Root CA, distincte du certificat serveur et utilisée comme racine de confiance du laboratoire.
 <img width="799" height="661" alt="image" src="https://github.com/user-attachments/assets/5280fe1e-ca86-4797-890d-1d224b373f1b" />
 
+## 📊 Supervision de l'infrastructure avec Zabbix
+
+Afin d'assurer la visibilité sur l'état de l'infrastructure Aegis, une solution de supervision centralisée basée sur Zabbix 7.4 a été mise en place.
+
+L'objectif est de centraliser la surveillance des différents serveurs du laboratoire et de suivre à la fois leur disponibilité, leurs ressources système, leur activité réseau ainsi que certains services critiques.
+
+La supervision permet notamment de suivre :
+- l'utilisation CPU ;
+- l'utilisation de la mémoire ;
+- l'utilisation du stockage ;
+- le trafic réseau ;
+- la disponibilité des serveurs ;
+- l'état des services DNS et DHCP ;
+- le fonctionnement du serveur web NGINX ;
+- les connexions et requêtes NGINX ;
+- le temps de réponse du service web ;
+- les problèmes remontés par Zabbix selon leur niveau de sévérité.
 
 
+## 🏗️ Architecture de supervision
+
+La supervision repose sur un serveur Zabbix dédié sous Linux.
+Les machines supervisées sont organisées en groupes afin de distinguer les différents environnements :
+
+Aegis - Windows Servers
+└── SRV-AEGIS-AD
+    └── 192.168.56.10
+
+Aegis - Linux Servers
+└── SRV-AEGIS-WEB
+    └── 192.168.56.22
+
+Zabbix servers
+└── Zabbix server
+    └── 192.168.56.24
+
+SRV-AEGIS-AD héberge notamment les rôles Active Directory, DNS et DHCP, tandis que SRV-AEGIS-WEB héberge le service web NGINX.
+Les communications de supervision avec les agents Zabbix utilisent le port TCP 10050.
+
+<img width="752" height="298" alt="Capture d&#39;écran 2026-10-02 171406" src="https://github.com/user-attachments/assets/fbc457de-d361-425f-95c4-7a5f97a31ba9" />
+
+Légende :
+Organisation des équipements supervisés par groupes d'hôtes.
+
+
+
+## 🖥️ Supervision des serveurs
+
+Des agents Zabbix ont été déployés sur les systèmes Windows et Linux afin de permettre la collecte régulière des métriques.
+Windows Server
+Le serveur :
+SRV-AEGIS-AD
+192.168.56.10
+
+est associé au modèle :
+Windows by Zabbix agent
+
+Il permet notamment de récupérer les informations relatives au processeur, à la mémoire, aux volumes de stockage, aux interfaces réseau et aux services Windows.
+Debian / NGINX
+Le serveur :
+SRV-AEGIS-WEB
+192.168.56.22
+
+utilise les modèles :
+Linux by Zabbix agent
+Nginx by Zabbix agent
+
+Le premier assure la supervision du système Linux tandis que le second ajoute des métriques spécifiques au serveur web NGINX.
+Le serveur Zabbix assure également sa propre supervision.
+
+<img width="845" height="417" alt="Capture d&#39;écran 2026-10-02 164711" src="https://github.com/user-attachments/assets/beefa6bf-f4f0-44d0-a708-2b984bb42fcc" />
+
+Hôtes intégrés à Zabbix et modèles de supervision associés.
+
+## 🌐 Supervision de NGINX
+
+Une supervision spécifique a été mise en place pour le serveur web NGINX hébergé sur SRV-AEGIS-WEB.
+Le module stub_status de NGINX permet à Zabbix de récupérer différentes informations concernant l'activité du serveur web.
+
+La configuration permet notamment de superviser :
+Connexions actives
+Requêtes par seconde
+Temps de réponse
+État du service
+
+L'accès aux informations de statut est limité localement afin de ne pas exposer inutilement ces informations sur le réseau.
+Le modèle :
+Nginx by Zabbix agent
+
+exploite ensuite ces données afin de les intégrer à la supervision centralisée.
+
+📸 Capture MANQUANTE recommandée
+Ici, je ferais une nouvelle capture dans :
+Supervision → Dernières données → SRV-AEGIS-WEB
+Filtre sur NGINX.
+Il faudrait que la capture montre plusieurs métriques telles que :
+
+## 🪟 Supervision des services Windows
+
+La découverte automatique des services Windows permet également de surveiller certains composants essentiels de SRV-AEGIS-AD.
+Deux services particulièrement importants pour l'infrastructure Aegis sont surveillés :
+DNS
+service.info["DNS",state]
+
+Le service DNS étant directement lié au fonctionnement du domaine Active Directory, son état peut ainsi être contrôlé depuis Zabbix.
+DHCP
+
+Le service DHCP est également supervisé afin de contrôler son état de fonctionnement.
+Le dashboard permet de visualiser directement leur état :
+DNS  → Running
+DHCP → Running
+
+Cela permet de distinguer la disponibilité de la machine de la disponibilité des services qu'elle héberge.
+
+📸 Capture à mettre ici
+Tu pourrais utiliser la capture que tu m'as envoyée montrant :
+State of service "DNS" (Serveur DNS)
+avec :
+service.info["DNS",state]
+
+Mais je te conseille mieux :
+
+📸 Capture MANQUANTE
+Fais une seule capture de la liste des éléments de SRV-AEGIS-AD en filtrant de façon à montrer DNS et DHCP ensemble, si possible.
+Ce sera plus technique que les deux gros widgets Running.
+
+## 📈 Tableau de bord Aegis Infrastructure Monitoring
+
+Un tableau de bord spécifique a été créé afin de centraliser les principales informations nécessaires au suivi du laboratoire.
+Il regroupe notamment :
+
+Ressources système
+
+- CPU ;
+- mémoire ;
+- stockage.
+- 
+Réseau
+
+- trafic entrant ;
+- trafic sortant.
+
+Services
+
+- DNS ;
+- DHCP.
+
+NGINX
+- connexions actives ;
+- requêtes par seconde ;
+- temps de réponse.
+- 
+État général
+- disponibilité des hôtes ;
+- problèmes classés par sévérité ;
+- historique de l'utilisation CPU.
+- 
+Cette vue synthétique permet d'obtenir rapidement l'état général de l'infrastructure depuis une interface unique.
+
+<img width="884" height="385" alt="image" src="https://github.com/user-attachments/assets/09e6c7d1-8fe5-48c3-973f-d41380e1a1c7" />
+
+
+## 🚨 Gestion des problèmes et disponibilité
+
+Zabbix permet également de centraliser les événements détectés sur l'infrastructure.
+
+Le dashboard comporte une vue :
+Alertes de l'infrastructure
+
+répartissant les problèmes selon différents niveaux de sévérité :
+
+- Désastre
+- Haut
+- Moyen
+- Avertissement
+- Information
+- Non classé
+
+Une vue de disponibilité permet en parallèle de vérifier rapidement combien d'hôtes sont actuellement accessibles.
+Dans l'état présenté, les trois systèmes supervisés sont disponibles :
+
+- 3 disponibles
+- 0 non disponible
+- 0 mixte
+- 0 inconnu
+
+Cette approche permet d'identifier rapidement une indisponibilité ou une anomalie sans devoir consulter individuellement chaque serveur.
+
+## 🔎 Métriques supervisées
+
+- Domaine	Métriques principales
+- CPU	Utilisation du processeur
+- Mémoire	Utilisation de la RAM
+- Stockage Utilisation des volumes
+- Réseau Trafic entrant et sortant
+- Disponibilité	État des agents et des hôtes
+- Windows	DNS, DHCP et services
+- NGINX	Connexions, requêtes et temps de réponse
+- Alertes	Classification des problèmes par sévérité
+  
+## 🎯 Résultat
+
+La mise en place de Zabbix apporte une vision centralisée de l'état de l'infrastructure Aegis.
+Elle permet de surveiller plusieurs niveaux de l'environnement :
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/7dcb2400-793e-4f78-91a0-13c67787e70f" />
