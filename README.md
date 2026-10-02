@@ -900,17 +900,8 @@ DHCP → Running
 
 Cela permet de distinguer la disponibilité de la machine de la disponibilité des services qu'elle héberge.
 
-📸 Capture à mettre ici
-Tu pourrais utiliser la capture que tu m'as envoyée montrant :
-State of service "DNS" (Serveur DNS)
-avec :
-service.info["DNS",state]
+<img width="308" height="127" alt="image" src="https://github.com/user-attachments/assets/d2a434b3-bb6e-4a94-b97b-84d0c30479be" />
 
-Mais je te conseille mieux :
-
-📸 Capture MANQUANTE
-Fais une seule capture de la liste des éléments de SRV-AEGIS-AD en filtrant de façon à montrer DNS et DHCP ensemble, si possible.
-Ce sera plus technique que les deux gros widgets Running.
 
 ## 📈 Tableau de bord Aegis Infrastructure Monitoring
 
@@ -922,8 +913,7 @@ Ressources système
 - CPU ;
 - mémoire ;
 - stockage.
-- 
-Réseau
+- Réseau
 
 - trafic entrant ;
 - trafic sortant.
@@ -937,12 +927,11 @@ NGINX
 - connexions actives ;
 - requêtes par seconde ;
 - temps de réponse.
-- 
-État général
+- État général
 - disponibilité des hôtes ;
 - problèmes classés par sévérité ;
 - historique de l'utilisation CPU.
-- 
+  
 Cette vue synthétique permet d'obtenir rapidement l'état général de l'infrastructure depuis une interface unique.
 
 <img width="884" height="385" alt="image" src="https://github.com/user-attachments/assets/09e6c7d1-8fe5-48c3-973f-d41380e1a1c7" />
@@ -973,6 +962,14 @@ Dans l'état présenté, les trois systèmes supervisés sont disponibles :
 - 0 inconnu
 
 Cette approche permet d'identifier rapidement une indisponibilité ou une anomalie sans devoir consulter individuellement chaque serveur.
+
+Détection des incidents
+
+Zabbix s'appuie sur des déclencheurs afin d'identifier automatiquement certaines anomalies sur les systèmes supervisés.
+Lors des tests du laboratoire, plusieurs événements ont notamment été détectés sur SRV-AEGIS-AD, tels qu'une charge CPU privilégiée élevée, une indisponibilité temporaire de l'agent Zabbix ou encore une désynchronisation de l'horloge système.
+Lorsqu'une condition revient à la normale, Zabbix enregistre automatiquement la résolution de l'incident et conserve son historique. Cette approche permet de suivre non seulement l'état actuel de l'infrastructure, mais également les anomalies survenues précédemment.
+
+
 
 ## 🔎 Métriques supervisées
 
