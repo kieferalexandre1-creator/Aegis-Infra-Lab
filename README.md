@@ -900,7 +900,11 @@ DHCP → Running
 
 Cela permet de distinguer la disponibilité de la machine de la disponibilité des services qu'elle héberge.
 
-<img width="308" height="127" alt="image" src="https://github.com/user-attachments/assets/d2a434b3-bb6e-4a94-b97b-84d0c30479be" />
+<img width="876" height="253" alt="image" src="https://github.com/user-attachments/assets/dec48055-ee03-4ffb-8df6-a95d095ebbd7" />
+
+<img width="875" height="241" alt="image" src="https://github.com/user-attachments/assets/359c23c5-e40f-439f-8667-f3412e10a3e1" />
+
+
 
 
 ## 📈 Tableau de bord Aegis Infrastructure Monitoring
