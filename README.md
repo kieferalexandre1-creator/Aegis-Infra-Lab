@@ -4,8 +4,8 @@
 📍 Savigny-sur-Orge, Île-de-France  
 🔗 [LinkedIn](https://www.linkedin.com/in/alexandre-kiefer-847334282/) | 🐙 [GitHub](https://github.com/kieferalexandre1-creator) | ✉️ kiefer.alexandre1@gmail.com
 
-[![Statut](https://img.shields.io/badge/Statut-En%20d%C3%A9veloppement-orange)](#)
-[![OS](https://img.shields.io/badge/Environnement-VirtualBox-blue)
+[![Statut](https://img.shields.io/badge/Statut-Terminé-brightgreen)](#)
+[![Environnement](https://img.shields.io/badge/Environnement-VirtualBox-blue)](#)
 
 ## 📄 CV
 
