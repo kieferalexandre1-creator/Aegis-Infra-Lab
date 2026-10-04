@@ -1031,5 +1031,177 @@ Elle permet de surveiller plusieurs niveaux de l'environnement :
 
 ## Tests et validations finales
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/a32ad27d-418e-4cb6-a0f8-8a88d3793da4" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/70d1b45e-049f-4082-897a-92e8d4062081" />
 
+## Difficultés rencontrées et solutions apportées
+
+La construction d'Aegis Infra Lab ne s'est pas limitée au déploiement des différents services. Plusieurs problèmes ont été rencontrés pendant la mise en place de l'infrastructure, nécessitant des phases de diagnostic et de correction.
+Ces incidents m'ont permis de mettre en pratique une démarche de dépannage : identifier les symptômes, analyser les journaux et configurations, isoler la cause puis valider la correction.
+
+## Connexion Zabbix à MariaDB
+
+Lors de la mise en place du serveur Zabbix, le service ne parvenait pas à communiquer correctement avec sa base de données MariaDB.
+Les journaux indiquaient notamment l'erreur :
+
+Les journaux indiquaient notamment l'erreur : 
+Access denied for user 'zabbix'@'localhost'
+(using password: NO)
+
+L'analyse de la configuration a permis d'identifier un problème d'authentification entre Zabbix et MariaDB.
+La configuration de la base ainsi que les paramètres utilisés par le serveur et l'interface Web Zabbix ont été vérifiés puis corrigés.
+Après redémarrage des services, la communication avec MariaDB a été rétablie et le serveur Zabbix est devenu opérationnel.
+Compétences mobilisées : analyse de logs, MariaDB, configuration Linux et dépannage de services.
+
+## Supervision des différents systèmes
+
+La supervision devait couvrir plusieurs environnements : Windows Server, Debian Linux et NGINX.
+La principale difficulté a été de vérifier que les agents, noms d'hôtes, adresses IP et modèles Zabbix correspondaient correctement aux machines supervisées.
+Les agents Zabbix ont été configurés puis associés aux modèles adaptés :
+
+SRV-AEGIS-AD
+└── Windows by Zabbix agent
+
+SRV-AEGIS-WEB
+├── Linux by Zabbix agent
+└── Nginx by Zabbix agent
+
+Les données remontées ont ensuite été vérifiées depuis Zabbix afin de confirmer la collecte des métriques CPU, mémoire, stockage, réseau et services.
+Compétences mobilisées : supervision, agents Zabbix, templates, Windows Server et Linux.
+
+## Supervision de NGINX
+
+La supervision détaillée de NGINX nécessitait l'accès à des métriques propres au serveur Web.
+Une page stub_status a donc été configurée dans NGINX puis limitée aux accès locaux afin de ne pas exposer inutilement ces informations sur le réseau.
+Elle a ensuite été intégrée au modèle NGINX de Zabbix.
+Des tests avec curl ont permis de vérifier le fonctionnement de l'endpoint avant son exploitation par Zabbix.
+
+La supervision permet notamment d'observer :
+
+- les connexions actives ;
+- le nombre de requêtes ;
+- les connexions traitées ;
+- le temps de réponse ;
+- l'état du service NGINX.
+  
+Compétences mobilisées : NGINX, Linux, HTTP, contrôle d'accès et supervision applicative.
+
+## Construction du tableau de bord Zabbix
+
+Les données collectées par Zabbix étaient nombreuses et devaient être organisées afin d'obtenir une vue synthétique de l'infrastructure.
+Plusieurs widgets ont été configurés pour présenter les informations les plus importantes :
+
+- utilisation CPU ;
+- mémoire ;
+- stockage ;
+- trafic réseau ;
+- connexions et requêtes NGINX ;
+- temps de réponse ;
+- état des services DNS et DHCP ;
+- disponibilité des hôtes ;
+- incidents détectés.
+  
+Certaines métriques ont nécessité des ajustements, notamment pour sélectionner les éléments exprimés en pourcentage plutôt que leurs valeurs brutes.
+Le résultat est un tableau de bord centralisé permettant d'obtenir rapidement l'état général de l'infrastructure Aegis.
+
+Compétences mobilisées : exploitation de métriques, dashboards, supervision et analyse de performances.
+
+## Problème réseau avec OPNsense
+
+Lors des tests d'OPNsense, le démarrage du pare-feu provoquait une perte de connectivité Internet sur plusieurs machines virtuelles.
+L'analyse de la configuration a montré que les interfaces WAN et LAN étaient initialement présentes sur le même segment réseau, ce qui créait une architecture incorrecte pour un équipement chargé d'assurer le routage.
+
+La configuration réseau de VirtualBox a été revue afin de séparer les rôles :
+
+WAN
+└── NAT VirtualBox
+
+LAN
+└── Réseau Aegis
+    └── 192.168.56.0/24
+
+Le changement des cartes réseau virtuelles a également nécessité une réaffectation des interfaces dans OPNsense.
+Cet incident a permis de mieux comprendre l'importance de la séparation entre réseau externe et réseau interne lors du déploiement d'un pare-feu.
+Compétences mobilisées : VirtualBox, OPNsense, adressage IP, routage et diagnostic réseau.
+
+## Mise en place du filtrage OPNsense
+
+Afin de rendre les règles plus lisibles et maintenables, des alias ont été utilisés pour représenter les principaux serveurs et services :
+
+SRV_AD       → 192.168.56.10
+SRV_WEB      → 192.168.56.22
+SRV_ZBX      → 192.168.56.24
+AEGIS_SERVERS → ensemble des serveurs
+WEB_PORTS    → 80, 443
+
+Une règle dédiée a notamment été définie pour contrôler les communications HTTP/HTTPS vers le serveur NGINX.
+L'ordre d'évaluation des règles a également dû être pris en compte, OPNsense appliquant le premier comportement correspondant au trafic rencontré.
+Cette étape a permis de travailler sur la logique de moindre privilège et sur la structuration d'une politique de filtrage.
+Compétences mobilisées : firewall, TCP/IP, alias, filtrage réseau et journalisation.
+
+## Ce que ces incidents m'ont apporté
+
+Les difficultés rencontrées pendant le projet ont constitué une partie importante de l'apprentissage.
+Elles m'ont amené à adopter une démarche de résolution structurée :
+Symptôme
+   ↓
+Collecte d'informations
+   ↓
+Analyse des logs / configurations
+   ↓
+Identification de la cause
+   ↓
+Correction
+   ↓
+Test et validation
+
+Au-delà du déploiement des technologies, Aegis Infra Lab m'a ainsi permis de travailler sur une compétence essentielle en administration systèmes et réseaux : diagnostiquer un dysfonctionnement et rechercher une solution adaptée sans compromettre le reste de l'infrastructure.
+
+
+## Compétences mises en pratique
+
+La réalisation d'Aegis Infra Lab m'a permis de mobiliser différentes compétences en administration systèmes, réseaux, supervision et sécurité au sein d'un même environnement.
+
+| Domaine | Compétences mises en pratique |
+|---|---|
+| 🪟 **Windows Server** | Windows Server 2022, Active Directory Domain Services, gestion du domaine `aegis.local`, DNS, DHCP |
+| 🐧 **Linux** | Administration Debian 12, gestion des services et configuration réseau |
+| 🌐 **Web** | NGINX, virtual host, redirection HTTP → HTTPS, TLS 1.2/1.3, authentification HTTP Basic |
+| 📊 **Supervision** | Zabbix Server, Zabbix Agent, templates, métriques, déclencheurs, supervision Windows/Linux/NGINX et tableaux de bord |
+| 🔥 **Sécurité réseau** | OPNsense, interfaces WAN/LAN, règles de pare-feu, alias, filtrage et journalisation |
+| 🌍 **Réseau** | TCP/IP, adressage IPv4, DNS, DHCP, ports et analyse des flux |
+| 💻 **Virtualisation** | Déploiement et interconnexion de machines virtuelles avec VirtualBox |
+| 🛠️ **Troubleshooting** | Analyse de logs, diagnostic de services, résolution de problèmes réseau et validation des corrections |
+
+Le projet m'a également permis de travailler sur l'interaction entre plusieurs technologies, plutôt que de les utiliser indépendamment.
+Par exemple, le serveur Windows fournit les services d'infrastructure, NGINX héberge le service Web, Zabbix centralise leur supervision et OPNsense intervient dans le contrôle des communications réseau.
+
+## Évolutions futures
+
+La première version d'Aegis Infra Lab constitue une infrastructure fonctionnelle permettant de reproduire plusieurs services présents dans un environnement professionnel.
+Le laboratoire pourra cependant continuer à évoluer afin d'aborder des architectures et problématiques plus avancées.
+Parmi les évolutions envisagées :
+
+- Segmentation réseau par VLAN afin d'isoler les utilisateurs, serveurs, services et outils d'administration ;
+- serveur de sauvegarde dédié avec définition et test d'une politique de sauvegarde/restauration ;
+- automatisation avec Ansible pour déployer et maintenir certaines configurations ;
+- durcissement des systèmes Windows et Linux en appliquant des recommandations de sécurité supplémentaires ;
+- supervision d'OPNsense afin d'intégrer également le pare-feu au monitoring centralisé ;
+- centralisation et analyse des journaux avec une solution de type SIEM ;
+- développement de nouveaux scénarios de détection et simulation d'incidents.
+  
+Ces éléments représentent des pistes d'évolution et ne font pas partie du périmètre réalisé dans cette première version.
+L'objectif est de conserver Aegis comme un laboratoire évolutif pouvant accompagner ma progression en administration systèmes, réseaux et cybersécurité.
+
+🏁 Conclusion
+
+Aegis Infra Lab a été créé dans le but de reproduire, à mon échelle, une infrastructure proche de celle que l'on peut retrouver dans une PME et de continuer à pratiquer en dehors d'un environnement professionnel.
+
+La réalisation du laboratoire m'a amené à déployer et faire communiquer plusieurs briques complémentaires : Active Directory, DNS, DHCP, serveur Web NGINX sécurisé en HTTPS, supervision Zabbix et pare-feu OPNsense, le tout au sein d'un environnement virtualisé.
+
+Au-delà de l'installation des différents services, le projet m'a surtout permis de travailler sur leur intégration, leur supervision, leur sécurisation et le diagnostic des problèmes rencontrés pendant leur mise en place.
+
+Les différents incidents rencontrés m'ont également obligé à rechercher les causes des dysfonctionnements, analyser les configurations et les journaux, effectuer des corrections puis vérifier leur fonctionnement.
+
+Cette première version constitue ainsi une base sur laquelle je pourrai continuer à expérimenter de nouvelles technologies et approfondir progressivement les aspects liés à la sécurité, l'automatisation et l'administration d'infrastructures.
+
+Aegis Infra Lab V1 — Infrastructure déployée, sécurisée, supervisée et documentée. ✅
