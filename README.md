@@ -1,5 +1,5 @@
 # Aegis-Infra-Lab - Infrastructure d'Entreprise Sécurisée 
-### 👤 Alexandre KIEFER
+### Alexandre KIEFER
 **Administrateur Systèmes, Réseaux & Cybersécurité**  
 📍 Savigny-sur-Orge, Île-de-France  
 🔗 [LinkedIn](https://www.linkedin.com/in/alexandre-kiefer-847334282/) | 🐙 [GitHub](https://github.com/kieferalexandre1-creator) | ✉️ kiefer.alexandre1@gmail.com
@@ -13,7 +13,7 @@ Mon CV est disponible ici :
 
 [Accéder à mon dossier de candidature](https://drive.google.com/drive/folders/1oWsbNc7SqeIi7sD4AIL0xSP9bl1ns_SC?usp=drive_link)
 
-## 👤 À propos de moi
+## À propos de moi
 
 Je suis diplômé d’un Titre Professionnel Technicien Informatique (2024) et d’un Bachelor Administrateur d’Infrastructures Sécurisées (2025). Je souhaite aujourd’hui poursuivre mon parcours avec un Mastère Expert Cybersécurité en alternance, sur une durée de deux ans, avec un rythme d’une semaine en formation et de trois semaines en entreprise.
 
@@ -25,7 +25,7 @@ Je recherche actuellement une alternance dans les domaines de l’administration
 
 En parallèle, je développe Aegis Infra Lab, un laboratoire personnel conçu pour reproduire progressivement une infrastructure d’entreprise virtualisée et sécurisée. Ce projet me permet de continuer à pratiquer, d’expérimenter différentes technologies et de documenter les configurations et les tests réalisés.
 
-## 💼 Expérience professionnelle
+## Expérience professionnelle
 
 ≈ 1 an – Administrateur Systèmes, Réseaux & Cybersécurité
 Alternance – CESAM SEED
@@ -33,7 +33,7 @@ Alternance – CESAM SEED
 3 mois – Technicien Informatique
 Stage – Kertios
 
-## 🎓 Formation
+## Formation
 
 Mastère Expert Cybersécurité – Alternance recherchée
 Parcours sur 2 ans – Rythme : 1 semaine en formation / 3 semaines en entreprise
@@ -45,7 +45,7 @@ Niveau 6 – Bac +3
 Niveau 5 – Bac +2
 
 
-## 🏅 Certifications obtenues
+## Certifications obtenues
 
 - **Cisco — Network Technician Career Path**
 - **AWS — Cloud Security Foundations**
@@ -53,9 +53,9 @@ Niveau 5 – Bac +2
 
 --
 
-# 🛡️ Aegis Infra Lab
+# Aegis Infra Lab
 
-## 📌 Présentation du projet
+## Présentation du projet
 
 Aegis Infra Lab est un projet personnel que j’ai créé pour mettre en pratique mes compétences en administration systèmes, réseaux et cybersécurité dans un environnement proche de celui d’une PME.
 
@@ -67,7 +67,7 @@ Chaque composant est installé, configuré, testé puis documenté avant de pass
 
 ---
 
-## 🎯 Objectifs du Lab
+## Objectifs du Lab
 
 Aegis Infra Lab a pour objectif de reproduire progressivement une infrastructure informatique d’entreprise cohérente, sécurisée et documentée.
 
@@ -97,7 +97,7 @@ L’objectif n’est pas uniquement d’installer des technologies, mais de comp
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2d3db288-8ff5-40bb-ac7e-0c61f2e93d9b" />
 
 
-## 🏗️ Architecture de l’infrastructure
+## Architecture de l’infrastructure
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/de56d94f-fa52-4a39-a197-06e905f504b8" />
 
@@ -107,11 +107,11 @@ La sécurité d’Aegis Infra Lab est intégrée progressivement à chaque couch
 
 L’objectif est de ne pas seulement protéger les machines individuellement, mais de mettre en place plusieurs niveaux de contrôle : réseau, systèmes, utilisateurs, services, supervision et sauvegarde.
 
-### 🛡️ Principes de sécurité appliqués
+## Principes de sécurité appliqués
 
 <img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/a887f090-2806-4a12-861f-b3f742b2adcc" />
 
-## 🔥 Déploiement d’OPNsense
+## Déploiement d’OPNsense
 
 OPNsense est la pièce centrale du réseau dans Aegis Infra Lab.
 
@@ -121,7 +121,7 @@ L’objectif est d’éviter que toutes les machines puissent communiquer librem
 
 ---
 
-### 🖥️ Déploiement de la machine virtuelle
+## Déploiement de la machine virtuelle
 
 OPNsense est installé dans une machine virtuelle dédiée sous VirtualBox.
 
@@ -144,7 +144,7 @@ Les autres interfaces sont utilisées pour connecter les différentes zones du l
 
 ---
 
-### 🌐 Interface Web d’administration
+## Interface Web d’administration
 
 Une fois OPNsense installé et les interfaces réseau configurées, l’administration du pare-feu est réalisée depuis son interface Web.
 
@@ -155,7 +155,7 @@ Le tableau de bord permet d’avoir une vue rapide sur l’état du système, le
 
 ---
 
-### 📌 Pourquoi OPNsense est important dans le projet
+## Pourquoi OPNsense est important dans le projet
 
 J’ai choisi OPNsense pour avoir un point central capable de gérer les communications entre les différentes zones du laboratoire.
 
@@ -174,7 +174,7 @@ L’intérêt est surtout de pouvoir reproduire une logique proche d’une infra
 ---
 
 
-### 🗺️ Schéma du rôle d’OPNsense
+## Schéma du rôle d’OPNsense
 
 Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les différentes zones réseau qu’il contrôle.
 
@@ -182,7 +182,7 @@ Le schéma suivant présente la place d’OPNsense au sein du laboratoire et les
 
 ---
 
-### 🌐 Segmentation réseau
+## Segmentation réseau
 
 À ce stade du projet, les différentes machines du laboratoire utilisent un réseau Aegis commun afin de permettre les premiers déploiements et tests.
 
@@ -212,7 +212,7 @@ Adresses principales utilisées actuellement :
 
 Cette évolution permettra de séparer davantage les postes, serveurs, services et sauvegardes afin de mieux contrôler les communications entre les différentes zones.
 
-### 🔌 Interfaces réseau
+## Interfaces réseau
 
 OPNsense est chargé de relier ces différentes zones et d’appliquer les règles de filtrage associées à chaque interface.
 
@@ -222,7 +222,7 @@ OPNsense est chargé de relier ces différentes zones et d’appliquer les règl
 
 ---
 
-### 🔐 Filtrage réseau
+## Filtrage réseau
 
 Les règles de pare-feu sont mises en place afin d’appliquer une logique de **moindre privilège**.
 
@@ -240,7 +240,7 @@ Quelques exemples de règles prévues ou mises en place :
 
 <img width="1026" height="498" alt="Capture d&#39;écran 2026-09-22 201459" src="https://github.com/user-attachments/assets/4588ae7a-b9eb-4bd8-ad44-b2814caa520a" />
 
-### ✅ Validation d’un flux autorisé
+## Validation d’un flux autorisé
 
 Un premier test a été réalisé afin de vérifier qu’un trafic légitime pouvait traverser correctement le pare-feu.
 
@@ -256,7 +256,7 @@ Cette étape permet de vérifier que les flux nécessaires au fonctionnement de 
 
 Cette approche permet de réduire la surface d’attaque et de limiter les mouvements possibles en cas de compromission d’une machine.
 
-### ⛔ Validation d’un flux bloqué
+## Validation d’un flux bloqué
 
 Un second test a été réalisé afin de vérifier qu’une règle de blocage personnalisée était bien appliquée.
 
@@ -273,25 +273,65 @@ Cette capture confirme que le trafic concerné est bien identifié, bloqué puis
 
 Ce test permet de valider le bon fonctionnement du filtrage mis en place entre les différentes zones du laboratoire.
 
-### ✅ Bilan de la configuration OPNsense
+## Organisation des règles avec des alias
 
-Cette étape m’a permis de mettre en place la première brique réseau du laboratoire et de vérifier son fonctionnement dans des conditions concrètes.
+Afin de simplifier la gestion des règles de pare-feu et d'améliorer leur lisibilité, plusieurs alias OPNsense ont été créés pour représenter les principaux serveurs de l'infrastructure.
 
-J’ai pu notamment :
+| Alias | Adresse / contenu | Rôle |
+|---|---|---|
+| `SRV_AD` | `192.168.56.10` | Active Directory, DNS et DHCP |
+| `SRV_WEB` | `192.168.56.22` | Serveur Web NGINX |
+| `SRV_ZBX` | `192.168.56.24` | Serveur de supervision Zabbix |
+| `AEGIS_SERVERS` | Ensemble des serveurs | Regroupement des serveurs Aegis |
+| `WEB_PORTS` | `80`, `443` | Ports HTTP et HTTPS |
+
+Cette organisation permet d'utiliser des noms explicites dans les règles plutôt que de manipuler directement les adresses IP et les numéros de ports.
+Elle facilite également la maintenance : lorsqu'une adresse change, il suffit de modifier l'alias correspondant sans devoir reprendre l'ensemble des règles qui l'utilisent.
+
+## Contrôle de l'accès au serveur Web
+
+Action      : PASS
+Protocole   : IPv4 TCP
+Source      : LAN net
+Destination : SRV_WEB
+Ports       : WEB_PORTS
+
+Cette configuration permet d'identifier précisément le serveur concerné et de limiter l'accès aux ports nécessaires au fonctionnement du service Web.
+Elle s'inscrit dans la logique de moindre privilège retenue pour le laboratoire : autoriser les communications nécessaires au fonctionnement des services plutôt qu'ouvrir indistinctement l'ensemble des flux.
+
+## 🛠️ Incident réseau et diagnostic 
+
+Lors de l'évolution de la configuration OPNsense, un problème de connectivité a été rencontré : le démarrage de la machine virtuelle OPNsense entraînait une perte d'accès réseau sur plusieurs autres machines virtuelles.
+L'analyse a montré que les interfaces WAN et LAN se retrouvaient sur le même segment réseau, ce qui créait une architecture incohérente pour un équipement destiné à assurer le routage entre deux réseaux.
+La configuration VirtualBox a donc été revue afin de distinguer les deux rôles
+
+WAN → réseau externe / NAT VirtualBox
+LAN → réseau interne Aegis
+
+La modification des cartes réseau virtuelles a nécessité une nouvelle affectation des interfaces dans OPNsense.
+Cet incident a permis de travailler sur un cas concret de diagnostic réseau, en analysant les interfaces, l'adressage et le rôle du routeur dans un environnement virtualisé.
+
+## Bilan de la configuration OPNsense
+
+Cette étape m'a permis de mettre en place la première brique de sécurité réseau du laboratoire et d'expérimenter son fonctionnement dans des conditions concrètes.
+J'ai notamment pu :
 
 - déployer OPNsense dans une machine virtuelle dédiée ;
-- configurer les interfaces WAN et LAN ;
-- accéder à l’interface Web d’administration ;
+- configurer et distinguer les interfaces WAN et LAN ;
+- administrer le pare-feu depuis son interface Web ;
 - mettre en place des règles de filtrage ;
-- autoriser certains flux nécessaires ;
-- bloquer des communications non autorisées ;
-- vérifier les résultats dans les journaux du pare-feu.
+- créer des alias pour les serveurs et les ports ;
+- contrôler l'accès HTTP/HTTPS au serveur NGINX ;
+- autoriser certains flux nécessaires et bloquer des communications non autorisées ;
+- vérifier le comportement des règles dans les journaux du pare-feu ;
+- diagnostiquer un problème de routage lié à la configuration réseau de VirtualBox.
+  
+OPNsense constitue ainsi la brique de routage et de filtrage du laboratoire Aegis. L'architecture pourra être étendue ultérieurement avec une segmentation plus poussée en plusieurs zones ou VLAN afin d'isoler davantage les utilisateurs, les serveurs, la supervision et les services.
 
-OPNsense servira de base pour la suite du projet, notamment pour la segmentation complète des différentes zones et le contrôle des communications entre les postes, les serveurs, les services et la zone de sauvegarde.
 
-## 🖥️ Windows Server & Active Directory
+## Windows Server & Active Directory
 
-### 🏗️ Déploiement de Windows Server 2022
+## Déploiement de Windows Server 2022
 
 Windows Server 2022 constitue la base de l’environnement Microsoft d’Aegis Infra Lab.
 
@@ -318,7 +358,7 @@ Les rôles principaux installés sont :
 - **DHCP** ;
 - **Services de fichiers et de stockage**.
 
-### 🧩 Rôles installés
+## Rôles installés
 
 Le Gestionnaire de serveur permet de vérifier rapidement les différents rôles actuellement déployés sur la machine.
 
@@ -329,7 +369,7 @@ Cette configuration permet au serveur de centraliser l’authentification, la r�
 
 ---
 
-### 🌐 Configuration réseau du serveur
+## Configuration réseau du serveur
 
 Le contrôleur de domaine utilise une adresse IP fixe afin de rester joignable de manière constante par les postes clients et les différents services du laboratoire.
 
@@ -339,7 +379,7 @@ La passerelle correspond à l’interface LAN d’OPNsense, tandis que le serveu
 
 ---
 
-### 🏢 Domaine Active Directory
+## Domaine Active Directory
 
 Le domaine Active Directory utilisé dans Aegis Infra Lab est :
 
@@ -350,7 +390,7 @@ Le domaine Active Directory utilisé dans Aegis Infra Lab est :
 
 Ce domaine servira ensuite à intégrer les postes Windows, centraliser les comptes utilisateurs, gérer les groupes et appliquer les stratégies de groupe.
 
-### 👥 Active Directory — OU, utilisateurs et groupes
+## Active Directory — OU, utilisateurs et groupes
 
 Après le déploiement de Windows Server 2022, j’ai mis en place Active Directory afin de centraliser la gestion des utilisateurs, des groupes et des ordinateurs du domaine `aegis.local`.
 
@@ -370,7 +410,7 @@ Des groupes de sécurité ont également été créés pour représenter plusieu
 - `RH`
 - `Comptabilite`
 
-### 🗂️ Structure des unités d’organisation
+## Structure des unités d’organisation
 
 L’arborescence Active Directory permet de séparer les différents types d’objets et de garder une organisation claire du domaine.
 
@@ -381,7 +421,7 @@ Cette structure servira ensuite de base pour l’intégration des postes, l’ap
 
 ---
 
-### ⚙️ Automatisation avec PowerShell
+## Automatisation avec PowerShell
 
 Une partie de la configuration Active Directory est automatisée avec PowerShell afin de rendre le déploiement plus rapide et reproductible.
 
@@ -398,7 +438,7 @@ Le script permet notamment de :
 
 Le mot de passe n’est pas stocké directement dans le script : il est demandé au moment de l’exécution avec `Read-Host -AsSecureString`.
 
-### 👤 Utilisateurs et groupes de sécurité
+##  Utilisateurs et groupes de sécurité
 
 Des utilisateurs de test ont été créés afin de reproduire plusieurs profils présents dans une petite entreprise.
 
@@ -425,13 +465,13 @@ Les groupes de sécurité permettent notamment de :
 
 Lors de la création des comptes, un mot de passe temporaire est attribué et l’utilisateur doit le modifier lors de sa première connexion.
 
-### 🌐 DNS & DHCP
+## DNS & DHCP
 
 Windows Server 2022 assure également les services **DNS** et **DHCP** du laboratoire.
 
 Ces deux rôles sont importants pour permettre aux postes clients de communiquer correctement sur le réseau et d’intégrer le domaine `aegis.local`.
 
-#### 🌍 DNS
+## DNS
 
 Le service DNS est utilisé pour résoudre les noms de machines et de services du domaine `aegis.local`.
 
@@ -457,7 +497,7 @@ Un second test permet de vérifier les enregistrements SRV utilisés par Active 
 <img width="410" height="111" alt="Capture d&#39;écran 2026-09-29 153313" src="https://github.com/user-attachments/assets/fec133e4-bef1-4254-b163-fdf98c3647bc" />
 
 
-#### 📡 DHCP
+## DHCP
 
 Le service DHCP est utilisé pour attribuer automatiquement les paramètres réseau aux postes clients du laboratoire.
 
@@ -491,7 +531,7 @@ Le bail attribué au poste client apparaît également dans la console DHCP du s
 
 Ces tests permettent de confirmer que le serveur DHCP distribue correctement les paramètres réseau aux postes clients du laboratoire.
 
-### 💻 Intégration du poste Windows au domaine
+## Intégration du poste Windows au domaine
 
 Une fois les services Active Directory, DNS et DHCP configurés, le poste `WIN-CLIENT01` est intégré au domaine `aegis.local`.
 
@@ -507,7 +547,7 @@ Le poste est ensuite déplacé dans l’unité d’organisation dédiée aux ord
 
 <img width="327" height="62" alt="image" src="https://github.com/user-attachments/assets/69e702f2-7f86-4e93-a74e-c17ff2c80a8c" />
 
-### 👤 Connexion avec un utilisateur Active Directory
+##  Connexion avec un utilisateur Active Directory
 
 Après l’intégration du poste au domaine, une connexion est réalisée avec un compte utilisateur créé dans Active Directory.
 
@@ -515,7 +555,7 @@ Cette étape permet de vérifier que l’authentification centralisée fonctionn
 
 <img width="237" height="77" alt="image" src="https://github.com/user-attachments/assets/f080706c-637d-47c3-aa68-a9f7225efbd2" />
 
-### 🔐 Stratégies de groupe — GPO
+## Stratégies de groupe — GPO
 
 Les stratégies de groupe permettent de centraliser la configuration et la sécurisation des postes et des utilisateurs du domaine `aegis.local`.
 
@@ -530,7 +570,7 @@ Plusieurs stratégies sont mises en place afin de tester différents types de co
 - configuration des postes ;
 - application automatique de règles selon l’unité d’organisation.
 
-#### 🚫 Restriction du Panneau de configuration
+## Restriction du Panneau de configuration
 
 Une première stratégie de groupe est mise en place afin d’interdire l’accès au Panneau de configuration et aux paramètres Windows pour les utilisateurs concernés.
 
@@ -546,7 +586,7 @@ Après actualisation des stratégies sur le poste client, l’ouverture du Panne
 
 Ce test confirme que la stratégie configurée sur le contrôleur de domaine est correctement appliquée au poste client.
 
-#### 🔒 GPO de verrouillage automatique
+### GPO de verrouillage automatique
 
 Une seconde stratégie de groupe est mise en place afin de renforcer la sécurité des postes du domaine.
 
@@ -562,7 +602,7 @@ Cette mesure permet de limiter les risques d’accès non autorisé à une sessi
 
 <img width="510" height="401" alt="Capture d&#39;écran 2026-09-29 170543" src="https://github.com/user-attachments/assets/6b121a4e-4554-47e7-8a4e-0e9e927b417c" />
 
-### 💾 Sauvegarde du serveur
+## Sauvegarde du serveur
 
 Afin de protéger les services critiques du laboratoire, une sauvegarde du serveur `SRV-AEGISAD` est mise en place avec la fonctionnalité **Sauvegarde Windows Server**.
 
@@ -584,7 +624,7 @@ La sauvegarde est ensuite exécutée et son résultat est contrôlé depuis la c
 
 La réussite de cette opération permet de valider la mise en place d’une première stratégie de protection du contrôleur de domaine et de ses services.
 
-### ♻️ Test de restauration
+## Test de restauration
 
 Afin de vérifier que la sauvegarde est réellement exploitable, un test de restauration est réalisé sur un fichier volontairement supprimé.
 
@@ -600,7 +640,7 @@ Le fichier est ensuite restauré à son emplacement d’origine.
 
 Ce test permet de confirmer que la sauvegarde réalisée est exploitable et que les données peuvent être récupérées en cas de suppression ou de problème.
 
-### ✅ Bilan de l’environnement Windows
+## Bilan de l’environnement Windows
 
 Cette première partie du laboratoire a permis de mettre en place et de valider les principaux services d’une infrastructure Windows d’entreprise.
 
@@ -618,13 +658,13 @@ Les éléments suivants ont été déployés et testés :
 
 Cette étape constitue la base de l’infrastructure Aegis Infra Lab et permet désormais d’intégrer progressivement les autres briques du projet, notamment Linux, les services web et la supervision.
 
-## 🐧 Debian 12 & services Linux
+## Debian 12 & services Linux
 
 Après la mise en place de l’environnement Windows, une machine Debian 12 est ajoutée au laboratoire afin d’intégrer une partie Linux à l’infrastructure.
 
 L’objectif est de disposer d’un serveur Linux dédié à l’hébergement de services, à l’administration système et aux futurs tests de supervision et de sécurisation.
 
-### 🏗️ Déploiement de Debian 12
+## Déploiement de Debian 12
 
 Configuration prévue :
 
@@ -639,7 +679,7 @@ Configuration prévue :
 
 -- 
 
-## 🌐 Déploiement du serveur web NGINX
+## Déploiement du serveur web NGINX
 
 Afin d’ajouter un service web interne au laboratoire Aegis, j’ai installé NGINX sur le serveur Debian. L’objectif était d’héberger un portail technique centralisant les informations utiles à l’exploitation de l’infrastructure.
 Après l’installation, le service a été activé au démarrage du système puis vérifié avec systemctl. Le statut active (running) confirme que NGINX fonctionne correctement sur le serveur.
@@ -649,7 +689,7 @@ La page par défaut de NGINX a ensuite été testée depuis un poste du réseau 
 
 -- 
 
-## 🌐 Intégration au DNS interne
+## Intégration au DNS interne
 
 Pour éviter d’accéder au serveur web directement par son adresse IP, un enregistrement DNS de type A a été créé dans la zone aegis.local.
 Le nom web.aegis.local permet ainsi d’accéder au portail NGINX depuis les machines utilisant le serveur DNS Active Directory.
@@ -657,7 +697,7 @@ Cette configuration permet d’intégrer le service Linux au reste de l’infras
 
 <img width="371" height="263" alt="Capture d&#39;écran 2026-09-30 175639" src="https://github.com/user-attachments/assets/bd8fa447-9c24-4a80-afbd-83e3be6434e1" />
 
-🖥️ Création du portail Aegis Internal Portal
+## Création du portail Aegis Internal Portal
 
 La page NGINX par défaut a ensuite été remplacée par un portail technique interne développé pour le laboratoire.
 Ce portail permet de centraliser plusieurs informations concernant l’infrastructure :
@@ -674,7 +714,7 @@ L’objectif est de disposer d’une interface simple permettant de retrouver ra
 
 <img width="695" height="434" alt="Capture d&#39;écran 2026-09-30 184941" src="https://github.com/user-attachments/assets/e5f5c5a0-f1d9-46bd-9f48-f83e79e2ad00" />
 
-## 📊 État des services
+## État des services
 
 Une page dédiée à l’état des services a été ajoutée au portail afin d’obtenir une vue synthétique du serveur Debian.
 Elle affiche notamment :
@@ -692,13 +732,13 @@ Les informations affichées sont générées à partir de l’état réel du ser
 
 <img width="637" height="384" alt="Capture d&#39;écran 2026-09-30 184745" src="https://github.com/user-attachments/assets/07855c23-0a93-44f4-ba07-c783fe9e0260" />
 
-## ⚙️ Automatisation de la mise à jour
+## Automatisation de la mise à jour
 
 La mise à jour de la page d’état est automatisée avec systemd.
 Un timer exécute périodiquement le script chargé de récupérer les informations système et de régénérer la page de supervision légère du portail.
 Cette automatisation permet de maintenir les informations à jour sans intervention manuelle et constitue une première approche de supervision avant le déploiement d’un outil dédié comme Zabbix.
 
-## 🔐 Sécurité et contrôle des accès
+## Sécurité et contrôle des accès
 
 Le portail comprend également une zone d’administration protégée par authentification.
 Cette séparation permet de distinguer les informations générales du portail des zones réservées à l’administration.
@@ -707,7 +747,7 @@ Les journaux NGINX permettent également de conserver une trace des accès au se
 <img width="236" height="199" alt="Capture d&#39;écran 2026-09-30 184223" src="https://github.com/user-attachments/assets/413b0dce-2176-4e1b-91bd-139e7d9cf380" />
 
 
-## 🛡️ Protection des données et principes RGPD
+## Protection des données et principes RGPD
 
 Une section dédiée à la protection des données a été ajoutée afin de documenter les bonnes pratiques appliquées dans le laboratoire.
 Elle présente notamment :
@@ -724,7 +764,7 @@ Cette section ne présente pas le laboratoire comme certifié conforme au RGPD. 
 
 <img width="956" height="461" alt="Capture d&#39;écran 2026-09-30 192717" src="https://github.com/user-attachments/assets/93673d25-e4f7-429c-bab8-6fbb899803a2" />
 
-## 🧰 Suivi des incidents
+## Suivi des incidents
 
 Le portail contient une section consacrée aux incidents rencontrés pendant le déploiement.
 Chaque incident peut être documenté avec :
@@ -740,7 +780,7 @@ Cette partie permet également de montrer la démarche de diagnostic utilisée p
 
 <img width="690" height="428" alt="Capture d&#39;écran 2026-09-30 191902" src="https://github.com/user-attachments/assets/e32f0ef2-8d78-4c5c-88e3-9e0a038ecc9b" />
 
-## 📝 Journal des changements
+## Journal des changements
 
 Un journal des changements a été ajouté afin de suivre les principales évolutions du laboratoire.
 Il permet de conserver une trace des déploiements et modifications importantes, comme :
@@ -756,14 +796,14 @@ Chaque changement est associé à un objectif et à un état de validation.
 
 <img width="639" height="241" alt="Capture d&#39;écran 2026-09-30 191949" src="https://github.com/user-attachments/assets/9ed7cb07-7a63-42a6-b866-dd7d3bf7f9af" />
 
-## ✅ Bilan du déploiement NGINX
+## Bilan du déploiement NGINX
 
 Le déploiement de NGINX a permis d’aller au-delà de la simple installation d’un serveur web.
 Le serveur Debian héberge désormais un portail interne intégré à l’infrastructure Aegis, avec résolution DNS, état des services, automatisation avec systemd, documentation, suivi des incidents, journal des changements et prise en compte de plusieurs principes de sécurité et de protection des données.
 
 Cette partie du projet permet de mettre en pratique l’administration Linux, les services web, le DNS, l’automatisation et la documentation technique au sein d’une même infrastructure.
 
-## 🔐 Sécurisation du portail avec HTTPS
+## Sécurisation du portail avec HTTPS
 
 Le portail Aegis est sécurisé avec HTTPS afin de chiffrer les communications entre les postes clients et le serveur NGINX.
 Une autorité de certification interne nommée Aegis Root CA est mise en place afin de signer les certificats utilisés dans le laboratoire. Un certificat serveur est ensuite généré pour le nom interne web.aegis.local et configuré dans NGINX.
@@ -786,7 +826,7 @@ Firefox confirme que la connexion au portail est sécurisée et que le certifica
 Le certificat serveur de web.aegis.local est signé par l’autorité de certification interne Aegis Root CA, distincte du certificat serveur et utilisée comme racine de confiance du laboratoire.
 <img width="799" height="661" alt="image" src="https://github.com/user-attachments/assets/5280fe1e-ca86-4797-890d-1d224b373f1b" />
 
-## 📊 Supervision de l'infrastructure avec Zabbix
+## Supervision de l'infrastructure avec Zabbix
 
 Afin d'assurer la visibilité sur l'état de l'infrastructure Aegis, une solution de supervision centralisée basée sur Zabbix 7.4 a été mise en place.
 
@@ -805,7 +845,7 @@ La supervision permet notamment de suivre :
 - les problèmes remontés par Zabbix selon leur niveau de sévérité.
 
 
-## 🏗️ Architecture de supervision
+## Architecture de supervision
 
 La supervision repose sur un serveur Zabbix dédié sous Linux.
 Les machines supervisées sont organisées en groupes afin de distinguer les différents environnements :
@@ -832,7 +872,7 @@ Organisation des équipements supervisés par groupes d'hôtes.
 
 
 
-## 🖥️ Supervision des serveurs
+## Supervision des serveurs
 
 Des agents Zabbix ont été déployés sur les systèmes Windows et Linux afin de permettre la collecte régulière des métriques.
 Windows Server
@@ -860,7 +900,7 @@ Le serveur Zabbix assure également sa propre supervision.
 
 Hôtes intégrés à Zabbix et modèles de supervision associés.
 
-## 🌐 Supervision de NGINX
+## Supervision de NGINX
 
 Une supervision spécifique a été mise en place pour le serveur web NGINX hébergé sur SRV-AEGIS-WEB.
 Le module stub_status de NGINX permet à Zabbix de récupérer différentes informations concernant l'activité du serveur web.
@@ -902,7 +942,7 @@ Cela permet de distinguer la disponibilité de la machine de la disponibilité d
 
 
 
-## 📈 Tableau de bord Aegis Infrastructure Monitoring
+## Tableau de bord Aegis Infrastructure Monitoring
 
 Un tableau de bord spécifique a été créé afin de centraliser les principales informations nécessaires au suivi du laboratoire.
 Il regroupe notamment :
@@ -936,7 +976,7 @@ Cette vue synthétique permet d'obtenir rapidement l'état général de l'infras
 <img width="884" height="385" alt="image" src="https://github.com/user-attachments/assets/09e6c7d1-8fe5-48c3-973f-d41380e1a1c7" />
 
 
-## 🚨 Gestion des problèmes et disponibilité
+## Gestion des problèmes et disponibilité
 
 Zabbix permet également de centraliser les événements détectés sur l'infrastructure.
 
@@ -970,7 +1010,7 @@ Lorsqu'une condition revient à la normale, Zabbix enregistre automatiquement la
 
 
 
-## 🔎 Métriques supervisées
+## Métriques supervisées
 
 - Domaine	Métriques principales
 - CPU	Utilisation du processeur
@@ -982,9 +1022,14 @@ Lorsqu'une condition revient à la normale, Zabbix enregistre automatiquement la
 - NGINX	Connexions, requêtes et temps de réponse
 - Alertes	Classification des problèmes par sévérité
   
-## 🎯 Résultat
+## Résultat
 
 La mise en place de Zabbix apporte une vision centralisée de l'état de l'infrastructure Aegis.
 Elle permet de surveiller plusieurs niveaux de l'environnement :
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/7dcb2400-793e-4f78-91a0-13c67787e70f" />
+
+## Tests et validations finales
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/a32ad27d-418e-4cb6-a0f8-8a88d3793da4" />
+
